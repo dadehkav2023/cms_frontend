@@ -1,0 +1,33 @@
+.license-Item {
+  color: #2597f8;
+  border: 2px solid #2597f8;
+  border-radius: 12px;
+  width: 150px;
+  transform: rotate(45deg);
+  height: 150px;
+  margin-right: 8.5%;
+  position: relative;
+}
+.license-Item > span {
+  display: inline-block;
+  width: 100%;
+  text-align-last: center;
+  transform: rotate(-45deg);
+  font-size: 23px;
+}
+.license-title {
+  position: absolute;
+  right: 12%;
+  top: 28%;
+}
+.license-number {
+  position: absolute;
+  right: -17%;
+  top: 54%;
+}
+@media only screen and (max-width: 731px) {
+  .license-Item {
+    margin-left: 20px;
+    margin-top: 90px;
+  }
+}

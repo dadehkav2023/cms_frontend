@@ -1,0 +1,38 @@
+#Peoples-voice-confirm-button {
+  color: #1969fd;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 10px 50px 10px 50px;
+  margin-right: 20px;
+  text-align: center;
+  line-height: 75px;
+  border: 1px solid #1969fd;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#Peoples-voice-confirm-button:hover {
+  border: 2px solid#1969fd;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (max-width: 850px) {
+  #Peoples-voice-confirm-button {
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+  }
+}
+@media (max-width: 670px) {
+  #Peoples-voice-confirm-button {
+    font-size: 16px;
+    width: auto;
+    float: none;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}

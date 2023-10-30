@@ -1,0 +1,30 @@
+.sign-button {
+  border: 1px solid #065cfd;
+  display: inline-block;
+  background-color: white !important;
+  border-radius: 10px;
+  color: #222;
+  font-size: 18px;
+  width: 250px;
+  height: 45px;
+  margin-left: 100px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.sign-button:hover {
+  // background-color: #065cfd;
+  color: #065cfd;
+  border: 2px solid #000;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (max-width: 600px) {
+  .sign-button {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 17px;
+  }
+}

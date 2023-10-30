@@ -1,0 +1,38 @@
+.LicenseContainer {
+  width: 100%;
+  background-image: url("../../../assets/img/landing/lisence.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  cursor: pointer;
+}
+.LicenseMask {
+  width: 100%;
+  height: 100%;
+  background-color: #060d3fda;
+  padding-bottom: 3%;
+  padding: 50px 0 100px 0;
+  transition: 0.25s;
+}
+.LicenseMask:hover {
+  background-color: #060d3fa8;
+}
+.LicenseItemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3% 0 0 9%;
+  justify-content: center;
+}
+@media only screen and (max-width: 1577px) {
+  .LicenseContainer {
+    background-size: 300%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .LicenseContainer {
+    background: none;
+  }
+  .LicenseMask {
+    background-color: #060d3f;
+  }
+}

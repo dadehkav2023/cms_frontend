@@ -1,0 +1,47 @@
+.jump-to-top {
+  position: fixed;
+  bottom: 65px;
+  right: 30px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: #0058ff;
+  border-radius: 7px;
+  padding-top: 10px;
+  padding-left: 11px;
+  border: 2px solid #fff;
+  z-index: 20;
+}
+.jump-to-top:hover {
+  background-color: #0059ff65;
+  border: none;
+}
+.jump-to-top > img {
+  width: 75%;
+  height: 50%;
+}
+@media (max-width: 1876px) {
+  .jump-to-top {
+    margin-left: 6.5%;
+  }
+}
+@media (max-width: 1820px) {
+  .jump-to-top {
+    margin-left: 4.5%;
+  }
+}
+@media (max-width: 1800px) {
+  .jump-to-top {
+    margin-left: 2.5%;
+  }
+}
+@media (max-width: 1410px) {
+  .jump-to-top {
+    margin-left: 0.5%;
+  }
+}
+@media (max-width: 1380px) {
+  .jump-to-top {
+    display: none;
+  }
+}

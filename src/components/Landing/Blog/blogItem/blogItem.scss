@@ -1,0 +1,33 @@
+.blog-card {
+  display: inline-flex !important;
+  padding: 0 0 0 15px;
+  margin-right: 11px;
+  border: none !important;
+  width: 288px;
+  cursor: pointer;
+}
+
+.blog-card-img {
+  height: 294px;
+  border-radius: 10px 10px 0 0 !important;
+}
+.blog-text {
+  width: 100%;
+  text-align: center;
+}
+.blog-card-body {
+  background-color: rgb(0, 110, 203);
+  color: #fff;
+  border-radius: 0 0 10px 10px !important;
+  font-family: segoe;
+}
+
+.blog-card:hover > .blog-card-body {
+  background-color: rgba(0, 110, 203, 0.95);
+}
+.blog-card-body > .blog-text {
+  font-size: 13px;
+}
+.blog-card-body > div {
+  font-size: 15px !important;
+}

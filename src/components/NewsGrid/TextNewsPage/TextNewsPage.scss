@@ -1,0 +1,80 @@
+.text-news-page {
+  text-align: right;
+}
+.text-news-head-title {
+  text-align: right;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.text-news-page > .sectionTitleContainer {
+  text-align: right;
+  width: 70%;
+  margin: 0 auto;
+}
+.text-news-page > .sectionTitleContainer > .sectionTitle {
+  margin: 20px 0 35px 0;
+  border: 0;
+  border: none;
+  text-align: right;
+}
+.text-news-sub-title {
+  text-align: right;
+  width: 70%;
+  margin: 30px auto;
+  margin-top: 0;
+}
+.text-news-page > img {
+  // height: 500px;
+  margin: 0 auto;
+  display: block;
+  width: 70%;
+  object-fit: cover;
+}
+.news-share {
+  width: 30px;
+  margin: 0 20px 0 20px;
+}
+.text-news-page > .text-news-lead {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 20px;
+  padding: 10px 15px 10px 0;
+  background-color: #d0d8e057;
+}
+.text-news-page > .text-news-content {
+  width: 70%;
+  margin: 20px auto;
+  font-size: 20px;
+  padding: 10px 0px 10px 0;
+}
+
+.text-news-date {
+  text-align: left;
+  width: 65%;
+  margin: 10px auto;
+  font-size: 20px;
+  color: #636060;
+}
+.text-news-page > .container-fluid > div {
+  width: 70%;
+  margin: 0 auto;
+}
+.text-news-page > .container-fluid > div > div > p {
+  text-align: center;
+}
+.category-box {
+  text-align: center;
+}
+.category-box > p {
+  float: left;
+  line-height: 50px;
+}
+.share-news > img {
+  width: 45px;
+  margin: 0 5px 0 5px;
+  cursor: pointer;
+}
+.share-news {
+  float: right;
+}

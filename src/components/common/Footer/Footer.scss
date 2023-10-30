@@ -1,0 +1,131 @@
+.footer-section {
+  width: 100%;
+  position: relative;
+}
+.footer-top {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #2219b4;
+}
+.footer-card > div {
+  background-color: #2219b4;
+  color: #fff;
+}
+.footer-card {
+  border: transparent !important;
+}
+.footer-top > div > div {
+  padding-right: 30px;
+}
+.footer-top > div > :nth-child(1) {
+  position: relative;
+}
+.footer-card > div > ul {
+  list-style: none;
+}
+.footer-card > div > span {
+  display: inline-block;
+  width: 100%;
+  font-size: 22px;
+  padding-left: 115px;
+  text-align: right;
+  margin-bottom: 20px;
+}
+.footer-card > div > ul > li {
+  direction: rtl;
+  display: flex;
+  list-style: none;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.footer-card > div > ul > li > p {
+  text-align: right;
+}
+.footer-card > div > ul > li > img {
+  margin-left: 12px;
+  width: 15px;
+  height: 25px;
+}
+.footer-card > div > ul > li > a,
+.footer-card > div > ul > li > span {
+  text-decoration: none;
+  color: #fff;
+  text-align: right;
+}
+
+.enamad > img {
+  width: 85%;
+  padding-top: 75px;
+  position: absolute;
+  left: 20%;
+  top: -10%;
+}
+.footer-bottom {
+  text-align: center;
+  background-color: #0059fd;
+  color: #fff;
+  font-size: 19px;
+  padding: 7px 0 7px 0;
+}
+.footer-bottom > a {
+  color: #fff;
+}
+.footer-bottom > a:hover {
+  color: #fff;
+}
+.social-media-footer-box {
+  width: 300px;
+  height: 50px;
+  margin-left: 15%;
+  margin-top: 35px;
+}
+.social-media-footer-box > div {
+  margin-left: 40px;
+  width: 8%;
+  float: left;
+  cursor: pointer;
+}
+.social-media-footer-box > div > a {
+  width: 100%;
+  height: 100%;
+}
+.social-media-footer-box > div > a > img {
+  width: 100%;
+  transition: 0.2s;
+}
+.social-media-footer-box > div > a:hover > img {
+  width: 110%;
+}
+
+@media (max-width: 1700px) {
+  .footer-card > div > span {
+    padding-left: 0%;
+  }
+}
+@media (max-width: 992px) {
+  .enamad > img {
+    position: static;
+    width: 30%;
+    margin: auto;
+    margin-left: 35%;
+    margin-bottom: 10%;
+  }
+  .footer-top > .row {
+    flex-wrap: wrap-reverse !important;
+  }
+}
+@media (max-width: 1254px) {
+  .social-media-footer-box {
+    margin-left: 5%;
+  }
+}
+@media (max-width: 1164px) {
+  .social-media-footer-box {
+    margin-left: -22%;
+  }
+}
+@media (max-width: 991px) {
+  .social-media-footer-box {
+    margin: auto;
+  }
+}

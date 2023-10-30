@@ -1,0 +1,60 @@
+.Search {
+  margin-top: 33px;
+  height: 42px;
+  position: relative;
+  left: -50px;
+  top: 5px;
+}
+
+.Search > input {
+  background: rgba(0, 89, 253, 0.2);
+  width: 75%;
+  font-size: 14px;
+  border: none;
+  border-radius: 19px;
+  height: 75%;
+  color: #fff;
+}
+
+.Search > ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1; /* Firefox */
+}
+.Search > ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+}
+.Search > :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+.Search > button {
+  background: rgb(0, 89, 253);
+  width: 76px;
+  height: 68px;
+  background: none;
+  border: none;
+  position: relative;
+  left: 55px;
+  top: -16px;
+}
+.Search > button > img {
+  width: 100%;
+  height: 82%;
+}
+@media only screen and (max-width: 1380px) {
+  .Search > input {
+    margin-right: 20px !important;
+  }
+}
+@media only screen and (max-width: 1340px) {
+  .Search > input {
+    margin-right: 40px !important;
+  }
+}
+@media only screen and (max-width: 1290px) {
+  .Search > input {
+    margin-right: 45px !important;
+  }
+}

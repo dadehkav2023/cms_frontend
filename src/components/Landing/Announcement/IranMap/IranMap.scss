@@ -1,0 +1,22 @@
+* {
+  stroke-width: 0;
+}
+.sea > path {
+  fill: #00bdff;
+}
+.lake {
+  fill: #00bdff;
+}
+.province {
+  fill: #ffffff;
+  cursor: pointer;
+}
+.province :hover {
+  fill: #eeaa67;
+}
+.island {
+  fill: #efefef;
+}
+.border {
+  fill: rgba(0, 0, 0, 0.2);
+}

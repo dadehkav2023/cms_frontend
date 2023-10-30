@@ -1,0 +1,80 @@
+.statement-page {
+  text-align: right;
+}
+.statement-head-title {
+  text-align: right;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.statement-page > .sectionTitleContainer {
+  text-align: right;
+  width: 70%;
+  margin: 0 auto;
+}
+.statement-page > .sectionTitleContainer > .sectionTitle {
+  margin: 20px 0 35px 0;
+  border: 0;
+  border: none;
+  text-align: right;
+}
+.statement-sub-title {
+  text-align: right;
+  width: 70%;
+  margin: 30px auto;
+  margin-top: 0;
+}
+.statement-page > img {
+  height: 500px;
+  margin: 0 auto;
+  display: block;
+  width: 70%;
+  object-fit: cover;
+}
+.statement-share {
+  width: 30px;
+  margin: 0 20px 0 20px;
+}
+.statement-page > .statement-lead {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 20px;
+  padding: 10px 15px 10px 0;
+  background-color: #d0d8e057;
+}
+.statement-page > .statement-description {
+  width: 70%;
+  margin: 20px auto;
+  font-size: 20px;
+  padding: 10px 0px 10px 0;
+}
+
+.statement-date {
+  text-align: left;
+  width: 65%;
+  margin: 10px auto;
+  font-size: 20px;
+  color: #636060;
+}
+.statement-page > .container-fluid > div {
+  width: 70%;
+  margin: 0 auto;
+}
+.statement-page > .container-fluid > div > div > p {
+  text-align: center;
+}
+.category-box {
+  text-align: center;
+}
+.category-box > p {
+  float: left;
+  line-height: 50px;
+}
+.share-statement > img {
+  width: 45px;
+  margin: 0 5px 0 5px;
+  cursor: pointer;
+}
+.share-statement {
+  float: right;
+}

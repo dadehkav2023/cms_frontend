@@ -1,0 +1,144 @@
+.Peoples-voices-section {
+  width: 100%;
+  margin-bottom: 130px;
+  background-color: #ccc;
+  padding-bottom: 20px;
+}
+.Peoples-voice-flash-card-area {
+  padding-bottom: 17px;
+  width: 96%;
+  overflow: hidden;
+}
+
+.Peoples-voice-flash-card-area > :nth-child(2) {
+  margin-top: 50px;
+}
+.peoples-voice-tab {
+  border: none !important;
+  width: 70%;
+  margin: 0 5.5% 40px 0 !important;
+  flex-direction: row-reverse;
+  float: right;
+}
+.peoples-voice-tab > a {
+  color: rgb(44, 40, 40);
+  width: 16 0px;
+  text-align: center;
+  margin-right: 5px;
+  border: 1px solid #222 !important;
+  background-color: #fff;
+  border-radius: 10px !important;
+}
+.peoples-voice-tab > .active {
+  color: rgb(0, 89, 253) !important;
+  border: 1px solid rgb(0, 89, 253) !important;
+}
+
+.Peoples-voices-section
+  > .caption-flex-container
+  > #section-title-middle
+  > .section-title-middle-box
+  > span {
+  font-size: 35px;
+  padding-right: 31%;
+  padding-top: 31%;
+}
+
+.peoples-voice-tab > a {
+  margin-top: 10px;
+}
+
+@media (max-width: 1743px) {
+  .Peoples-voices-section
+    > .caption-flex-container
+    > #section-title-middle
+    > .section-title-middle-box
+    > span {
+    font-size: 30px;
+  }
+}
+@media (max-width: 1500px) {
+  .Peoples-voices-section
+    > .caption-flex-container
+    > #section-title-middle
+    > .section-title-middle-box
+    > span {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .Peoples-voices-section
+    > .caption-flex-container
+    > #section-title-middle
+    > .section-title-middle-box
+    > span {
+    font-size: 26px;
+  }
+}
+@media (max-width: 1300px) {
+  .Peoples-voices-section
+    > .caption-flex-container
+    > #section-title-middle
+    > .section-title-middle-box
+    > span {
+    font-size: 24px;
+  }
+}
+@media (max-width: 1200px) {
+  .Peoples-voices-section
+    > .caption-flex-container
+    > #section-title-middle
+    > .section-title-middle-box
+    > span {
+    font-size: 22px;
+  }
+}
+@media (max-width: 1100px) {
+  .Peoples-voices-section
+    > .caption-flex-container
+    > #section-title-middle
+    > .section-title-middle-box
+    > span {
+    font-size: 20px;
+  }
+  .caption-flex-container {
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 1000px) {
+  .Peoples-voices-section
+    > .caption-flex-container
+    > #section-title-middle
+    > .section-title-middle-box
+    > span {
+    font-size: 19px;
+    width: 135%;
+    padding-right: 63%;
+    padding-top: 17%;
+  }
+}
+@media (max-width: 910px) {
+  .Peoples-voices-section
+    > .caption-flex-container
+    > #section-title-middle
+    > .section-title-middle-box
+    > span {
+    font-size: 17px;
+  }
+}
+@media (max-width: 910px) {
+  .Peoples-voices-section
+    > .caption-flex-container
+    > #section-title-middle
+    > .section-title-middle-box
+    > span {
+    font-size: 15px;
+  }
+}
+@media (max-width: 670px) {
+  .peoples-voice-tab {
+    margin-right: 13% !important;
+    justify-content: center;
+  }
+}

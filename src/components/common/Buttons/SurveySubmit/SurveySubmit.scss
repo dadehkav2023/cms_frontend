@@ -1,0 +1,81 @@
+.survery-submit {
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  bottom: 1%;
+  left: 43.59%;
+  text-align: center;
+  background-color: #0059fd;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+  text-shadow: 2px 2px 5px #e3edff;
+  font-size: 25px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.survery-submit:hover {
+  background-color: #fff;
+  color: #0059fd;
+  border: 2px solid #0059fd;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (max-width: 1500px) {
+  .survery-submit {
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+  }
+}
+@media (max-width: 1020px) {
+  .survery-submit {
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 461px) {
+  .survery-submit {
+    left: 34%;
+  }
+}
+@media (max-width: 400px) {
+  .survery-submit {
+    left: 32%;
+  }
+}
+// @media (max-width: 770px) {
+//   .survery-submit {
+//     width: 80px;
+//     height: 25px;
+//     line-height: 25px;
+//     font-size: 14px;
+//     bottom: 0;
+//   }
+// }
+// @media (max-width: 600px) {
+//   .survery-submit {
+//     top: 89%;
+//   }
+// }
+// @media (max-width: 515px) {
+//   .survery-submit {
+//     width: 60px;
+//     height: 20px;
+//     line-height: 20px;
+//     font-size: 10px;
+//   }
+// }
+// @media (max-width: 415px) {
+//   .survery-submit {
+//     width: 40px;
+//     height: 15px;
+//     line-height: 15px;
+//     font-size: 8px;
+//   }
+// }

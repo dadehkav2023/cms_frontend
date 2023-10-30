@@ -1,0 +1,29 @@
+@font-face {
+  font-family: segoe;
+  src: url("../../assets/fonts/Segoe.woff");
+}
+@font-face {
+  font-family: shabanam;
+  src: url("../../assets/fonts/Shabnam.ttf");
+}
+* {
+  scroll-behavior: smooth;
+}
+.App {
+  overflow: hidden;
+}
+body {
+  overflow-x: hidden;
+  font-family: shabanam !important;
+}
+.carousel-indicators > li {
+  background-color: rgba(255, 255, 255, 1) !important;
+  opacity: 1 !important;
+  height: 13px !important;
+  width: 13px !important;
+}
+.carousel-indicators > .active {
+  background-color: blue !important;
+}
+.carousel-indicators > .active {
+}

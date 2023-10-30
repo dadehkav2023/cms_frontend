@@ -1,0 +1,162 @@
+.buttonContainer > button {
+  margin: 15px auto;
+}
+
+.container > div {
+  margin-top: 10px;
+}
+
+.divider {
+  text-align: center;
+}
+
+.pagination-holder {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.pagination-holder li {
+  background-color: #f0f0f0;
+  display: inline;
+}
+
+.pagination-holder li > a {
+  background-color: #f0f0f0;
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  line-height: 35px;
+  border-right: 0.1px solid rgba(204, 204, 204, 0.473);
+}
+
+.pagination-holder li.page-active > a {
+  background-color: #7367f0;
+  color: rgb(255, 255, 255);
+}
+.pagination-holder li:hover > a {
+  background-color: #a5a0dfb0;
+  color: rgb(255, 255, 255);
+}
+.pagination-holder li.page-active:hover > a {
+  background-color: #a5a0dfb0;
+  color: rgb(255, 255, 255);
+}
+
+.table-header:hover .resizer {
+  background-color: red;
+}
+
+.filter-hilder {
+  height: 150px;
+  background: #ccccce57;
+  border-radius: 10px;
+}
+
+.loading-holder {
+  height: 100px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.emptyTableRow {
+  text-align: center;
+  background-color: #ccc;
+  padding: 5px;
+}
+
+.dropdown-holder {
+  width: 90px;
+}
+
+.toggle-holder {
+  width: 50px;
+}
+
+.toggle-parent {
+  height: 38px;
+}
+
+.width {
+  min-width: 50px;
+}
+
+.text-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-break: break-word;
+}
+.isActive {
+  color: #4cd087;
+}
+.isNotActive {
+  color: #ea5455;
+}
+.text-news-section {
+  min-height: 700px;
+}
+
+.buttonDiv > a > button {
+  margin: 0 auto;
+}
+.selectDiv {
+  width: 30%;
+  margin: auto;
+}
+.noneFound {
+  margin-top: 20px;
+}
+
+.grid-tab {
+  border: none !important;
+  width: 70%;
+  margin-right: 50%;
+  flex-direction: row-reverse;
+}
+.grid-tab > a {
+  color: rgb(44, 40, 40);
+  width: 16 0px;
+  text-align: center;
+  margin-right: 5px;
+  border: 1px solid #222 !important;
+  border-radius: 10px !important;
+}
+.grid-tab > .active {
+  color: rgb(0, 89, 253) !important;
+  border: 1px solid rgb(0, 89, 253) !important;
+}
+.grid-tab > a {
+  margin-top: 10px;
+}
+.text-news-grid-item > div > div > p,
+.text-news-grid-item > div > div > div {
+  color: #222;
+  text-decoration: none;
+  border: none;
+}
+@media only screen and (max-width: 680px) {
+  .dropdown-holder {
+    width: 100px;
+  }
+
+  .toggle-parent {
+    width: 100px;
+    position: relative;
+    left: 0;
+  }
+
+  .header-style {
+    flex-direction: column;
+  }
+
+  .toggle-holder {
+    width: auto;
+  }
+}

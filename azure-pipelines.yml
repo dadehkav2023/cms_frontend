@@ -1,0 +1,11 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+trigger:
+- develop
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+- script: npm i -g @liara/cli@2
+- script: liara deploy --app cms --detach --region iran --api-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MDFlNTIyZGVkNDBhZTAwMTExZGJkOGQiLCJpYXQiOjE2Mjg0NDY4MDh9.C9FyVNsreV-mf0aX7nnEu9rC116OjBegbS1qrZiUSJc
