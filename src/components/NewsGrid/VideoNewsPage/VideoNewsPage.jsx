@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
-import "./VideoNewsPage.scss";
-import { Card, Button, Container, Col, Row } from "react-bootstrap";
-import { FallBackSpinner } from "../../common/Spinner/FallBackSpinner/FallbackSpinner";
-import { useParams, Redirect } from "react-router-dom";
-import SectionTitle from "../../common/SectionTitle/SectionTitle";
-import mockImage from "../../../assets/img/landing/slid1.jpg";
-import telegram from "../../../assets/img/icons/telegram.svg";
-import facebook from "../../../assets/img/icons/facebook.svg";
-import twitter from "../../../assets/img/icons/twitter.svg";
-import instagram from "../../../assets/img/icons/instagram.svg";
-import Carousel from "react-elastic-carousel";
-import { UseGetVideoNewsAttachments } from "../../../core/services/api/get-video-news-attachments";
-import { UseGetVideoNews } from "../../../core/services/api/get-video-news";
-import { englishNumbersToPersian } from "../../../core/utils/englishNumbersToPersian";
+import React, { useEffect, useState } from 'react';
+import './VideoNewsPage.scss';
+import { Card, Button, Container, Col, Row, Breadcrumb } from 'react-bootstrap';
+import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
+import { useParams, Redirect } from 'react-router-dom';
+import SectionTitle from '../../common/SectionTitle/SectionTitle';
+import mockImage from '../../../assets/img/landing/slid1.jpg';
+import telegram from '../../../assets/img/icons/telegram.svg';
+import facebook from '../../../assets/img/icons/facebook.svg';
+import twitter from '../../../assets/img/icons/twitter.svg';
+import instagram from '../../../assets/img/icons/instagram.svg';
+import Carousel from 'react-elastic-carousel';
+import { UseGetVideoNewsAttachments } from '../../../core/services/api/get-video-news-attachments';
+import { UseGetVideoNews } from '../../../core/services/api/get-video-news';
+import { englishNumbersToPersian } from '../../../core/utils/englishNumbersToPersian';
+import { VideoPlayer } from '../../Landing/VideoNews/VideoNewsFlashCard/Player';
 
 const VideoNewsPage = () => {
+  const breadcrumbText = 'Category 2 / 1402/08/13';
+  const modifiedBreadcrumbText = breadcrumbText.replace(/\//g, ' > ');
+
   const { id } = useParams();
   const {
     data: videoNewsData,
@@ -46,7 +50,7 @@ const VideoNewsPage = () => {
     <FallBackSpinner />
   ) : !videoNewsData?.data.result.newsList[0] &&
     (videoNewsIsSuccess || videoNewsIsError) ? (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: 'center' }}>
       <p>اطلاعات مورد نظر شما یافت نشد</p>
       <Redirect to="/News/VideoNews" />
     </div>
@@ -55,24 +59,33 @@ const VideoNewsPage = () => {
       <section className="video-news-page">
         <Container fluid>
           <Row>
-            <Col lg={4}>
-              <div className="share-news">
-                <img src={facebook} alt="facebook" />
-                <img src={telegram} alt="telegram" />
-                <img src={instagram} alt="instagram" />
-                <img src={twitter} alt="twitter" />
-              </div>
-            </Col>
-            <Col lg={4}>
-              <p className="video-news-date">
-                {englishNumbersToPersian(
-                  videoNewsData?.data.result.newsList[0]
-                    .publishedDateTimeAsJalali
-                )}
-              </p>
-            </Col>
-            <Col lg={4} className="category-box">
-              {videoNewsData?.data.result.newsList[0].newsCategories.map(
+          <Breadcrumb className="custom-breadcrumb">
+              <Breadcrumb.Item href="#" active>
+                <span
+                  style={{
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    maxWidth: '200px',
+                  }}
+                >
+                  {englishNumbersToPersian(
+                    videoNewsData?.data.result.newsList[0]
+                      .publishedDateTimeAsJalali
+                  ).replace(/\//g, '-')}{' '}
+                  {/* Replace '/' with '>' here */}
+                </span>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <span
+                  style={{
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    maxWidth: '200px',
+                  }}
+                >
+                  {videoNewsData?.data.result.newsList[0].newsCategories.map(
                 (category, index) => {
                   return (
                     <p key={index}>
@@ -81,18 +94,25 @@ const VideoNewsPage = () => {
                   );
                 }
               )}
-            </Col>
+                </span>
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          
           </Row>
-          <hr />
+         
         </Container>
         <SectionTitle
           TitleText={videoNewsData?.data.result.newsList[0].title}
         />
 
-        <img
-          src={`${process.env.REACT_APP_PUBLIC_PATH}/${videoNewsData?.data.result.newsList[0].imagePath}`}
-          alt="news"
-        />
+        <div className="videoPlayer">
+          <VideoPlayer
+            videoSrc={`${process.env.REACT_APP_PUBLIC_PATH}/${videoNewsData?.data.result.newsList[0].imagePath}`}
+            width={600}
+            height={400}
+          ></VideoPlayer>
+        </div>
+
         <p
           className="video-news-summary"
           dangerouslySetInnerHTML={{
@@ -102,7 +122,7 @@ const VideoNewsPage = () => {
 
         {attachmentData.data.result.newsAttachmentList[0] && (
           <>
-            <SectionTitle TitleText="پیوست ها" />{" "}
+            <SectionTitle TitleText="پیوست ها" />{' '}
             <Carousel isRTL breakPoints={breakPoints}>
               {attachmentData && attachmentData.data ? (
                 attachmentData.data.result.newsAttachmentList.map(
@@ -111,9 +131,9 @@ const VideoNewsPage = () => {
                       <Card
                         key={index}
                         style={{
-                          width: "400px",
-                          textAlign: "center",
-                          marginBottom: "100px",
+                          width: '400px',
+                          textAlign: 'center',
+                          marginBottom: '100px',
                         }}
                       >
                         <Card.Body>
@@ -126,7 +146,7 @@ const VideoNewsPage = () => {
                             مرورگر شما از پخش ویدیو پشتیبانی نمیکند
                           </video>
 
-                          <Card.Text style={{ marginTop: "30px" }}>
+                          <Card.Text style={{ marginTop: '30px' }}>
                             جهت دریافت پیوست از دکمه زیر استفاده کنید
                           </Card.Text>
                           <Card.Link
@@ -143,7 +163,7 @@ const VideoNewsPage = () => {
               ) : (
                 <h1>لطفا منتظر بمانید</h1>
               )}
-            </Carousel>{" "}
+            </Carousel>{' '}
           </>
         )}
       </section>

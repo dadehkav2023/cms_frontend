@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
-import "./TextNews.scss";
-import SectionTitle from "../../common/SectionTitle/SectionTitle";
-import TextNewsFlashCard from "./TextNewsFlashCard/TextNewsFlashCard";
-import { Col, Container, Row, Tabs, Tab } from "react-bootstrap";
-import Carousel from "react-elastic-carousel";
-import "./TextNews.scss";
-import { UseGetCategories } from "../../../core/services/api/get-news-categories";
-import { UseGetTextNews } from "../../../core/services/api/get-text-news";
-import { FallBackSpinner } from "../../common/Spinner/FallBackSpinner/FallbackSpinner";
-import MoreItemsButton from "../../common/Buttons/MoreItemsButton/MoreItemsButton";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import './TextNews.scss';
+import SectionTitle from '../../common/SectionTitle/SectionTitle';
+import TextNewsFlashCard from './TextNewsFlashCard/TextNewsFlashCard';
+import { Col, Container, Row, Tabs, Tab } from 'react-bootstrap';
+import Carousel from 'react-elastic-carousel';
+import './TextNews.scss';
+import { UseGetCategories } from '../../../core/services/api/get-news-categories';
+import { UseGetTextNews } from '../../../core/services/api/get-text-news';
+import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
+import MoreItemsButton from '../../common/Buttons/MoreItemsButton/MoreItemsButton';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const TextNews = () => {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
   const state = useSelector((state) => state.setting);
-
   const breakPoints = [
     { width: 400, itemsToShow: 1 },
     { width: 800, itemsToShow: 2 },
@@ -54,101 +58,120 @@ const TextNews = () => {
   }, [selectedCategory, state.homePageNewsCount]);
   return categoryIsSuccess ? (
     <>
-      {categoryData.data.result[0] ? (
+      {categoryData?.data.result[0] ? (
         <>
-          <section className="text-news-section">
-            <SectionTitle TitleText="اخبار" />
-            <Tabs
-              onSelect={(e) => {
-                setSelectedCategory(+e);
-              }}
-              className="text-news-tab"
-              defaultActiveKey={categoryData.data.result[0].id}
-            >
-              {categoryData.data.result.map((category, index) => {
-                return (
-                  <Tab
-                    key={index}
-                    id={category.id}
-                    eventKey={category.id}
-                    title={category.title}
-                  >
-                    <Carousel
-                      itemPosition="START"
-                      isRTL
-                      breakPoints={breakPoints}
+          <Container fluid className="pr-lg-5">
+            <section className="text-news-section ">
+              <SectionTitle className="sectionTitle" TitleText=" اخبار" />
+              <Link
+                style={{
+                  color: 'rgba(0, 0, 0, 0.5)',
+                }}
+                to="/News/TextNews"
+              >
+                <MoreItemsButton text=" مشاهده بیشتر" />
+              </Link>
+              <Tabs
+                onSelect={(e) => {
+                  setSelectedCategory(+e);
+                }}
+                className="text-news-tab"
+                defaultActiveKey={categoryData?.data.result[0].id}
+              >
+                {categoryData?.data.result.map((category, index) => {
+                  return (
+                    <Tab
+                      key={index}
+                      id={category.id}
+                      eventKey={category.id}
+                      title={category.title}
                     >
-                      {textNewsData && textNewsData.data ? (
-                        textNewsData.data.result.newsList[0] &&
-                        (textNewsIsError || textNewsIsSuccess) ? (
-                          textNewsData.data.result.newsList.map(
-                            (news, index) => {
-                              return (
-                                <Link
-                                  key={index}
-                                  style={{
-                                    color: "#000",
-                                    textDecoration: "none",
-                                  }}
-                                  to={`/News/TextNews/${news.id}`}
-                                >
-                                  <TextNewsFlashCard
-                                    title={news.title}
-                                    description={news.summaryTitle}
-                                    img={news.imagePath}
-                                    id={news.id}
-                                    date={news.publishedDateTimeAsJalali}
-                                  />
-                                </Link>
-                              );
-                            }
+                      <Carousel
+                        itemPosition="START"
+                        isRTL
+                        breakPoints={breakPoints}
+                      >
+                        {textNewsData && textNewsData.data ? (
+                          textNewsData?.data?.result.newsList[0] &&
+                          (textNewsIsError || textNewsIsSuccess) ? (
+                            textNewsData?.data?.result.newsList.map(
+                              (news, index) => {
+                                return (
+                                  <Link
+                                    key={index}
+                                    style={{
+                                      color: '#000',
+                                      textDecoration: 'none',
+                                      marginTop:'50px'
+                                    }}
+                                    to={{
+                                      pathname: `/News/TextNews/${news.id}`,
+                                      state: { newsData: news },
+                                    }}
+                                    onClick={scrollToTop} // Call scrollToTop when the link is clicked
+                                  >
+                                    <TextNewsFlashCard
+                                      title={news.title}
+                                      description={news.summaryTitle}
+                                      img={news.imagePath}
+                                      id={news.id}
+                                      date={news.publishedDateTimeAsJalali}
+                                    />
+                                  </Link>
+                                );
+                              }
+                            )
+                          ) : (
+                            <h2
+                              style={{
+                                color: 'red',
+                                fontSize: '14px',
+                                textAlign: 'center',
+                                width: '100%',
+                                margin: '10% ',
+                              }}
+                            >
+                              هیچ اطلاعاتی جهت نمایش وجود ندارد
+                            </h2>
                           )
                         ) : (
-                          <h2
+                          <div
                             style={{
-                              color: "red",
-                              textAlign: "center",
-                              width: "100%",
+                              color: 'black',
+                              textAlign: 'center',
+                              width: '100%',
+                              margin: '10% ',
                             }}
                           >
-                            هیچ اطلاعاتی جهت نمایش وجود ندارد
-                          </h2>
-                        )
-                      ) : (
-                        <h1
-                          style={{
-                            color: "#000",
-                            textAlign: "center",
-                            width: "100%",
-                          }}
-                        >
-                          لطفا منتظر بمانید
-                        </h1>
-                      )}
-                    </Carousel>
-                    <Link
-                      style={{
-                        color: "rgba(0, 0, 0, 0.5)",
-                      }}
-                      to="/News/TextNews"
-                    >
-                      <MoreItemsButton text="سایر اخبار" />
-                    </Link>
-                  </Tab>
-                );
-              })}
-            </Tabs>
-          </section>
+                            <h1
+                              style={{
+                                fontSize: '14px',
+                                color: '#065cfd',
+                                width: '100%',
+                              }}
+                            >
+                              لطفا منتظر بمانید...
+                            </h1>
+                            <div className="spinner"></div>
+                          </div>
+                        )}
+                      </Carousel>
+                    </Tab>
+                  );
+                })}
+              </Tabs>
+            </section>
+          </Container>
         </>
       ) : (
         <>
           <SectionTitle TitleText="اخبار" />
           <h2
             style={{
-              color: "red",
-              textAlign: "center",
-              width: "100%",
-              margin: "30px 0 30px 0",
+              color: 'red',
+              textAlign: 'center',
+              width: '100%',
+              margin: '30px 0 30px 0',
             }}
           >
             هیچ اطلاعاتی جهت نمایش وجود ندارد

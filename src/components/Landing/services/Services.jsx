@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import Carousel from "react-elastic-carousel";
+import React, { useEffect } from 'react';
+import Carousel from 'react-elastic-carousel';
 
-import "./Services.scss";
-import ServiceItem from "./ServicesItem/ServicesItem";
+import './Services.scss';
+import ServiceItem from './ServicesItem/ServicesItem';
 
-import SectionTitle from "../../common/SectionTitle/SectionTitle";
-import { UseGetServices } from "../../../core/services/api/get-services";
-import { correctUploadPath } from "../../../core/utils/image-path-correction";
+import SectionTitle from '../../common/SectionTitle/SectionTitle';
+import { UseGetServices } from '../../../core/services/api/get-services';
+import { correctUploadPath } from '../../../core/utils/image-path-correction';
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
   { width: 630, itemsToShow: 2 },
@@ -54,9 +54,9 @@ function Services() {
             ) : (
               <h2
                 style={{
-                  color: "red",
-                  textAlign: "center",
-                  width: "100%",
+                  color: 'red',
+                  textAlign: 'center',
+                  width: '100%',
                 }}
               >
                 هیچ اطلاعاتی جهت نمایش وجود ندارد

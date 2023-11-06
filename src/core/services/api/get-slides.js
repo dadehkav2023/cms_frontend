@@ -3,7 +3,7 @@ import { useMutation } from "react-query";
 
 const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
-const url = MainUrl + "/api/Slider/GetSlider";
+const url = MainUrl + "/api/admin/Slider/GetSlider";
 
 const GetSlidesApi = async (value) => {
   return await axios.post(url, value);

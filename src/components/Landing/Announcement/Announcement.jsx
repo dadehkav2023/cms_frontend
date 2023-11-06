@@ -82,7 +82,7 @@ const Announcement = () => {
               </Col>
               <Col xl={7}>
                 <IranMap
-                  activeMap={data.data.result}
+                  activeMap={data?.data?.result}
                   currentProvince={currentProvince}
                   setCurrentProvince={setCurrentProvince}
                 />

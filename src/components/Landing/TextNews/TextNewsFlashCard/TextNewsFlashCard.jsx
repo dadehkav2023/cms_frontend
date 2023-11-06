@@ -14,7 +14,7 @@ const TextNewsFlashCard = ({ title, description, img, id, date }) => {
       />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>{description}</Card.Text>
+        <Card.Text  className="truncate">{description}</Card.Text>
         <span className="text-news-flash-card-date">
           {englishNumbersToPersian(date)}
         </span>

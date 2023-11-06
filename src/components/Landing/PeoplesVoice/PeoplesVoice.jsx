@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import "./PeoplesVoice.scss";
-import SectionTitle from "../../common/SectionTitle/SectionTitle";
-import PeoplesVoiceFlashCard from "./PeoplesVoiceFlashCard/PeoplesVoiceFlashCard";
-import { Col, Container, Row, Tabs, Tab } from "react-bootstrap";
-import Carousel from "react-elastic-carousel";
-import "./PeoplesVoice.scss";
-import MoreItemsButton from "../../common/Buttons/MoreItemsButton/MoreItemsButton";
-import NewChallengeButton from "../../common/Buttons/NewChallengeButton/NewChallengeButton";
-import { UseAddChallenge } from "../../../core/services/api/add-challenge";
-import { UseGetChallenge } from "../../../core/services/api/get-challenge";
-import { FallBackSpinner } from "../../common/Spinner/FallBackSpinner/FallbackSpinner";
-import { Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import './PeoplesVoice.scss';
+import SectionTitle from '../../common/SectionTitle/SectionTitle';
+import PeoplesVoiceFlashCard from './PeoplesVoiceFlashCard/PeoplesVoiceFlashCard';
+import { Col, Container, Row, Tabs, Tab } from 'react-bootstrap';
+import Carousel from 'react-elastic-carousel';
+import './PeoplesVoice.scss';
+import MoreItemsButton from '../../common/Buttons/MoreItemsButton/MoreItemsButton';
+import NewChallengeButton from '../../common/Buttons/NewChallengeButton/NewChallengeButton';
+import { UseAddChallenge } from '../../../core/services/api/add-challenge';
+import { UseGetChallenge } from '../../../core/services/api/get-challenge';
+import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
+import { Link, useHistory } from 'react-router-dom';
 
 const PeoplesVoice = () => {
   const breakPoints = [
@@ -56,7 +56,7 @@ const PeoplesVoice = () => {
             <SectionTitle TitleText="صدای مردم" />
             <NewChallengeButton
               action={() => {
-                history.push("/Challenges/new");
+                history.push('/Challenges/new');
               }}
             />
             <Tabs className="peoples-voice-tab" defaultActiveKey="mahboobTarin">
@@ -70,8 +70,8 @@ const PeoplesVoice = () => {
                           <Link
                             key={index}
                             style={{
-                              color: "#000",
-                              textDecoration: "none",
+                              color: '#000',
+                              textDecoration: 'none',
                             }}
                             to={`/Challenges/details/${challenge.id}`}
                           >
@@ -79,7 +79,7 @@ const PeoplesVoice = () => {
                               title={challenge.title}
                               from={
                                 challenge.authorFirstName +
-                                " " +
+                                ' ' +
                                 challenge.authorLastName
                               }
                               startDate={challenge.startDateTimeShowAsJalali}
@@ -94,9 +94,9 @@ const PeoplesVoice = () => {
                       <>
                         <h2
                           style={{
-                            color: "red",
-                            textAlign: "center",
-                            width: "100%",
+                            color: 'red',
+                            textAlign: 'center',
+                            width: '100%',
                           }}
                         >
                           هیچ اطلاعاتی جهت نمایش وجود ندارد
@@ -107,9 +107,9 @@ const PeoplesVoice = () => {
                     <>
                       <h1
                         style={{
-                          color: "#000",
-                          textAlign: "center",
-                          width: "100%",
+                          color: '#000',
+                          textAlign: 'center',
+                          width: '100%',
                         }}
                       >
                         لطفا منتظر بمانید
@@ -135,17 +135,17 @@ const PeoplesVoice = () => {
         </>
       ) : (
         <>
-          <SectionTitle TitleText="اخبار" />
+           {/* <SectionTitle TitleText="اخبار" />
           <h2
             style={{
-              color: "red",
-              textAlign: "center",
-              width: "100%",
-              margin: "30px 0 30px 0",
+              color: 'red',
+              textAlign: 'center',
+              width: '100%',
+              margin: '30px 0 30px 0',
             }}
           >
             هیچ اطلاعاتی جهت نمایش وجود ندارد
-          </h2>
+          </h2>  */}
         </>
       )}
     </>

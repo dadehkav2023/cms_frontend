@@ -1,24 +1,24 @@
 .open-item {
-  border: 1px solid #065cfd;
-  background-color: white !important;
-  border-radius: 10px;
-  color: #222;
-  font-size: 13px;
+  // border: 1px solid #065cfd;
+  // background-color: white !important;
+  // border-radius: 10px;
+  color: #065cfd;
+  font-size: 12px;
   float: left;
   padding: 0 10px 0 10px;
   height: 35px;
   line-height: 35px;
   text-align: center;
   cursor: pointer;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  // transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  //   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.open-item:hover {
-  color: #065cfd;
-  border: 2px solid #000;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+// .open-item:hover {
+//   color: #065cfd;
+//   // border: 2px solid #000;
+//   // transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+//   //   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+// }
 @media (max-width: 600px) {
   .open-item {
     margin-top: 10px;

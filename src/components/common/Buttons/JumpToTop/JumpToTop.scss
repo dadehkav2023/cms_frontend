@@ -1,24 +1,23 @@
 .jump-to-top {
   position: fixed;
-  bottom: 65px;
-  right: 30px;
+  bottom: 15px;
+  left: 15px;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
-  background-color: #0058ff;
-  border-radius: 7px;
-  padding-top: 10px;
-  padding-left: 11px;
-  border: 2px solid #fff;
+  width: 40px;
+  height: 40px;
+ 
+  border-radius: 50%;
+padding: 5px;
+  border: 2px solid #000000;
   z-index: 20;
 }
-.jump-to-top:hover {
-  background-color: #0059ff65;
-  border: none;
-}
+// .jump-to-top:hover {
+//   background-color: #0059ff65;
+//   border: none;
+// }
 .jump-to-top > img {
-  width: 75%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
 }
 @media (max-width: 1876px) {
   .jump-to-top {

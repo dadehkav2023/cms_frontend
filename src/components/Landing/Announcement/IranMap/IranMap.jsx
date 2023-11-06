@@ -21,7 +21,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
       <g className="province">
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(5)
+            activeMap?.map((item) => item.province.province).includes(5)
               ? activeMap.filter((item) => item.province.province === 5)[0]
                   .websiteAddress
               : ""
@@ -40,7 +40,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(3)
+            activeMap?.map((item) => item.province.province).includes(3)
               ? activeMap.filter((item) => item.province.province === 3)[0]
                   .websiteAddress
               : ""
@@ -59,7 +59,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(1)
+            activeMap?.map((item) => item.province.province).includes(1)
               ? activeMap.filter((item) => item.province.province === 1)[0]
                   .websiteAddress
               : ""
@@ -78,7 +78,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(2)
+            activeMap?.map((item) => item.province.province).includes(2)
               ? activeMap.filter((item) => item.province.province === 2)[0]
                   .websiteAddress
               : ""
@@ -97,7 +97,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(7)
+            activeMap?.map((item) => item.province.province).includes(7)
               ? activeMap.filter((item) => item.province.province === 7)[0]
                   .websiteAddress
               : ""
@@ -116,7 +116,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(9)
+            activeMap?.map((item) => item.province.province).includes(9)
               ? activeMap.filter((item) => item.province.province === 9)[0]
                   .websiteAddress
               : ""
@@ -135,7 +135,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(17)
+            activeMap?.map((item) => item.province.province).includes(17)
               ? activeMap.filter((item) => item.province.province === 17)[0]
                   .websiteAddress
               : ""
@@ -154,7 +154,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(25)
+            activeMap?.map((item) => item.province.province).includes(25)
               ? activeMap.filter((item) => item.province.province === 25)[0]
                   .websiteAddress
               : ""
@@ -173,7 +173,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(24)
+            activeMap?.map((item) => item.province.province).includes(24)
               ? activeMap.filter((item) => item.province.province === 24)[0]
                   .websiteAddress
               : ""
@@ -192,7 +192,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(30)
+            activeMap?.map((item) => item.province.province).includes(30)
               ? activeMap.filter((item) => item.province.province === 30)[0]
                   .websiteAddress
               : ""
@@ -211,7 +211,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(29)
+            activeMap?.map((item) => item.province.province).includes(29)
               ? activeMap.filter((item) => item.province.province === 29)[0]
                   .websiteAddress
               : ""
@@ -230,7 +230,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(29)
+            activeMap?.map((item) => item.province.province).includes(29)
               ? activeMap.filter((item) => item.province.province === 29)[0]
                   .websiteAddress
               : ""
@@ -249,7 +249,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(4)
+            activeMap?.map((item) => item.province.province).includes(4)
               ? activeMap.filter((item) => item.province.province === 4)[0]
                   .websiteAddress
               : ""
@@ -268,7 +268,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(21)
+            activeMap?.map((item) => item.province.province).includes(21)
               ? activeMap.filter((item) => item.province.province === 21)[0]
                   .websiteAddress
               : ""
@@ -287,7 +287,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(22)
+            activeMap?.map((item) => item.province.province).includes(22)
               ? activeMap.filter((item) => item.province.province === 22)[0]
                   .websiteAddress
               : ""
@@ -306,7 +306,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(12)
+            activeMap?.map((item) => item.province.province).includes(12)
               ? activeMap.filter((item) => item.province.province === 12)[0]
                   .websiteAddress
               : ""
@@ -325,7 +325,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(11)
+            activeMap?.map((item) => item.province.province).includes(11)
               ? activeMap.filter((item) => item.province.province === 11)[0]
                   .websiteAddress
               : ""
@@ -344,7 +344,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(10)
+            activeMap?.map((item) => item.province.province).includes(10)
               ? activeMap.filter((item) => item.province.province === 10)[0]
                   .websiteAddress
               : ""
@@ -363,7 +363,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(13)
+            activeMap?.map((item) => item.province.province).includes(13)
               ? activeMap.filter((item) => item.province.province === 13)[0]
                   .websiteAddress
               : ""
@@ -382,7 +382,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(23)
+            activeMap?.map((item) => item.province.province).includes(23)
               ? activeMap.filter((item) => item.province.province === 23)[0]
                   .websiteAddress
               : ""
@@ -401,7 +401,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(20)
+            activeMap?.map((item) => item.province.province).includes(20)
               ? activeMap.filter((item) => item.province.province === 20)[0]
                   .websiteAddress
               : ""
@@ -420,7 +420,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(26)
+            activeMap?.map((item) => item.province.province).includes(26)
               ? activeMap.filter((item) => item.province.province === 26)[0]
                   .websiteAddress
               : ""
@@ -439,7 +439,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(28)
+            activeMap?.map((item) => item.province.province).includes(28)
               ? activeMap.filter((item) => item.province.province === 28)[0]
                   .websiteAddress
               : ""
@@ -458,7 +458,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(27)
+            activeMap?.map((item) => item.province.province).includes(27)
               ? activeMap.filter((item) => item.province.province === 27)[0]
                   .websiteAddress
               : ""
@@ -477,7 +477,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(18)
+            activeMap?.map((item) => item.province.province).includes(18)
               ? activeMap.filter((item) => item.province.province === 18)[0]
                   .websiteAddress
               : ""
@@ -496,7 +496,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(19)
+            activeMap?.map((item) => item.province.province).includes(19)
               ? activeMap.filter((item) => item.province.province === 19)[0]
                   .websiteAddress
               : ""
@@ -515,7 +515,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(15)
+            activeMap?.map((item) => item.province.province).includes(15)
               ? activeMap.filter((item) => item.province.province === 15)[0]
                   .websiteAddress
               : ""
@@ -534,7 +534,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(16)
+            activeMap?.map((item) => item.province.province).includes(16)
               ? activeMap.filter((item) => item.province.province === 16)[0]
                   .websiteAddress
               : ""
@@ -553,7 +553,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(8)
+            activeMap?.map((item) => item.province.province).includes(8)
               ? activeMap.filter((item) => item.province.province === 8)[0]
                   .websiteAddress
               : ""
@@ -572,7 +572,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(31)
+            activeMap?.map((item) => item.province.province).includes(31)
               ? activeMap.filter((item) => item.province.province === 31)[0]
                   .websiteAddress
               : ""
@@ -591,7 +591,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
         </a>
         <a
           href={
-            activeMap.map((item) => item.province.province).includes(14)
+            activeMap?.map((item) => item.province.province).includes(14)
               ? activeMap.filter((item) => item.province.province === 14)[0]
                   .websiteAddress
               : ""
