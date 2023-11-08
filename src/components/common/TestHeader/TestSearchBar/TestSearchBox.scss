@@ -1,19 +1,33 @@
+*:focus {
+  outline: none;
+  box-shadow: none;
+}
+.custom-button:hover {
+  background-color: transparent;
+  color: initial;
+}
 .Search {
-  margin-top: 33px;
-  height: 42px;
+  width: 200px;
+  height: 45px;
   position: relative;
-  left: -50px;
-  top: 5px;
+  right: 200px;
+  border-bottom: 1px solid #6dce0e;
+  margin-right: auto;
+  z-index: 900;
 }
 
 .Search > input {
-  background: rgba(0, 89, 253, 0.2);
-  width: 75%;
+  background: transparent;
+
   font-size: 14px;
   border: none;
-  border-radius: 19px;
-  height: 75%;
+
   color: #fff;
+}
+
+.Search > input:focus {
+  background-color: #0b1803;
+  outline: 0 none;
 }
 
 .Search > ::placeholder {
@@ -30,18 +44,13 @@
   color: #fff;
 }
 .Search > button {
-  background: rgb(0, 89, 253);
-  width: 76px;
-  height: 68px;
   background: none;
   border: none;
   position: relative;
-  left: 55px;
-  top: -16px;
 }
 .Search > button > img {
-  width: 100%;
-  height: 82%;
+  width: 90%;
+  height: 90%;
 }
 @media only screen and (max-width: 1380px) {
   .Search > input {

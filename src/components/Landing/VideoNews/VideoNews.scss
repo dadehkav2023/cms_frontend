@@ -1,7 +1,7 @@
 
 .spinner {
-  border: 4px solid rgba(0, 0, 0, 0.3);
-  border-top: 4px solid #3498db;
+  border: 4px solid #0B1803;
+  border-top: 4px solid #6DCE0E;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -20,6 +20,7 @@
 }
 .video-news-section > .sectionTitleContainer > .sectionTitle {
   margin: 0 0 -20px 0;
+  font-size: 24px;
 }
 .video-news-tab {
   border: none !important;
@@ -32,7 +33,7 @@
 
 
 .video-news-tab > .active {
-  color: rgb(0, 89, 253) !important;
+  color: #6DCE0E !important;
   border: none !important;
 }
 .video-news-tab > a {

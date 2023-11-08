@@ -14,7 +14,7 @@ const SearchBox = () => {
         aria-label="Search"
       />
       <Button>
-        <img alt="search" src={search} />
+        <img width={40} height={40} alt="search" src={search} />
       </Button>
     </Form>
   );

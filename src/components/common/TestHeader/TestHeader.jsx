@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   Button,
   Col,
@@ -6,37 +6,37 @@ import {
   Dropdown,
   DropdownButton,
   Row,
-} from "react-bootstrap";
-import { Link } from "react-router-dom";
-import "./TestHeader.scss";
-import NavbarMenu from "./Navbar/navbar";
-import logo from "../../../assets/img/landing/logo.png";
-import Avatar from "../../../assets/img/landing/icon/Avatar.png";
-import SignUp from "../../../assets/img/landing/icon/sign-up.png";
-import SearchBox from "./SearchBar/SerchBox";
-import Typed from "react-typed";
-import { useSelector } from "react-redux";
-import { correctUploadPath } from "../../../core/utils/image-path-correction";
-import { UseGetMenu } from "../../../core/services/api/get-menu";
-import { useHistory } from "react-router-dom";
+} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './TestHeader.scss';
+import NavbarMenu from './Navbar/navbar';
+import logo from '../../../assets/img/landing/logo.png';
+import Avatar from '../../../assets/img/landing/icon/Avatar.png';
+import SignUp from '../../../assets/img/landing/icon/sign-up.png';
+import SearchBox from './SearchBar/SerchBox';
+import Typed from 'react-typed';
+import { useSelector } from 'react-redux';
+import { correctUploadPath } from '../../../core/utils/image-path-correction';
+import { UseGetMenu } from '../../../core/services/api/get-menu';
+import { useHistory } from 'react-router-dom';
 import {
   login,
   isUserLoggedIn,
-} from "../../../core/services/authentication/authentication.service";
-import { showToast, ToastTypes } from "../../../core/utils/show-toast";
-import { useUserAuth } from "../../../core/utils/context/AuthenticationContext";
-import TestNavbarMenu from "./TestNavbar/TestNavbar";
-import TestSearchBox from "./TestSearchBar/TestSerchBox";
+} from '../../../core/services/authentication/authentication.service';
+import { showToast, ToastTypes } from '../../../core/utils/show-toast';
+import { useUserAuth } from '../../../core/utils/context/AuthenticationContext';
+import TestNavbarMenu from './TestNavbar/TestNavbar';
+import TestSearchBox from './TestSearchBar/TestSerchBox';
 
 const TestHeader = () => {
   const { userInfo } = useUserAuth();
   const redirectToLogin = () => {
-    showToast(["در حال انتقال به صفحه ورود"], ToastTypes.info);
+    showToast(['در حال انتقال به صفحه ورود'], ToastTypes.info);
     login();
   };
   const redirectToLogout = () => {
-    showToast(["در حال خروج"], ToastTypes.info);
-    history.push("/signout-oidc");
+    showToast(['در حال خروج'], ToastTypes.info);
+    history.push('/signout-oidc');
   };
   const history = useHistory();
   const state = useSelector((state) => state.setting);
@@ -53,7 +53,7 @@ const TestHeader = () => {
           <h6 className="typed-text">
             <Typed
               strings={[
-                "  به سامانه جامع بهره برداران کشاورزی خوش آمدید، شما می توانید با ثبت نام در این سامانه از خدمات نظام صنفی بهره مند شوید .      ",
+                '  به سامانه جامع بهره برداران کشاورزی خوش آمدید، شما می توانید با ثبت نام در این سامانه از خدمات نظام صنفی بهره مند شوید .      ',
               ]}
               typeSpeed={50}
             />
@@ -62,16 +62,16 @@ const TestHeader = () => {
             <Row>
               <Col xl={1} lg={1} md={1} sm={1} xs={1}>
                 <div className="site-logo">
-                  {state.logoImageAddress !== "" && (
+                  {state.logoImageAddress !== '' && (
                     <Link
-                      style={{ color: "inherit", TextDecoration: "none" }}
+                      style={{ color: 'inherit', TextDecoration: 'none' }}
                       to="/"
                     >
                       <img
                         alt="logo"
                         src={
                           process.env.REACT_APP_PUBLIC_PATH +
-                          "/" +
+                          '/' +
                           correctUploadPath(state.logoImageAddress)
                         }
                       />
@@ -82,7 +82,7 @@ const TestHeader = () => {
               <Col xl={5} lg={11} md={2} sm={2} xs={6}>
                 <TestNavbarMenu data={data} />
               </Col>
-              <Col xl={3} lg={7} md={9} sm={9} xs={12}>
+              <Col >
                 <TestSearchBox />
               </Col>
               <Col
@@ -91,7 +91,7 @@ const TestHeader = () => {
                 md={6}
                 sm={8}
                 xs={12}
-                style={{ textAlign: "right" }}
+                style={{ textAlign: 'right' }}
               >
                 {userInfo.userName ? (
                   <>
@@ -112,8 +112,8 @@ const TestHeader = () => {
                       <Dropdown.Item href="#/action-3">
                         <Button
                           style={{
-                            backgroundColor: "#e74c3c",
-                            borderColor: "transparent",
+                            backgroundColor: '#e74c3c',
+                            borderColor: 'transparent',
                           }}
                           onClick={redirectToLogout}
                         >
@@ -124,16 +124,35 @@ const TestHeader = () => {
                   </>
                 ) : (
                   <>
-                    <Button className="login" onClick={redirectToLogin}>
-                      <div></div>ورود کاربران
-                      <img alt="avatar" src={Avatar} />
+                  
+                    <Button
+                      className="login"
+                      onClick={redirectToLogin}
+                      style={{ display: 'flex', alignItems: 'center', background: 'transparent', border: '1px solid #6DCE0E',
+                    }}
+                    >
+                      <p
+                        style={{
+                          display: 'inline',
+                          margin: 0,
+                         
+                        }}
+                      >
+                        ورود کاربران
+                      </p>
+                      <img
+                        alt="avatar"
+                        src={Avatar}
+                        style={{ display: 'inline' }}
+                      />
                     </Button>
-                    <a href="https://Register.sabak.org">
+
+                    {/* <a href="https://Register.sabak.org">
                       <Button className="register">
                         <div></div>ثبت نام
                         <img alt="avatar" src={SignUp} />
                       </Button>
-                    </a>
+                    </a> */}
                   </>
                 )}
               </Col>

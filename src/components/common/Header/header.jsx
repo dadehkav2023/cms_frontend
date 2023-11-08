@@ -122,12 +122,12 @@ const Header = () => {
                       <div></div>ورود کاربران
                       <img alt="avatar" src={Avatar} />
                     </Button>
-                    <a href="https://Register.sabak.org">
+                    {/* <a href="https://Register.sabak.org">
                       <Button id="register-button">
                         <div></div>ثبت نام
                         <img alt="avatar" src={SignUp} />
                       </Button>
-                    </a>
+                    </a> */}
                   </>
                 )}
               </Col>

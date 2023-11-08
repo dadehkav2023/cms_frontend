@@ -1,68 +1,82 @@
-import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Card } from "react-bootstrap";
-import AnnouncementsButton from "../../common/Buttons/AnnouncementsButton/AnnouncementsButton";
-import "./Announcement.scss";
-import checkMark from "../../../assets/img/landing/icon/check.png";
-import bullet from "../../../assets/img/landing/icon/circle_blue.png";
-import IranMap from "./IranMap/IranMap";
-import { UseGetMap } from "../../../core/services/api/get-map";
-import { FallBackSpinner } from "../../common/Spinner/FallBackSpinner/FallbackSpinner";
+import { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { UseGetMap } from '../../../core/services/api/get-map';
+import { UseGetStatement } from '../../../core/services/api/get-statement';
+import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
+import './Announcement.scss';
+import IranMap from './IranMap/IranMap';
+import StatementsGridFlashCard from '../../StatementsGrid/StatementsGridFlashCard/StatementsGridFlashCard';
+
 const Announcement = () => {
   const { data, isLoading, isError, isSuccess } = UseGetMap();
   const [currentProvince, setCurrentProvince] = useState(0);
   const provinces = [
-    "استان ها",
-    "آذربایجان شرقی",
-    "آذربایجان غربی",
-    "اردبیل",
-    "اصفهان",
-    "البرز",
-    "ایلام",
-    "بوشهر",
-    "تهران",
-    "چهارمحال وبختیاری",
-    "خراسان جنوبی",
-    "خراسان رضوی",
-    "خراسان شمالی",
-    "خوزستان",
-    "زنجان",
-    "سمنان",
-    "سیستان وبلوچستان",
-    "فارس",
-    "قزوین",
-    "قم",
-    "کردستان",
-    "کرمان",
-    "کرمانشاه",
-    "کهگیلویه وبویراحمد",
-    "گلستان",
-    "گیلان",
-    "لرستان",
-    "مازندران",
-    "مرکزی",
-    "هرمزگان",
-    "همدان",
-    "یزد",
+    'استان ها',
+    'آذربایجان شرقی',
+    'آذربایجان غربی',
+    'اردبیل',
+    'اصفهان',
+    'البرز',
+    'ایلام',
+    'بوشهر',
+    'تهران',
+    'چهارمحال وبختیاری',
+    'خراسان جنوبی',
+    'خراسان رضوی',
+    'خراسان شمالی',
+    'خوزستان',
+    'زنجان',
+    'سمنان',
+    'سیستان وبلوچستان',
+    'فارس',
+    'قزوین',
+    'قم',
+    'کردستان',
+    'کرمان',
+    'کرمانشاه',
+    'کهگیلویه وبویراحمد',
+    'گلستان',
+    'گیلان',
+    'لرستان',
+    'مازندران',
+    'مرکزی',
+    'هرمزگان',
+    'همدان',
+    'یزد',
   ];
 
   useEffect(() => {}, [currentProvince]);
+  const state = useSelector((state) => state.setting);
+
+  const {
+    data: StatementsData,
+    isError: StatementsIsError,
+    isLoading: StatementsIsLoading,
+    isSuccess: StatementsIsSuccess,
+    mutate: StatementsMutate,
+  } = UseGetStatement();
+
+  useEffect(() => {
+    StatementsMutate({
+      page: 1,
+      // pageSize: pageSize,
+      isActive: true,
+    });
+  }, []);
 
   return isLoading ? (
     <FallBackSpinner />
   ) : (
     <section className="announcement-section">
-      <div
-        style={{ width: "100%", height: "5px", background: "#0059fd" }}
-      ></div>
       <Container fluid className="announcements-container">
         <Row>
           <Col xl={8}>
             <Row>
-              <Col className="custom-title-line-col" lg={10}>
-                <div className="custom-title-line"></div>
-              </Col>
-              <Col lg={2}>
-                <span className="provinces-title">استان ها</span>
+              <Col lg={12}>
+                <span className="provinces-title pr-lg-5 pt-lg-5">
+                  استان ها
+                </span>
               </Col>
             </Row>
             <Row className="provinces-detail-row">
@@ -70,18 +84,19 @@ const Announcement = () => {
                 <span>{provinces[currentProvince]}</span>
                 <p className="province-description">
                   {currentProvince === 0
-                    ? "جهت مشاهده توضیحات هر استان ماوس(موشواره) را بر بروی مکان آن از روی نقشه ببرید و جهت مشاهوه وبسایت استان مورد نظر روی موقعیت مکانی آن کلیک کنید"
+                    ? 'جهت مشاهده توضیحات هر استان ماوس(موشواره) را بر بروی مکان آن از روی نقشه ببرید و جهت مشاهوه وبسایت استان مورد نظر روی موقعیت مکانی آن کلیک کنید'
                     : data.data.result
                         .map((item) => item.province.province)
                         .includes(currentProvince)
                     ? data.data.result.filter(
                         (item) => item.province.province === currentProvince
                       )[0].description
-                    : "توضیحاتی برای این استان ثبت نشده است"}
+                    : 'توضیحاتی برای این استان ثبت نشده است'}
                 </p>
               </Col>
               <Col xl={7}>
                 <IranMap
+                  className=""
                   activeMap={data?.data?.result}
                   currentProvince={currentProvince}
                   setCurrentProvince={setCurrentProvince}
@@ -90,44 +105,65 @@ const Announcement = () => {
             </Row>
           </Col>
           <Col xl={4}>
-            <span className="announcements-title">بیانیه و اطلاعیه</span>
-            <Card className="announcements-card">
-              <Card.Body>
-                <ul className="announcements-ul">
-                  <li>
-                    <img src={checkMark} alt="checkmark-logo" />
-                    <span>
-                      پیام تبریک آقای نظام الدین خوارزمی رئیس‌ شورای مرکزی
-                      سازمان نظام صنفی رایانه ای کشور به حضرت آیت اله رئیسی
-                    </span>
-                  </li>
-                  <li>
-                    <img src={checkMark} alt="checkmark-logo" />
-
-                    <span>
-                      پیام تبریک آقای نظام الدین خوارزمی رئیس‌ شورای مرکزی
-                      سازمان نظام صنفی رایانه ای کشور به حضرت آیت اله رئیسی
-                    </span>
-                  </li>
-                  <li>
-                    <img src={checkMark} alt="checkmark-logo" />
-
-                    <span>
-                      پیام تبریک آقای نظام الدین خوارزمی رئیس‌ شورای مرکزی
-                      سازمان نظام صنفی رایانه ای کشور به حضرت آیت اله رئیسی
-                    </span>
-                  </li>
-                  <li>
-                    <img src={checkMark} alt="checkmark-logo" />
-                    <span>
-                      پیام تبریک آقای نظام الدین خوارزمی رئیس‌ شورای مرکزی
-                      سازمان نظام صنفی رایانه ای کشور به حضرت آیت اله رئیسی
-                    </span>
-                  </li>
-                </ul>
-                <AnnouncementsButton />
-              </Card.Body>
-            </Card>
+            <span className="announcements-title pr-lg-5 pt-lg-5 mt-lg-4">
+              بیانیه و اطلاعیه
+            </span>
+            <Row className="statement-gird" style={{ direction: 'rtl' }}>
+              {StatementsData?.status < 300 ? (
+                StatementsData?.data.result.statementList[0] &&
+                (StatementsIsError || StatementsIsSuccess) ? (
+                  StatementsData?.data.result.statementList.map(
+                    (news, index) => (
+                      <Col lg={3} key={index}>
+                        <div
+                          className="statement-grid-item"
+                          to={`/Statement/Statements/${news.id}`}
+                        >
+                          <StatementsGridFlashCard
+                            statement={news}
+                            // subTitle={news.subTitle}
+                            // date={news.publishedDateTimeAsJalali}
+                            // img={news.imagePath}
+                          />
+                        </div>
+                      </Col>
+                    )
+                  )
+                ) : (
+                  <h2
+                    style={{
+                      color: 'red',
+                      fontSize: '14px',
+                      textAlign: 'center',
+                      width: '100%',
+                      margin: '10% ',
+                    }}
+                  >
+                    هیچ اطلاعاتی جهت نمایش وجود ندارد
+                  </h2>
+                )
+              ) : (
+                <div
+                  style={{
+                    color: 'black',
+                    textAlign: 'center',
+                    width: '100%',
+                    margin: '10% ',
+                  }}
+                >
+                  <h1
+                    style={{
+                      fontSize: '14px',
+                      color: '#065cfd',
+                      width: '100%',
+                    }}
+                  >
+                    لطفا منتظر بمانید...
+                  </h1>
+                  <div className="spinner"></div>
+                </div>
+              )}
+            </Row>
           </Col>
         </Row>
       </Container>

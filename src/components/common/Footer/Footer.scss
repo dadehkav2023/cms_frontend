@@ -5,10 +5,10 @@
 .footer-top {
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: #2219b4;
+  background-color: #0B1803;
 }
 .footer-card > div {
-  background-color: #2219b4;
+  background-color: #0B1803;
   color: #fff;
 }
 .footer-card {
@@ -21,12 +21,13 @@
   position: relative;
 }
 .footer-card > div > ul {
+  
   list-style: none;
 }
 .footer-card > div > span {
   display: inline-block;
   width: 100%;
-  font-size: 22px;
+  font-size: 16px;
   padding-left: 115px;
   text-align: right;
   margin-bottom: 20px;
@@ -35,17 +36,18 @@
   direction: rtl;
   display: flex;
   list-style: none;
-  font-size: 18px;
+  font-size: 14px;
+  
   margin-top: 10px;
 }
 .footer-card > div > ul > li > p {
   text-align: right;
 }
-.footer-card > div > ul > li > img {
-  margin-left: 12px;
-  width: 15px;
-  height: 25px;
-}
+// .footer-card > div > ul > li > img {
+//   margin-left: 12px;
+//   width: 15px;
+//   height: 15px;
+// }
 .footer-card > div > ul > li > a,
 .footer-card > div > ul > li > span {
   text-decoration: none;
@@ -54,25 +56,24 @@
 }
 
 .enamad > img {
-  width: 85%;
+  width: 50%;
   padding-top: 75px;
   position: absolute;
   left: 20%;
-  top: -10%;
+  bottom: 2%;
 }
 .footer-bottom {
+  height: 60px;
   text-align: center;
-  background-color: #0059fd;
+  background-color: #000000;
   color: #fff;
-  font-size: 19px;
+  font-size: 12px;
   padding: 7px 0 7px 0;
 }
+
 .footer-bottom > a {
-  color: #fff;
-}
-.footer-bottom > a:hover {
-  color: #fff;
-}
+  color: #6DCE0E !important;}
+
 .social-media-footer-box {
   width: 300px;
   height: 50px;

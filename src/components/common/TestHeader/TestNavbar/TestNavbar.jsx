@@ -10,9 +10,9 @@ const TestNavbarMenu = ({ data }) => {
   return (
     <Navbar className="my-navbar" expand="lg">
       <Container className="navbar-container">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="hambergerMenu   " />
         <Navbar.Collapse className="my-nav-customised navbar-container-collapse basic-navbar-nav">
-          <Nav className="ml-auto">
+          <Nav className="ml-auto mt-5">
             {data &&
               data.data &&
               data?.data.result[0] &&

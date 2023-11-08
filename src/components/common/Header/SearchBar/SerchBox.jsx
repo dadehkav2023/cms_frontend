@@ -10,11 +10,11 @@ const SearchBox = () => {
       <FormControl
         type="search"
         placeholder="جستجو ..."
-        className="mr-2"
+        className="mr-2 custom-input"
         aria-label="Search"
       />
-      <Button>
-        <img alt="search" src={search} />
+      <Button className="custom-button">
+        <img width={40} height={40} alt="search" src={search} className="custom-image"/>
       </Button>
     </Form>
   );

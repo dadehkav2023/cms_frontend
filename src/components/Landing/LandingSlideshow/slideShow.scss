@@ -1,51 +1,57 @@
-.slide-show {
-  top: -40px;
-}
+
 .slide-show-item {
-  height: 650px;
+
+  height: 600px;
 }
-.slide-show-item > a > img {
-  height: 100%;
-  object-fit: cover;
+.imgSlider{
+  margin-top: 2.5%;
+  margin-left: 5%;
+  border-radius: 2%;
 }
 .carousel-control-next-icon {
-  left: 60px;
+  
   position: relative;
+  right: -15%;
+  bottom: 10%;
 }
 .carousel-control-prev-icon {
-  right: 60px;
   position: relative;
+  left: -35%;
+  bottom: 10%;
+  
 }
 .carousel-indicators {
-  right: 61% !important;
+  left: 0% !important;
   z-index: 4 !important;
 }
 .carousel-indicators > li {
   height: 25px !important;
   width: 25px !important;
   border-radius: 100% !important;
-  background-color: rgb(0, 89, 253) !important;
+  background-color: #0B1803 !important;
 }
 .slider-caption {
-  position: absolute;
-  bottom: 76px !important;
-  left: 2% !important;
-  z-index: 1;
-  color: #fff;
+  
+  width: 500px;
+  height: 400px;
+   position: relative;
+   top: 40% !important;
+   right: 42% !important;
+  z-index: 1000;
+  color: #000000;
   text-align: right !important;
-  border-right: 5px solid rgb(0, 89, 253);
-  padding-right: 32px;
-  padding-left: 10px;
-  width: 30%;
-  background: rgba(255, 255, 255, 0.7);
+  
+  
+  
+
   border-radius: 10px 0 0 10px;
 }
 .slider-caption > h5 {
-  color: rgb(0, 89, 253);
+  color: #0B1803;
 }
 
 .slider-caption > p {
-  color: rgb(112, 112, 112);
+  color: rgb(48, 48, 48);
 }
 @media only screen and (max-width: 1199px) {
   .slide-show-item {

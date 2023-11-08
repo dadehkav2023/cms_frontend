@@ -58,7 +58,7 @@ const VideoNews = () => {
     <>
       {categoryData.data.result[0] ? (
         <>
-        <Container fluid className="pr-lg-5">
+        <Container fluid className="pr-lg-5 ">
           <section className="video-news-section">
             <SectionTitle className="sectionTitle" TitleText="ویدئو" />
             <Link

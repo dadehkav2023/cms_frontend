@@ -1,10 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./TextNewsFlashCard.scss";
 import { Card } from "react-bootstrap";
-import mockImage from "../../../../assets/img/landing/slid1.jpg";
 import { englishNumbersToPersian } from "../../../../core/utils/englishNumbersToPersian";
 import OpenItemButton from "../../../common/Buttons/OpenItemButton/OpenItemButton";
+import "./TextNewsFlashCard.scss";
 const TextNewsFlashCard = ({ title, description, img, id, date }) => {
   return (
     <Card className="text-news-card-item">

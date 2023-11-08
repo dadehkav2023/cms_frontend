@@ -1,5 +1,5 @@
 .custom-hr {
-  border: 1px solid #065cfd;  /* Define the border style */
+  border: 1px solid #6DCE0E;  /* Define the border style */
   width: 90%;             /* Set the width of the line */
   margin: 50px auto;         /* Center the line on the page */
 }
@@ -9,6 +9,7 @@
 .custom-breadcrumb .breadcrumb {
   background-color: transparent; /* Set the background color to transparent */
   font-size: smaller;
+  margin-top: 50px;
 }
 .text-news-page {
   text-align: right;
@@ -20,7 +21,7 @@
   text-align: right;
   width: 70%;
   margin-left: auto;
-  margin-top: 12px;
+  margin-top: 60px;
   
   
 }
@@ -33,7 +34,7 @@
 .text-news-page > .sectionTitleContainer > .sectionTitle {
   font-size:30px;
   margin: 0px 0 35px 0;
-  border: 0;
+  border: 1px solid ;
   border: none;
   text-align: right;
 }
