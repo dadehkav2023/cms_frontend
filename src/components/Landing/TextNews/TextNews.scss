@@ -1,4 +1,24 @@
+.spinner {
+  border: 4px solid #2A7221;
+  border-top: 4px solid #119822;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.sectionTitle{
+  color: black;
+  border-bottom: none;
+  font-size: 24px;
+}
 .text-news-section {
+
   width: 100%;
 }
 .text-news-section > .sectionTitleContainer > .sectionTitle {
@@ -10,7 +30,7 @@
 .text-news-tab {
   border: none !important;
   width: 70%;
-  margin: 0 2.5% 15px 0 !important;
+  margin: 10px -1% 15px 0 !important;
   flex-direction: row-reverse;
   float: right;
 }
@@ -18,22 +38,23 @@
   color: rgb(44, 40, 40);
   width: 16 0px;
   text-align: center;
+  margin-top: 10px;
+  border: none !important;
   margin-right: 5px;
-  border: 1px solid #222 !important;
-  border-radius: 10px !important;
+  // border: 1px solid #222 !important;
+  // border-radius: 10px !important;
 }
 .text-news-tab > .active {
-  color: rgb(0, 89, 253) !important;
-  border: 1px solid rgb(0, 89, 253) !important;
+  color: #2A7221 !important;
+  border: none !important;
 }
-.text-news-tab > a {
-  margin-top: 10px;
-}
+
 .text-news-section
   > .caption-flex-container
   > #section-title-middle
   > .section-title-middle-box
   > span {
+    
   font-size: 35px;
   padding-right: 31%;
   padding-top: 31%;

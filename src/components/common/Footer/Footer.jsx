@@ -1,18 +1,18 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import enamad from "../../../assets/img/landing/enamad.png";
-import Backward from "../../../assets/img/landing/icon/Backward.png";
-import "./Footer.scss";
-import JumpToTop from "../Buttons/JumpToTop/JumpToTop";
-import { Col, Container, Row, Card } from "react-bootstrap";
-import facebook from "../../../assets/img/landing/icon/facebook.png";
-import website from "../../../assets/img/landing/icon/google.png";
-import instagram from "../../../assets/img/landing/icon/insta.png";
-import twiter from "../../../assets/img/landing/icon/twiter.png";
-import { useSelector } from "react-redux";
-import { englishNumbersToPersian } from "../../../core/utils/englishNumbersToPersian";
-import { UseGetQuickAccess } from "../../../core/services/api/get-quick-access";
-import { UseGetRelatedLinks } from "../../../core/services/api/get-related-links";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import enamad from '../../../assets/img/landing/enamad.png';
+import Backward from '../../../assets/img/landing/icon/Backward.png';
+import './Footer.scss';
+import JumpToTop from '../Buttons/JumpToTop/JumpToTop';
+import { Col, Container, Row, Card } from 'react-bootstrap';
+import facebook from '../../../assets/img/landing/icon/facebook.png';
+import website from '../../../assets/img/landing/icon/google.png';
+import instagram from '../../../assets/img/landing/icon/insta.png';
+import twiter from '../../../assets/img/landing/icon/twiter.png';
+import { useSelector } from 'react-redux';
+import { englishNumbersToPersian } from '../../../core/utils/englishNumbersToPersian';
+import { UseGetQuickAccess } from '../../../core/services/api/get-quick-access';
+import { UseGetRelatedLinks } from '../../../core/services/api/get-related-links';
 const Footer = () => {
   const state = useSelector((state) => state.setting);
   const {
@@ -35,7 +35,7 @@ const Footer = () => {
     relatedLinksMutate({ page: 1, pageSize: 10, isActive: true });
   }, []);
   return (
-    <section className="footer-section">
+    <section className="footer-section  pt-lg-5">
       <footer>
         <Container fluid className="footer-top">
           <Row>
@@ -124,7 +124,7 @@ const Footer = () => {
                         (relatedLink, index) => {
                           return (
                             <li>
-                              <img alt="backward-logo" src={Backward} />
+                              {/* <img alt="backward-logo" src={Backward} /> */}
                               <a
                                 target="_blank"
                                 rel="noreferrer"
@@ -200,7 +200,7 @@ const Footer = () => {
                         (quickAccess, index) => {
                           return (
                             <li>
-                              <img alt="backward-logo" src={Backward} />
+                              {/* <img alt="backward-logo" src={Backward} /> */}
                               <Link to={quickAccess.link}>
                                 {quickAccess.title}
                               </Link>
@@ -216,17 +216,19 @@ const Footer = () => {
         </Container>
         <JumpToTop />
 
-        <div className="footer-bottom">
+        <div className="footer-bottom  line-height-2">
           {englishNumbersToPersian(
-            "کلیه حقوق بهره برداری از سامانه مربوط به نظام صنفی کشور میباشد.  تولید کننده سامانه"
-          )}{" "}
+            '.کلیه حقوق بهره برداری از سامانه مربوط به نظام صنفی کشور میباشد'
+          )}
           <a
             href="https://dadehkavdehghan.ir/"
             target="_blank"
             rel="noreferrer"
-            style={{ textDecoration: "none" }}
+            style={{ textDecoration: 'none' }}
           >
-            شرکت داده کاو دهقان طبرستان
+            <p className="pt-2">
+              تولید کننده سامانه شرکت داده کاو دهقان طبرستان
+            </p>
           </a>
         </div>
       </footer>

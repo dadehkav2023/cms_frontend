@@ -2,12 +2,13 @@
   video-align: right;
 }
 
-.video-news-page > img {
-  // height: 500px;
-  margin: 0 auto;
+.video-news-page > .videoPlayer {
+ width: 600px;
+  
+  margin:20px auto ;
   display: block;
-  width: 70%;
-  object-fit: cover;
+  
+  
 }
 .video-news-page > .sectionTitleContainer {
   text-align: right;

@@ -1,32 +1,38 @@
 .more-items-button-container {
-  text-align: center;
-  margin: 50px 0 50px 0;
+  text-align: left;
+  margin-top: -30px;
+  margin-left: 5%;
+
 }
 
 .more-items-button {
   font-size: 15px;
   display: inline-block;
   height: 40px;
-  width: 20%;
-  border: 1px solid #065cfd;
-  background-color: white !important;
-  border-radius: 5px;
-  padding: 10px 10px 0 0;
-  color: #065cfd;
+  width: fit-content;
+ 
+  // border: 1px solid #065cfd;
+  // background-color: white !important;
+  // border-radius: 5px;
+  // padding: 10px 10px 0 0;
+  color: #2A7221;
   text-align: center;
   cursor: pointer;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  margin-bottom: 5px;
+    // border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  // margin-bottom: 5px;
 }
 
-.more-items-button:hover {
-  border: 2px solid #065cfd;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+// .more-items-button:hover {
+//   border: 2px solid #065cfd;
+//   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+//     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+// }
 @media (max-width: 370px) {
   .more-items-button {
     width: 100%;
+   
   }
 }
+
+

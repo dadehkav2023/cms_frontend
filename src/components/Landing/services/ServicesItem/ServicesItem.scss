@@ -38,21 +38,21 @@
   padding-top: 10%;
 }
 
-.services-hover {
-  width: 250%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  transform: rotate(45deg);
-  position: absolute;
-  right: -600px;
-  transition: 0.7s;
-  top: -101px;
-  z-index: 1;
-}
-.services-card-item:hover > .services-flash-card-img > .services-hover {
-  right: 40px;
-  top: 20px;
-}
+// .services-hover {
+//   width: 250%;
+//   height: 100%;
+//   background: rgba(255, 255, 255, 0.5);
+//   transform: rotate(45deg);
+//   position: absolute;
+//   right: -600px;
+//   transition: 0.7s;
+//   top: -101px;
+//   z-index: 1;
+// }
+// .services-card-item:hover > .services-flash-card-img > .services-hover {
+//   right: 40px;
+//   top: 20px;
+// }
 
 @media (max-width: 1200px) {
   .services-card-item {

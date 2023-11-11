@@ -1,10 +1,12 @@
 .sectionTitleContainer {
-  text-align: center;
+  text-align: right;
+  padding-right: 0px;
 }
 .sectionTitle {
+  
   display: inline-block;
   text-align: center;
-  margin: 50px 0 50px 0;
+  margin: 30px 10px 50px 10px;
   border-bottom: 4px solid #000;
-  font-size: 35px;
+  font-size: 25px;
 }

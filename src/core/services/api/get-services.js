@@ -3,7 +3,7 @@ import { useMutation } from "react-query";
 
 const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
-const url = MainUrl + "/api/ServiceDesk/GetServiceDesk";
+const url = MainUrl + "/api/admin/ServiceDesk/GetServiceDesk";
 
 const GetServicesApi = async (value) => {
   return await axios.post(url, value);

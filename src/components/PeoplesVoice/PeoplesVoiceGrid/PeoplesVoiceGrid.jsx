@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import "./PeoplesVoiceGrid.scss";
-import ReactPaginate from "react-paginate";
-import { ChevronLeft, ChevronRight } from "react-feather";
-import { Col, Container, Row } from "react-bootstrap";
-import PeoplesVoiceFlashcard from "../PeoplesVoiceGridFlashCard/PeoplesVoiceGridFlashCard";
-import { FallBackSpinner } from "../../common/Spinner/FallBackSpinner/FallbackSpinner";
-import { useHistory, Link } from "react-router-dom";
-import { UseGetChallenge } from "../../../core/services/api/get-challenge";
+import React, { useEffect, useState } from 'react';
+import './PeoplesVoiceGrid.scss';
+import ReactPaginate from 'react-paginate';
+import { ChevronLeft, ChevronRight } from 'react-feather';
+import { Col, Container, Row } from 'react-bootstrap';
+import PeoplesVoiceFlashcard from '../PeoplesVoiceGridFlashCard/PeoplesVoiceGridFlashCard';
+import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
+import { useHistory, Link } from 'react-router-dom';
+import { UseGetChallenge } from '../../../core/services/api/get-challenge';
 const PeoplesVoiceGrid = () => {
   const history = useHistory();
   const [pageSize, setPageSize] = useState(12);
   const [pageNumber, setPageNumber] = useState(1);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
 
   const {
     data: challengeData,
@@ -42,15 +42,15 @@ const PeoplesVoiceGrid = () => {
     <>
       <section
         className="text-news-section-grid"
-        style={{ textAlign: "center" }}
+        style={{ textAlign: 'center' }}
       >
         <Container className="container" fluid>
           <Row
             style={{
-              direction: "rtl",
+              direction: 'rtl',
             }}
           >
-            <Col lg={6} style={{ direction: "rtl" }}>
+            <Col lg={6} style={{ direction: 'rtl' }}>
               <Row>
                 <Col xs={6}> تعداد نمایش :</Col>
 
@@ -60,7 +60,7 @@ const PeoplesVoiceGrid = () => {
                       const newCount = +e.target.value;
                       setPageSize(newCount);
                     }}
-                    style={{ float: "right" }}
+                    style={{ float: 'right' }}
                   >
                     <option selected={pageSize === 12} value="12">
                       ۱۲
@@ -111,7 +111,7 @@ const PeoplesVoiceGrid = () => {
                           image={challenge.imagePath}
                           from={
                             challenge.authorFirstName +
-                            " " +
+                            ' ' +
                             challenge.authorLastName
                           }
                         />
@@ -122,10 +122,10 @@ const PeoplesVoiceGrid = () => {
               ) : (
                 <h2
                   style={{
-                    color: "red",
-                    textAlign: "center",
-                    width: "100%",
-                    margin: "20px 0 20px 0",
+                    color: 'red',
+                    textAlign: 'center',
+                    width: '100%',
+                    margin: '20px 0 20px 0',
                   }}
                 >
                   هیچ اطلاعاتی جهت نمایش وجود ندارد
@@ -134,10 +134,10 @@ const PeoplesVoiceGrid = () => {
             ) : (
               <h1
                 style={{
-                  color: "#000",
-                  textAlign: "center",
-                  width: "100%",
-                  margin: "20px 0 20px 0",
+                  color: '#000',
+                  textAlign: 'center',
+                  width: '100%',
+                  margin: '20px 0 20px 0',
                 }}
               >
                 لطفا منتظر بمانید
@@ -149,13 +149,13 @@ const PeoplesVoiceGrid = () => {
             previousLabel={
               <span className="page-prev">
                 <ChevronRight size={15} />
-                {"<"}
+                {'<'}
               </span>
             }
             nextLabel={
               <span className="page-prev">
                 <ChevronLeft size={15} />
-                {">"}
+                {'>'}
               </span>
             }
             breakLabel="..."

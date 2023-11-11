@@ -1,25 +1,15 @@
 .announcements-button {
-  width: 80%;
-  text-align: center;
+  width: 100px;
+  text-align: left;
   line-height: 77px;
-  border: 2px solid #2f78fd;
-  color: #0059fd;
-  margin: 0 auto;
-  font-size: 26px;
-  border-radius: 12px;
-  margin-top: 65px;
-  margin-bottom: -12px;
+
+  color: #6dce0e;
+  margin-right: auto;
+  font-size: 14px;
+
   cursor: pointer;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.announcements-button:hover {
-  background-color: #065cfd;
-  color: #fff;
-  border: 2px solid #fff;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+
 @media (max-width: 1820px) {
   .announcements-button {
     width: 80%;
@@ -31,7 +21,7 @@
   .announcements-button {
     width: 40%;
     height: 70px;
-    line-height: 60px;
+   
     font-size: 25px;
   }
 }

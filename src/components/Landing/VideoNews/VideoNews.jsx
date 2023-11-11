@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
-import "./VideoNews.scss";
-import SectionTitle from "../../common/SectionTitle/SectionTitle";
-import VideoNewsFlashCard from "./VideoNewsFlashCard/VideoNewsFlashCard";
-import { Col, Container, Row, Tabs, Tab } from "react-bootstrap";
-import Carousel from "react-elastic-carousel";
-import "./VideoNews.scss";
-import { UseGetCategories } from "../../../core/services/api/get-news-categories";
-import { UseGetVideoNews } from "../../../core/services/api/get-video-news";
-import { FallBackSpinner } from "../../common/Spinner/FallBackSpinner/FallbackSpinner";
-import MoreItemsButton from "../../common/Buttons/MoreItemsButton/MoreItemsButton";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import './VideoNews.scss';
+import SectionTitle from '../../common/SectionTitle/SectionTitle';
+import VideoNewsFlashCard from './VideoNewsFlashCard/VideoNewsFlashCard';
+import { Col, Container, Row, Tabs, Tab } from 'react-bootstrap';
+import Carousel from 'react-elastic-carousel';
+import './VideoNews.scss';
+import { UseGetCategories } from '../../../core/services/api/get-news-categories';
+import { UseGetVideoNews } from '../../../core/services/api/get-video-news';
+import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
+import MoreItemsButton from '../../common/Buttons/MoreItemsButton/MoreItemsButton';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const VideoNews = () => {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
   const state = useSelector((state) => state.setting);
   const breakPoints = [
     { width: 400, itemsToShow: 1 },
@@ -55,8 +58,17 @@ const VideoNews = () => {
     <>
       {categoryData.data.result[0] ? (
         <>
+        <Container fluid className="pr-lg-5 ">
           <section className="video-news-section">
-            <SectionTitle TitleText="ویدئو" />
+            <SectionTitle className="sectionTitle" TitleText="ویدئو" />
+            <Link
+                      style={{
+                        color: 'rgba(0, 0, 0, 0.5)',
+                      }}
+                      to="/News/VideoNews"
+                    >
+                      <MoreItemsButton text="مشاهده بیشتر" />
+                    </Link>
             <Tabs
               onSelect={(e) => {
                 setSelectedCategory(+e);
@@ -64,7 +76,7 @@ const VideoNews = () => {
               className="video-news-tab"
               defaultActiveKey={categoryData.data.result[0].id}
             >
-              {categoryData.data.result.map((category, index) => {
+              {categoryData?.data.result.map((category, index) => {
                 return (
                   <Tab
                     key={index}
@@ -78,19 +90,26 @@ const VideoNews = () => {
                       breakPoints={breakPoints}
                     >
                       {VideoNewsData && VideoNewsData.data ? (
-                        VideoNewsData.data.result.newsList[0] &&
+                        VideoNewsData?.data?.result.newsList[0] &&
                         (VideoNewsIsError || VideoNewsIsSuccess) ? (
-                          VideoNewsData.data.result.newsList.map(
+                          VideoNewsData?.data?.result.newsList.map(
                             (news, index) => {
                               return (
                                 <Link
                                   key={index}
+                                  style={{
+                                    color: '#000',
+                                    textDecoration: 'none',
+                                    marginTop:'50px',
+                                    marginBottom:'50px'
+                                  }}
                                   className="text-news-grid-item"
                                   to={`/News/VideoNews/${news.id}`}
+                                   onClick={scrollToTop} // Call scrollToTop when the link is clicked
                                 >
                                   <VideoNewsFlashCard
                                     title={news.title}
-                                    description={news.summaryTitle}
+                                    description={news.summary}
                                     img={news.imagePath}
                                     id={news.id}
                                     date={news.publishedDateTimeAsJalali}
@@ -101,50 +120,56 @@ const VideoNews = () => {
                           )
                         ) : (
                           <h2
-                            style={{
-                              color: "red",
-                              textAlign: "center",
-                              width: "100%",
-                            }}
-                          >
-                            هیچ اطلاعاتی جهت نمایش وجود ندارد
-                          </h2>
-                        )
-                      ) : (
-                        <h1
                           style={{
-                            color: "#000",
-                            textAlign: "center",
-                            width: "100%",
+                            color: 'red',
+                            fontSize: '14px',
+                            textAlign: 'center',
+                            width: '100%',
+                            margin: '10% ',
                           }}
                         >
-                          لطفا منتظر بمانید
-                        </h1>
+                          هیچ اطلاعاتی جهت نمایش وجود ندارد
+                        </h2>
+                        )
+                      ) : (
+                        <div
+                            style={{
+                              color: 'black',
+                              textAlign: 'center',
+                              width: '100%',
+                              margin: '10% ',
+                            }}
+                          >
+                            <h1
+                              style={{
+                                fontSize: '14px',
+                                color: '#065cfd',
+                                width: '100%',
+                              }}
+                            >
+                              لطفا منتظر بمانید...
+                            </h1>
+                            <div className="spinner"></div>
+                          </div>
                       )}
                     </Carousel>
-                    <Link
-                      style={{
-                        color: "rgba(0, 0, 0, 0.5)",
-                      }}
-                      to="/News/VideoNews"
-                    >
-                      <MoreItemsButton text="سایر ویدئو ها" />
-                    </Link>
+                    
                   </Tab>
                 );
               })}
             </Tabs>
           </section>
+          </Container>
         </>
       ) : (
         <>
           <SectionTitle TitleText="ویدئو" />
           <h2
             style={{
-              color: "red",
-              textAlign: "center",
-              width: "100%",
-              margin: "30px 0 30px 0",
+              color: 'red',
+              textAlign: 'center',
+              width: '100%',
+              margin: '30px 0 30px 0',
             }}
           >
             هیچ اطلاعاتی جهت نمایش وجود ندارد

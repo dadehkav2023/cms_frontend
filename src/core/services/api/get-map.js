@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 
 const MainUrl = process.env.REACT_APP_PUBLIC_PATH;
 
-const url = MainUrl + "/api/Map/GetProvinceMap";
+const url = MainUrl + "/api/admin/Map/GetProvince";
 
 const GetMapApi = async () => {
   return await axios.get(url);

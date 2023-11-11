@@ -1,10 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./TextNewsFlashCard.scss";
 import { Card } from "react-bootstrap";
-import mockImage from "../../../../assets/img/landing/slid1.jpg";
 import { englishNumbersToPersian } from "../../../../core/utils/englishNumbersToPersian";
 import OpenItemButton from "../../../common/Buttons/OpenItemButton/OpenItemButton";
+import "./TextNewsFlashCard.scss";
 const TextNewsFlashCard = ({ title, description, img, id, date }) => {
   return (
     <Card className="text-news-card-item">
@@ -14,7 +11,7 @@ const TextNewsFlashCard = ({ title, description, img, id, date }) => {
       />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>{description}</Card.Text>
+        <Card.Text  className="truncate">{description}</Card.Text>
         <span className="text-news-flash-card-date">
           {englishNumbersToPersian(date)}
         </span>

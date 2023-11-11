@@ -10,10 +10,11 @@ import VideoNewsGrid from "../../components/NewsGrid/VideoNewsGrid/VideoNewsGrid
 import TextNewsPage from "../../components/NewsGrid/TextNewsPage/TextNewsPage";
 import PhotoNewsPage from "../../components/NewsGrid/PhotoNewsPage/PhotoNewsPage";
 import VideoNewsPage from "../../components/NewsGrid/VideoNewsPage/VideoNewsPage";
+import TestHeader from "../../components/common/TestHeader/TestHeader";
 const NewsGrid = () => {
   return (
     <>
-      <Header />
+       <TestHeader />
       <Switch>
         <Route path="/News/TextNews" exact component={TextNewsGrid} />
         <Route path="/News/TextNews/:id" exact component={TextNewsPage} />

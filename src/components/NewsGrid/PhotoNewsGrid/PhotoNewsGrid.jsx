@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import "./PhotoNewsGrid.scss";
-import ReactPaginate from "react-paginate";
-import { ChevronLeft, ChevronRight } from "react-feather";
-import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
-import TextNewsFlashCard from "../NewsGridFlashCard/NewsGridFlashCard";
-import { UseGetCategories } from "../../../core/services/api/get-news-categories";
-import { FallBackSpinner } from "../../common/Spinner/FallBackSpinner/FallbackSpinner";
-import { UseGetPhotoNews } from "../../../core/services/api/get-photo-news";
-import { useHistory, Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import './PhotoNewsGrid.scss';
+import ReactPaginate from 'react-paginate';
+import { ChevronLeft, ChevronRight } from 'react-feather';
+import { Col, Container, Row, Tab, Tabs } from 'react-bootstrap';
+import TextNewsFlashCard from '../NewsGridFlashCard/NewsGridFlashCard';
+import { UseGetCategories } from '../../../core/services/api/get-news-categories';
+import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
+import { UseGetPhotoNews } from '../../../core/services/api/get-photo-news';
+import { useHistory, Link } from 'react-router-dom';
 
 const PhotoNewsGrid = () => {
   const [newsType, setNewsType] = useState(2);
@@ -15,17 +15,17 @@ const PhotoNewsGrid = () => {
 
   useEffect(() => {
     if (newsType === 1) {
-      history.push("/News/TextNews");
+      history.push('/News/TextNews');
     } else if (newsType === 2) {
-      history.push("/News/PhotoNews");
+      history.push('/News/PhotoNews');
     } else {
-      history.push("/News/VideoNews");
+      history.push('/News/VideoNews');
     }
   }, [newsType]);
 
   const [pageSize, setPageSize] = useState(12);
   const [pageNumber, setPageNumber] = useState(1);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const {
     data: photoNewsData,
     isError: photoNewsIsError,
@@ -54,10 +54,10 @@ const PhotoNewsGrid = () => {
 
   return (
     <>
-      <section className="photo-news-section" style={{ textAlign: "center" }}>
+      <section className="photo-news-section" style={{ textAlign: 'center' }}>
         <Container className="container" fluid>
-          <Row style={{ direction: "rtl" }}>
-            <Col lg={4} style={{ direction: "rtl" }}>
+          <Row style={{ direction: 'rtl' }}>
+            <Col lg={4} style={{ direction: 'rtl' }}>
               <Row>
                 <Col xs={6}> تعداد نمایش :</Col>
 
@@ -67,7 +67,7 @@ const PhotoNewsGrid = () => {
                       const newCount = +e.target.value;
                       setPageSize(newCount);
                     }}
-                    style={{ float: "right" }}
+                    style={{ float: 'right' }}
                   >
                     <option selected={pageSize === 12} value="12">
                       ۱۲
@@ -85,24 +85,24 @@ const PhotoNewsGrid = () => {
                 </Col>
               </Row>
             </Col>
-            <Col lg={4} style={{ direction: "rtl" }}>
+            <Col lg={4} style={{ direction: 'rtl' }}>
               <Row>
                 <Col xs={6}> نوع خبر :</Col>
                 <Col xs={6}>
-                  {" "}
+                  {' '}
                   <select
                     onChange={(e) => {
                       const selectedNewsType = +e.target.value;
                       setNewsType(selectedNewsType);
                     }}
-                    style={{ float: "right" }}
+                    style={{ float: 'right' }}
                   >
                     <option value="2">تصویری</option>
                     <option value="1">متنی</option>
                     <option value="3">ویدئویی</option>
                   </select>
                 </Col>
-              </Row>{" "}
+              </Row>{' '}
             </Col>
 
             <Col xl={2}>جست و جو در عنوان :</Col>
@@ -142,10 +142,10 @@ const PhotoNewsGrid = () => {
               ) : (
                 <h2
                   style={{
-                    color: "red",
-                    textAlign: "center",
-                    width: "100%",
-                    margin: "20px 0 20px 0",
+                    color: 'red',
+                    textAlign: 'center',
+                    width: '100%',
+                    margin: '20px 0 20px 0',
                   }}
                 >
                   هیچ اطلاعاتی جهت نمایش وجود ندارد
@@ -154,10 +154,10 @@ const PhotoNewsGrid = () => {
             ) : (
               <h1
                 style={{
-                  color: "#00",
-                  textAlign: "center",
-                  width: "100%",
-                  margin: "20px 0 20px 0",
+                  color: '#00',
+                  textAlign: 'center',
+                  width: '100%',
+                  margin: '20px 0 20px 0',
                 }}
               >
                 لطفا منتظر بمانید
@@ -168,13 +168,13 @@ const PhotoNewsGrid = () => {
             previousLabel={
               <span className="page-prev">
                 <ChevronRight size={15} />
-                {"<"}
+                {'<'}
               </span>
             }
             nextLabel={
               <span className="page-prev">
                 <ChevronLeft size={15} />
-                {">"}
+                {'>'}
               </span>
             }
             breakLabel="..."
@@ -190,7 +190,7 @@ const PhotoNewsGrid = () => {
             onPageChange={(page) => {
               setPageNumber(page.selected + 1);
             }}
-          />{" "}
+          />{' '}
         </Container>
       </section>
     </>
