@@ -6,7 +6,7 @@ import './TestSearchBox.scss';
 
 const TestSearchBox = () => {
   return (
-    <Form className="Search d-flex ">
+    <Form className="Search">
       <FormControl
         type="search"
         placeholder="جستجو ..."
@@ -14,7 +14,7 @@ const TestSearchBox = () => {
         aria-label="Search"
       />
       <button>
-        <img alt="search" src={search} width={40} height={40} />
+        <img alt="search" src={search} width={20} height={20} />
       </button>
     </Form>
   );

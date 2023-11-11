@@ -1,24 +1,33 @@
 body {
   overflow-x: hidden;
 }
+.SearchBox {
+  display: flex;
+  justify-content: center;
+}
+.typed-text {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  line-height: 30px;
+  height: 30px;
+  font-size: 10px;
+  text-align: center;
+}
+
 .site-header {
   direction: rtl;
   height: 100px;
-  background-color: #0B1803;
-  // margin-bottom: 50px;
+  background-color: #0b1803;
 }
 
 .site-logo > a > img {
-  height: 60px;
-  width: 60px;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  height: 50px;
+  width: 50px;
+  // margin-top: 2%;
 }
 
 .login {
-  // background-color: rgb(0, 89, 253);
   float: left;
-  margin-left: 12px;
   border-radius: 7px;
   position: relative;
   top: 10%;
@@ -26,9 +35,56 @@ body {
   overflow: hidden;
   
 }
+.login:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 .login > p {
- 
   font-size: 12px;
+}
+
+.loginRes {
+  float: right;
+  border-radius: 7px;
+  position: relative;
+  top: 10%;
+  height: 40px;
+  overflow: hidden;
+}
+.loginRes > p {
+  font-size: 12px;
+}
+
+.profile-dropdown {
+  margin: 0 auto;
+  margin-top: 35px;
+}
+.navbarMenuBox {
+  display: none;
+
+}
+
+@media only screen and (max-width: 500px) {
+  .typed-text {
+    display: none;
+  }
+
+  .site-header {
+    height: 50px;
+  }
+  .login {
+    display: none !important;
+  }
+  .loginRes {
+    display: block;
+  }
+  .navbarMenuBox {
+    display: flex;
+    justify-content: start;
+  }
+  .SearchBox {
+    display: flex !important;
+  }
 }
 
 // .login > div {
@@ -44,11 +100,11 @@ body {
 // .login:hover > div {
 //   right: 85px;
 // }
-.login > img {
-  width: 15px;
-  float: left;
-  margin-right: 10px;
-}
+// .login > img {
+//   width: 12px;
+//   float: left;
+
+// }
 // .register {
 //   background-color: rgb(0, 89, 253);
 //   padding-right: 15px;
@@ -82,28 +138,16 @@ body {
 //   float: left;
 //   margin-right: 20px;
 // }
-.profile-dropdown {
-  margin: 0 auto;
-  margin-top: 35px;
-}
-.typed-text {
-  background-color: rgb(0, 0, 0);
-  color: #fff;
-  line-height: 30px;
-  height: 30px;
-  font-size: 10px;
-  text-align: center;
-}
 
-@media only screen and (max-width: 1230px) {
-  .login,
-  .register {
-    margin-left: 8px;
-  }
-}
+// @media only screen and (max-width: 1230px) {
+//   .login,
+//   .register {
+//     margin-left: 8px;
+//   }
+// }
 
-@media only screen and (max-width: 990px) {
-  .site-header {
-    margin-bottom: 70px;
-  }
-}
+// @media only screen and (max-width: 990px) {
+//   .site-header {
+//     margin-bottom: 70px;
+//   }
+// }

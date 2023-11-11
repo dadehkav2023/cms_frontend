@@ -9,20 +9,17 @@
 .Search {
   width: 200px;
   height: 45px;
-  position: relative;
-  right: 200px;
   border-bottom: 1px solid #6dce0e;
-  margin-right: auto;
   z-index: 900;
+  display: flex;
 }
 
 .Search > input {
   background: transparent;
-
-  font-size: 14px;
+  font-size: 12px;
   border: none;
-
   color: #fff;
+  margin-top: 10px;
 }
 
 .Search > input:focus {
@@ -49,21 +46,26 @@
   position: relative;
 }
 .Search > button > img {
-  width: 90%;
-  height: 90%;
+  width: 25px;
+  height: 25px;
 }
-@media only screen and (max-width: 1380px) {
-  .Search > input {
-    margin-right: 20px !important;
-  }
-}
-@media only screen and (max-width: 1340px) {
-  .Search > input {
-    margin-right: 40px !important;
-  }
-}
-@media only screen and (max-width: 1290px) {
-  .Search > input {
-    margin-right: 45px !important;
-  }
+// @media only screen and (max-width: 1380px) {
+//   .Search > input {
+//     margin-right: 20px !important;
+//   }
+// }
+// @media only screen and (max-width: 1340px) {
+//   .Search > input {
+//     margin-right: 40px !important;
+//   }
+// }
+// @media only screen and (max-width: 1290px) {
+//   .Search > input {
+//     margin-right: 45px !important;
+//   }
+  @media only screen and (max-width: 500px) {
+    .Search {
+      justify-content: start;
+    }
+  
 }

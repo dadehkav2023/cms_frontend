@@ -49,18 +49,18 @@ const TestHeader = () => {
   return (
     isSuccess && (
       <>
-        <header className="site-header">
+        <header className="site-header mb-5">
           <h6 className="typed-text">
             <Typed
               strings={[
-                '  به سامانه جامع بهره برداران کشاورزی خوش آمدید، شما می توانید با ثبت نام در این سامانه از خدمات نظام صنفی بهره مند شوید .      ',
+                'به سامانه جامع بهره برداران کشاورزی خوش آمدید، شما می توانید با ثبت نام در این سامانه از خدمات نظام صنفی بهره مند شوید .      ',
               ]}
               typeSpeed={50}
             />
           </h6>
-          <Container fluid="xxl">
-            <Row>
-              <Col xl={1} lg={1} md={1} sm={1} xs={1}>
+          <Container fluid>
+            <div className="row">
+              <div className="col-1  d-flex justify-content-center logoBox">
                 <div className="site-logo">
                   {state.logoImageAddress !== '' && (
                     <Link
@@ -78,21 +78,16 @@ const TestHeader = () => {
                     </Link>
                   )}
                 </div>
-              </Col>
-              <Col xl={5} lg={11} md={2} sm={2} xs={6}>
-                <TestNavbarMenu data={data} />
-              </Col>
-              <Col >
-                <TestSearchBox />
-              </Col>
-              <Col
-                xl={3}
-                lg={5}
-                md={6}
-                sm={8}
-                xs={12}
-                style={{ textAlign: 'right' }}
-              >
+              </div>
+              <div className="col-6 col-lg-8 ">
+                <div className="navbarMenuBox">
+                  <TestNavbarMenu data={data} />
+                </div>
+              </div>
+              <div className=" col-4 col-lg-2    SearchBox">
+                {/* <TestSearchBox /> */}
+              </div>
+              <div className="col-1 col-lg-1 d-flex justify-content-end  loginBox">
                 {userInfo.userName ? (
                   <>
                     <DropdownButton
@@ -124,27 +119,31 @@ const TestHeader = () => {
                   </>
                 ) : (
                   <>
-                  
                     <Button
                       className="login"
                       onClick={redirectToLogin}
-                      style={{ display: 'flex', alignItems: 'center', background: 'transparent', border: '1px solid #6DCE0E',
-                    }}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        background: 'transparent',
+                        border: '0 none',
+                        
+                        
+                      }}
                     >
                       <p
                         style={{
                           display: 'inline',
                           margin: 0,
-                         
                         }}
                       >
                         ورود کاربران
                       </p>
-                      <img
+                      {/* <img
                         alt="avatar"
                         src={Avatar}
                         style={{ display: 'inline' }}
-                      />
+                      /> */}
                     </Button>
 
                     {/* <a href="https://Register.sabak.org">
@@ -155,8 +154,8 @@ const TestHeader = () => {
                     </a> */}
                   </>
                 )}
-              </Col>
-            </Row>
+              </div>
+            </div>
           </Container>
 
           {/* <div className="site-logo">

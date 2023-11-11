@@ -6,8 +6,8 @@
   text-align: right;
   cursor: pointer;
   margin: 5px !important;
-  -webkit-box-shadow: 0 0 5px #6DCE0E;
-  box-shadow: 0 0 5px #6DCE0E;
+  -webkit-box-shadow: 0 0 5px #2A7221;
+  box-shadow: 0px 0px 9px 0px rgb(114, 114, 114);
 }
 
 .truncate {
@@ -31,59 +31,59 @@
   object-fit: cover;
 }
 
-@media (max-width: 530px) {
-  .video-news-card-item {
-    width: 350px;
-  }
-  .video-news-card-item > img {
-    width: 200px;
-    margin-top: 10px;
+// @media (max-width: 530px) {
+//   .video-news-card-item {
+//     width: 350px;
+//   }
+//   .video-news-card-item > img {
+//     width: 200px;
+//     margin-top: 10px;
     
-  }
-}
-@media (max-width: 480px) {
-  .video-news-card-item {
-    width: 320px;
-  }
-}
-@media (max-width: 450px) {
-  .video-news-card-item {
-    width: 300px;
-  }
-}
-@media (max-width: 430px) {
-  .video-news-card-item {
-    width: 280px;
-  }
-}
-@media (max-width: 410px) {
-  .video-news-card-item {
-    width: 250px;
-  }
-}
-@media (max-width: 380px) {
-  .video-news-card-item {
-    width: 220px;
-  }
-}
-@media (max-width: 350px) {
-  .video-news-card-item {
-    width: 200px;
-  }
-}
-@media (max-width: 330px) {
-  .video-news-card-item {
-    width: 180px;
-  }
-  .video-news-card-item > img {
-    width: 140px;
-  }
-}
-@media (max-width: 310px) {
-  .video-news-card-item {
-    width: 150px;
-  }
-}
+//   }
+// }
+// @media (max-width: 480px) {
+//   .video-news-card-item {
+//     width: 320px;
+//   }
+// }
+// @media (max-width: 450px) {
+//   .video-news-card-item {
+//     width: 300px;
+//   }
+// }
+// @media (max-width: 430px) {
+//   .video-news-card-item {
+//     width: 280px;
+//   }
+// }
+// @media (max-width: 410px) {
+//   .video-news-card-item {
+//     width: 250px;
+//   }
+// }
+// @media (max-width: 380px) {
+//   .video-news-card-item {
+//     width: 220px;
+//   }
+// }
+// @media (max-width: 350px) {
+//   .video-news-card-item {
+//     width: 200px;
+//   }
+// }
+// @media (max-width: 330px) {
+//   .video-news-card-item {
+//     width: 180px;
+//   }
+//   .video-news-card-item > img {
+//     width: 140px;
+//   }
+// }
+// @media (max-width: 310px) {
+//   .video-news-card-item {
+//     width: 150px;
+//   }
+// }
 .video-news-flash-card-title {
   width: 100%;
   text-align: right;

@@ -8,6 +8,8 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
       //   xmlns:xlink="http://www.w3.org/1999/xlink"
       x="0"
       y="0"
+      width={500}
+      height={400}
       viewBox="20 0 970 960"
       enableBackground="new 20 0 970 960"
       //   xml:space="preserve"

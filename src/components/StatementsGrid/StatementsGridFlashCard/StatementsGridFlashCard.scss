@@ -1,5 +1,15 @@
+.StatmentsBox{
+  padding: 10px;
+  
+  width: 300px;
+  
+  
+  text-align: right;
+}
+
+
 .statement-grid-card-item {
-  width: 270;
+  width: 300px;
   background-color: #f9f9f9 !important;
   text-align: right;
   cursor: pointer;
@@ -10,9 +20,7 @@
   margin-top: 32px !important;
 }
 
-.statement-grid-card-item > .statement-grid-card-item {
-  padding-bottom: 10px;
-}
+
 .statement-grid-card-item > img {
   width: 220px;
   height: 200px;

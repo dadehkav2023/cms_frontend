@@ -7,6 +7,8 @@ import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSp
 import './Announcement.scss';
 import IranMap from './IranMap/IranMap';
 import StatementsGridFlashCard from '../../StatementsGrid/StatementsGridFlashCard/StatementsGridFlashCard';
+import MoreItemsButton from '../../common/Buttons/MoreItemsButton/MoreItemsButton';
+import OpenItemButton from '../../common/Buttons/OpenItemButton/OpenItemButton';
 
 const Announcement = () => {
   const { data, isLoading, isError, isSuccess } = UseGetMap();
@@ -80,7 +82,7 @@ const Announcement = () => {
               </Col>
             </Row>
             <Row className="provinces-detail-row">
-              <Col className="provinces-news" xl={5}>
+              <Col className="provinces-news pr-5 pr-lg-0" xl={5}>
                 <span>{provinces[currentProvince]}</span>
                 <p className="province-description">
                   {currentProvince === 0
@@ -104,29 +106,28 @@ const Announcement = () => {
               </Col>
             </Row>
           </Col>
-          <Col xl={4}>
-            <span className="announcements-title pr-lg-5 pt-lg-5 mt-lg-4">
+          <Col xl={4} className='mb-5'>
+            <span className="announcements-title pr-lg-5 pt-lg-5 mt-lg-4 mb-lg-0 ">
               بیانیه و اطلاعیه
             </span>
-            <Row className="statement-gird" style={{ direction: 'rtl' }}>
+            <Row className="statement-card" style={{ direction: 'rtl' }}>
               {StatementsData?.status < 300 ? (
                 StatementsData?.data.result.statementList[0] &&
                 (StatementsIsError || StatementsIsSuccess) ? (
                   StatementsData?.data.result.statementList.map(
                     (news, index) => (
-                      <Col lg={3} key={index}>
-                        <div
-                          className="statement-grid-item"
-                          to={`/Statement/Statements/${news.id}`}
-                        >
-                          <StatementsGridFlashCard
-                            statement={news}
-                            // subTitle={news.subTitle}
-                            // date={news.publishedDateTimeAsJalali}
-                            // img={news.imagePath}
-                          />
+                      <div key={index}>
+                        <div className="row ">
+                          <div className="col ">
+                            <div
+                              className="custom-style "
+                              to={`/Statement/Statements/${news.id}`}
+                            >
+                              <StatementsGridFlashCard statement={news} />
+                            </div>
+                          </div>
                         </div>
-                      </Col>
+                      </div>
                     )
                   )
                 ) : (
@@ -163,6 +164,10 @@ const Announcement = () => {
                   <div className="spinner"></div>
                 </div>
               )}
+              <div dir='ltr' className="w-100 d-flex justify-content-start ">
+               
+              <OpenItemButton text="مشاهده بیشتر" />
+              </div>
             </Row>
           </Col>
         </Row>

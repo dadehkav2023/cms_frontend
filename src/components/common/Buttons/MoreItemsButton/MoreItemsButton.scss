@@ -1,7 +1,7 @@
 .more-items-button-container {
   text-align: left;
   margin-top: -30px;
-  margin-left: -5%;
+  margin-left: 5%;
 
 }
 
@@ -9,13 +9,13 @@
   font-size: 15px;
   display: inline-block;
   height: 40px;
-  width: 20%;
+  width: fit-content;
  
   // border: 1px solid #065cfd;
   // background-color: white !important;
   // border-radius: 5px;
   // padding: 10px 10px 0 0;
-  color: #6DCE0E;
+  color: #2A7221;
   text-align: center;
   cursor: pointer;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
