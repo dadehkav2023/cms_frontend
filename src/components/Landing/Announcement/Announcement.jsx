@@ -75,7 +75,7 @@ const Announcement = () => {
         <Row>
           <Col xl={8}>
             <Row>
-              <Col lg={12}>
+              <Col lg={10}>
                 <span className="provinces-title pr-lg-5 pt-lg-5">
                   استان ها
                 </span>

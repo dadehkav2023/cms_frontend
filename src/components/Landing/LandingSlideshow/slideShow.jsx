@@ -34,7 +34,7 @@ const SlideShow = () => {
   return isSuccess ? (
     <Container fluid>
       <Row>
-        <Col className="tab" xs={12} sm={12} md={12} lg={10}>
+        <Col className="tab" xs={12} sm={12} md={12} lg={10} >         
           <Carousel
             autoPlaySpeed={2000}
             className="slide-show"
@@ -87,12 +87,13 @@ const SlideShow = () => {
             {data?.data.result.sliderList.map((slide, index) => {
               return (
                 <Carousel.Item key={index} className="slide-show-item" >
+                  
                   <a className="" href={slide.linkAddress}>
                     <img
                       className="rounded-lg imgSliderNews "
                       alt="first slide1"
-                      width={1200}
-                      height={500}
+                      style={{ width : "100%", height : "80%"}}
+                    
                       src={
                         process.env.REACT_APP_PUBLIC_PATH +
                         '/' +
@@ -111,12 +112,12 @@ const SlideShow = () => {
             })}
           </Carousel>
         </Col>
-        <Col className="pt-2 sliderNewsTab" xs={0} sm={0} md={0} lg={2}>
-          {' '}
+        <Col className="pt-2 sliderNewsTab" xs={0} sm={0} md={0} lg={2} style={{}}>
+         
           {data?.data.result.sliderList.map((slide, index) => (
             <div
               key={index}
-              className={`col-md-4 mb-2   ${
+              className={` mb-2  ${
                 selectedTab === index ? 'active' : ''
               }`}
             >
@@ -127,14 +128,14 @@ const SlideShow = () => {
                   onClick={() => handleTabClick(index)}
                 >
                   <img
+                 
                     className={` grayscale-filter pl-2  ${
                       selectedTab === index
                         ? 'active grayscale-filter-selected'
                         : ''
                     }`}
                     alt={`slide-${index}`}
-                    width={180}
-                    height={90}
+                    style={{ width : "90%", height : "90%"}}
                     src={
                       process.env.REACT_APP_PUBLIC_PATH +
                       '/' +

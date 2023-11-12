@@ -10,6 +10,29 @@
 //   background-color: #0B1803;
 //   z-index: 1000;
 // }
+.hambergerMenuLogin{
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  
+}
+.hambergerMenuLink{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+}
+.hambergerMenuLink > a {
+  color: #000000;
+  text-decoration: none;
+  margin-left: 40px;
+  font-size: small;
+}
+.hambergerMenuLink > a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
 
 .my-navbar-icon {
   width: 40px;
