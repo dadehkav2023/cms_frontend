@@ -18,10 +18,34 @@ body {
   height: 100px;
   background-color: #0b1803;
 }
+.navLink {
+  display: flex;
+  justify-content: start !important;
+  justify-items: center ;
+  flex-direction: row;
+}
+.navLink > a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 40px;
+  font-size: small;
+}
+.navLink > a:hover {
+  color: #fff;
+  text-decoration: none;
+}
 
 .site-logo > a > img {
   height: 50px;
   width: 50px;
+}
+
+.menu{
+  display: flex;
+  justify-content: start;
+  justify-items: center !important ;
+
+
 }
 
 .login {
@@ -69,7 +93,14 @@ body {
   .typed-text {
     display: none;
   }
-
+  .menu{
+    display: flex;
+    justify-content: end;
+  
+  }
+  .navLink {
+    display: none;
+  }
   .site-header {
     height: 50px;
   }
@@ -79,7 +110,34 @@ body {
 
   .navbarMenuBox {
     display: flex;
-    justify-content: start;
+    justify-content: end !important;
+  }
+  .SearchBox {
+    display: flex !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .typed-text {
+    display: none;
+  }
+  .menu{
+    display: flex;
+    justify-content: end;
+  
+  }
+  .navLink {
+    display: none;
+  }
+  .site-header {
+    height: 50px;
+  }
+  .login {
+    display: none !important;
+  }
+
+  .navbarMenuBox {
+    display: flex;
+    justify-content: end !important;
   }
   .SearchBox {
     display: flex !important;

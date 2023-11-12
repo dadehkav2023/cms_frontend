@@ -91,9 +91,15 @@ const TestHeader = () => {
                 sm={8}
                 md={8}
                 lg={8}
-                className="d-flex justify-content-end align-items-center "
+                className=" menu"
               >
-                <div className="navbarMenuBox">
+                <div className='navLink mt-3'>
+                <a href="/ContactUs">تماس با ما</a>
+                <a href="/AboutUs">درباره ما</a>
+                <a href="/SiteRules">قوانین و مقررات</a>
+                </div>
+
+                <div className="navbarMenuBox ">
                   <TestNavbarMenu data={data} />
                 </div>
               </Col>

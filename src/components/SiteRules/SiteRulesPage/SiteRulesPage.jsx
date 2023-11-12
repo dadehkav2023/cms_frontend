@@ -67,7 +67,7 @@ const SiteRulesPage = () => {
                         جهت دریافت فایل از دکمه زیر استفاده کنید
                       </Card.Text>
                       <Card.Link href={rule.link} download>
-                        <Button>دریافت فایل</Button>
+                        <button className="downloadFile">دریافت فایل</button>
                       </Card.Link>
                     </Card.Body>
                   </Card>

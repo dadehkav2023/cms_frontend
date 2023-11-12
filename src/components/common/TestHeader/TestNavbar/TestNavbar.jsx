@@ -37,7 +37,7 @@ const TestNavbarMenu = ({ data }) => {
       <Container className="my-navbar-container ">
         <Navbar.Collapse className="my-navbar-Collapse">
           <Nav className="my-navbar-detail">
-            {data &&
+            {/* {data &&
               data.data &&
               data?.data.result[0] &&
               data?.data.result[0].menuComponentResponses && (
@@ -46,13 +46,19 @@ const TestNavbarMenu = ({ data }) => {
                   title={'Root'}
                   count={1}
                 />
-              )}
+              )} */}
+         
           </Nav>
           <div className="row d-flex justify-content-end ">
             {/* <div className="col-12 bg-warning ">
               <TestSearchBox />
             </div> */}
             <div className="col-12 ">
+            <div className='hambergerMenuLink'>
+                <a href="/ContactUs">تماس با ما</a>
+                <a href="/AboutUs">درباره ما</a>
+                <a href="/SiteRules">قوانین و مقررات</a>
+                </div>
               {' '}
               <Button
                 className="hambergerMenuLogin"
@@ -60,15 +66,19 @@ const TestNavbarMenu = ({ data }) => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  background: 'transparent',
+                  background: '#0B1803',
                   border: '1px solid #6DCE0E',
+                  borderRadius:'25px',
+                  width:'60px',
+                  marginRight:'10px'
+                  
                 }}
               >
                 <p
                   style={{
                     display: 'inline',
                     margin: 0,
-                    color: 'black',
+                    color:'white'
                   }}
                 >
                   ورود{' '}
