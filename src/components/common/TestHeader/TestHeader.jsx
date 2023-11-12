@@ -86,17 +86,11 @@ const TestHeader = () => {
                 </div>
               </Col>
 
-              <Col
-                xs={6}
-                sm={8}
-                md={8}
-                lg={8}
-                className=" menu"
-              >
-                <div className='navLink mt-3'>
-                <a href="/ContactUs">تماس با ما</a>
-                <a href="/AboutUs">درباره ما</a>
-                <a href="/SiteRules">قوانین و مقررات</a>
+              <Col xs={6} sm={8} md={8} lg={8} className=" menu">
+                <div className="navLink mt-3">
+                  <a href="/ContactUs">تماس با ما</a>
+                  <a href="/AboutUs">درباره ما</a>
+                  <a href="/SiteRules">قوانین و مقررات</a>
                 </div>
 
                 <div className="navbarMenuBox ">
@@ -124,43 +118,40 @@ const TestHeader = () => {
                 {userInfo.userName ? (
                   <>
                     <DropdownButton
-                      className="profile-dropdown"
+                      variant="#ffffff"
+                      key="down-centered"
+                      className="profile-dropdown User-features "
                       title="امکانات کاربری"
+                     
                     >
-                      <Dropdown.Item href="#/action-1">
-                        <Link to="/Challenges/MyChallenges">
-                          مشاهده صدا های من
-                        </Link>
-                      </Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">
-                        <Link to="/Challenges/SignedChallenges">
-                          مشاهده صدا های امضاء شده من
-                        </Link>
-                      </Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">
-                        <Button
-                          style={{
-                            backgroundColor: '#e74c3c',
-                            borderColor: 'transparent',
-                          }}
-                          onClick={redirectToLogout}
-                        >
-                          خروج
-                        </Button>
-                      </Dropdown.Item>
+                      <div className="User-features-items">
+                        <Dropdown.Item href="#/action-1">
+                          <Link style={{ color: 'black', position: 'relative', right:'-40px', fontSize: '12px' }} to="/Challenges/MyChallenges">
+                            مشاهده صدا های من
+                          </Link>
+                        </Dropdown.Item>
+                        <Dropdown.Item style={{ color: 'black', position: 'relative', right:'-40px', fontSize: '12px' }} href="#/action-2">
+                          <Link to="/Challenges/SignedChallenges">
+                            مشاهده صدا های امضاء شده من
+                          </Link>
+                        </Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">
+                          <Button
+                        style={{ color: 'white', position: 'relative', left:'-60px', fontSize: '12px',backgroundColor:'red',border:'0px none',borderRadius:'25px' }}
+                            onClick={redirectToLogout}
+                          >
+                            خروج
+                          </Button>
+                        </Dropdown.Item>
+                      </div>
                     </DropdownButton>
                   </>
                 ) : (
                   <>
                     <Button
-                      className="login"
+                      className="login mt-1"
                       onClick={redirectToLogin}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        background: 'transparent',
-                        border: '0 none',
-                      }}
+                      style={{}}
                     >
                       <p
                         style={{
