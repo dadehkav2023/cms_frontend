@@ -10,6 +10,44 @@
 //   background-color: #0B1803;
 //   z-index: 1000;
 // }
+ .hambergerMenuLogin{
+  display:flex;
+  justify-content: start;
+  align-items:center;
+  margin-right: 60%;
+  background-color: #0B1803 !important;
+  border: 0px none !important;
+  border-radius:25px !important;
+  width:60px;
+ }
+.hambergerMenuBox{
+  padding: 10px;
+  background-color: white !important;
+  height: 160px !important;
+  width: 150px !important;
+  position: relative;
+  left: -20px;
+  border-radius: 25px;
+
+}
+.hambergerMenuLink{
+
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap:15px;
+}
+.hambergerMenuLink > a {
+  color: #000000;
+  text-decoration: none;
+  // margin-left: 40px;
+  font-size: small;
+}
+.hambergerMenuLink > a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
 
 .my-navbar-icon {
   width: 40px;

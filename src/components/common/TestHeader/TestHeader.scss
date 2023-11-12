@@ -5,6 +5,28 @@ body {
 //   display: flex;
 //   justify-content: center;
 // }
+
+.User-features {
+  background-color: #ffff !important;
+  width: 200px !important;
+  height: 40px !important;
+margin-left: 20px !important;
+margin-top: 6px !important;
+border-radius: 25px !important;
+}
+.User-features:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border:0px none !important;
+}
+.User-features-items {
+  width: 150px;
+  height: 100px;
+  position: relative !important;
+  // left: 80% !important;
+  border-radius: 25px;
+}
+
 .typed-text {
   background-color: rgb(0, 0, 0);
   color: #fff;
@@ -18,19 +40,42 @@ body {
   height: 100px;
   background-color: #0b1803;
 }
+.navLink {
+  display: flex;
+  justify-content: start !important;
+  justify-items: center;
+  flex-direction: row;
+}
+.navLink > a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 40px;
+  font-size: small;
+}
+.navLink > a:hover {
+  color: #fff;
+  text-decoration: none;
+}
 
 .site-logo > a > img {
   height: 50px;
   width: 50px;
 }
 
+.menu {
+  display: flex;
+  justify-content: start;
+  justify-items: center !important ;
+}
+
 .login {
+  background-color: #fff !important;
+  width: 250px !important;
+  color: #0b1803 !important;
   float: right;
-  border-radius: 7px;
-  position: relative;
-  top: 10%;
+  border-radius: 25px !important;
+  text-align: center !important;
   height: 40px;
-  overflow: hidden;
 }
 .login:focus {
   outline: none !important;
@@ -57,10 +102,10 @@ body {
 //   font-size: 12px;
 // }
 
-.profile-dropdown {
-  margin: 0 auto;
-  margin-top: 35px;
-}
+// .profile-dropdown {
+//   margin: 0 auto;
+//   // margin-top: 35px;
+// }
 .navbarMenuBox {
   display: none;
 }
@@ -69,7 +114,13 @@ body {
   .typed-text {
     display: none;
   }
-
+  .menu {
+    display: flex;
+    justify-content: end;
+  }
+  .navLink {
+    display: none;
+  }
   .site-header {
     height: 50px;
   }
@@ -79,7 +130,33 @@ body {
 
   .navbarMenuBox {
     display: flex;
-    justify-content: start;
+    justify-content: end !important;
+  }
+  .SearchBox {
+    display: flex !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .typed-text {
+    display: none;
+  }
+  .menu {
+    display: flex;
+    justify-content: end;
+  }
+  .navLink {
+    display: none;
+  }
+  .site-header {
+    height: 50px;
+  }
+  .login {
+    display: none !important;
+  }
+
+  .navbarMenuBox {
+    display: flex;
+    justify-content: end !important;
   }
   .SearchBox {
     display: flex !important;
