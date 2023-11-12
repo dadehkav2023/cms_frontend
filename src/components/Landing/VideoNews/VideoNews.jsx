@@ -143,7 +143,7 @@ const VideoNews = () => {
                             <h1
                               style={{
                                 fontSize: '14px',
-                                color: '#065cfd',
+                                color: '#2A7221',
                                 width: '100%',
                               }}
                             >

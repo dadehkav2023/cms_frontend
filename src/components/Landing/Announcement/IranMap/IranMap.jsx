@@ -10,6 +10,7 @@ const IranMap = ({ activeMap, currentProvince, setCurrentProvince }) => {
       y="0"
       width={500}
       height={400}
+      className="w-100"
       viewBox="20 0 970 960"
       enableBackground="new 20 0 970 960"
       //   xml:space="preserve"
