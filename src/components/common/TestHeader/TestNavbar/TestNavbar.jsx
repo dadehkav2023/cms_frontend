@@ -35,7 +35,7 @@ const TestNavbarMenu = ({ data }) => {
           <RxHamburgerMenu />
         </Navbar.Toggle>
       <Container className="my-navbar-container ">
-        <Navbar.Collapse className="my-navbar-Collapse">
+        <Navbar.Collapse className="my-navbar-Collapse hambergerMenuBox">
           <Nav className="my-navbar-detail">
             {/* {data &&
               data.data &&
@@ -59,20 +59,27 @@ const TestNavbarMenu = ({ data }) => {
                 <a href="/AboutUs">درباره ما</a>
                 <a href="/SiteRules">قوانین و مقررات</a>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
               {' '}
               <Button
                 className="hambergerMenuLogin"
                 onClick={redirectToLogin}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  background: '#0B1803',
-                  border: '1px solid #6DCE0E',
-                  borderRadius:'25px',
-                  width:'60px',
-                  marginRight:'10px'
-                  
-                }}
               >
                 <p
                   style={{
