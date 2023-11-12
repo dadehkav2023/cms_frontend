@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Carousel, Container, Row } from 'react-bootstrap';
+import { Carousel, Col, Container, Row } from 'react-bootstrap';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import './slideShow.scss';
 import { UseGetSlides } from '../../../core/services/api/get-slides';
@@ -33,8 +33,8 @@ const SlideShow = () => {
 
   return isSuccess ? (
     <Container fluid>
-      <div className="row">
-        <div className="col-12 col-md-10 tab ">
+      <Row>
+        <Col className="tab" xs={12} sm={12} md={12} lg={10}>
           <Carousel
             autoPlaySpeed={2000}
             className="slide-show"
@@ -51,11 +51,14 @@ const SlideShow = () => {
                 }}
               >
                 <IoIosArrowBack
-                  style={{      fontSize: '24px',
-                  color: 'white',
-                  position: 'relative',
-                  top: '-40px',
-                  left: '-50px', }} 
+                  className="backIcon"
+                  style={{
+                    fontSize: '24px',
+                    color: 'white',
+                    position: 'relative',
+                    top: '-40px',
+                    left: '-50px',
+                  }}
                 />
               </div>
             }
@@ -83,7 +86,7 @@ const SlideShow = () => {
           >
             {data?.data.result.sliderList.map((slide, index) => {
               return (
-                <Carousel.Item key={index} className="slide-show-item">
+                <Carousel.Item key={index} className="slide-show-item" >
                   <a className="" href={slide.linkAddress}>
                     <img
                       className="rounded-lg imgSliderNews "
@@ -107,9 +110,9 @@ const SlideShow = () => {
               );
             })}
           </Carousel>
-        </div>
-
-        <div className="col-2 pt-2   sliderNewsTab ">
+        </Col>
+        <Col className="pt-2 sliderNewsTab" xs={0} sm={0} md={0} lg={2}>
+          {' '}
           {data?.data.result.sliderList.map((slide, index) => (
             <div
               key={index}
@@ -119,14 +122,16 @@ const SlideShow = () => {
             >
               <Row>
                 <a
-                   className=""
-                 
+                  className=""
                   href={slide.linkAddress}
                   onClick={() => handleTabClick(index)}
                 >
                   <img
-                    className={` grayscale-filter pl-2  ${selectedTab === index ? 'active grayscale-filter-selected' : ''}`}
-                   
+                    className={` grayscale-filter pl-2  ${
+                      selectedTab === index
+                        ? 'active grayscale-filter-selected'
+                        : ''
+                    }`}
                     alt={`slide-${index}`}
                     width={180}
                     height={90}
@@ -140,8 +145,8 @@ const SlideShow = () => {
               </Row>
             </div>
           ))}
-        </div>
-      </div>
+        </Col>
+      </Row>
     </Container>
   ) : (
     <></>

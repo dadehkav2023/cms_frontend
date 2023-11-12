@@ -5,19 +5,17 @@
 //   z-index: 1000;
 // }
 // .my-navbar-container {
-//   width: 200px;
-//   height: 200px;
-//   background-color: rgb(52, 30, 34);
+//  width: 400px;
+//  height: 400px;
+//   background-color: #0B1803;
 //   z-index: 1000;
 // }
+
 .my-navbar-icon {
   width: 40px;
   height: 40px;
-  background-color: white !important;
+  color: white !important;
   z-index: 1000;
-  display: flex;
-  justify-self: start;
-  text-align: center;
 }
 .my-navbar-Collapse {
   position: relative;
@@ -30,4 +28,12 @@
   position: absolute;
   top: -12px;
   right: -70px;
+}
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: end !important;
+  padding: 0.5rem 1rem;
 }

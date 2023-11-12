@@ -8,6 +8,7 @@ import TestNavMenu from './TestNavMenu/TestNavMenu';
 import SearchBox from '../../Header/SearchBar/SerchBox';
 import TestSearchBox from '../TestSearchBar/TestSerchBox';
 import { useHistory } from 'react-router-dom';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 import { showToast, ToastTypes } from '../../../../core/utils/show-toast';
 import {
@@ -27,11 +28,13 @@ const TestNavbarMenu = ({ data }) => {
   const history = useHistory();
   return (
     <Navbar className="my-navbar" expand="lg">
-      <Container className="my-navbar-container">
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           className="my-navbar-icon"
-        />
+        >
+          <RxHamburgerMenu />
+        </Navbar.Toggle>
+      <Container className="my-navbar-container ">
         <Navbar.Collapse className="my-navbar-Collapse">
           <Nav className="my-navbar-detail">
             {data &&
@@ -52,7 +55,7 @@ const TestNavbarMenu = ({ data }) => {
             <div className="col-12 ">
               {' '}
               <Button
-                className="loginRes"
+                className="hambergerMenuLogin"
                 onClick={redirectToLogin}
                 style={{
                   display: 'flex',
@@ -65,9 +68,10 @@ const TestNavbarMenu = ({ data }) => {
                   style={{
                     display: 'inline',
                     margin: 0,
+                    color: 'black',
                   }}
                 >
-                  ورود کاربران
+                  ورود{' '}
                 </p>
               </Button>
             </div>

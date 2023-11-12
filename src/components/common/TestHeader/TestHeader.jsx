@@ -59,8 +59,14 @@ const TestHeader = () => {
             />
           </h6>
           <Container fluid>
-            <div className="row">
-              <div className="col-1  d-flex justify-content-center logoBox">
+            <Row>
+              <Col
+                xs={6}
+                sm={1}
+                md={1}
+                lg={1}
+                className="d-flex justify-content-start logoBox "
+              >
                 <div className="site-logo">
                   {state.logoImageAddress !== '' && (
                     <Link
@@ -78,16 +84,37 @@ const TestHeader = () => {
                     </Link>
                   )}
                 </div>
-              </div>
-              <div className="col-6 col-lg-8 ">
+              </Col>
+
+              <Col
+                xs={6}
+                sm={8}
+                md={8}
+                lg={8}
+                className="d-flex justify-content-end align-items-center "
+              >
                 <div className="navbarMenuBox">
                   <TestNavbarMenu data={data} />
                 </div>
-              </div>
-              <div className=" col-4 col-lg-2    SearchBox">
+              </Col>
+
+              <Col
+                xs={2}
+                sm={2}
+                md={2}
+                lg={2}
+                className="d-flex justify-content-center SearchBox "
+              >
                 {/* <TestSearchBox /> */}
-              </div>
-              <div className="col-1 col-lg-1 d-flex justify-content-end  loginBox">
+              </Col>
+
+              <Col
+                xs={1}
+                sm={1}
+                md={1}
+                lg={1}
+                className="d-flex justify-content-center  loginBox "
+              >
                 {userInfo.userName ? (
                   <>
                     <DropdownButton
@@ -127,8 +154,6 @@ const TestHeader = () => {
                         alignItems: 'center',
                         background: 'transparent',
                         border: '0 none',
-                        
-                        
                       }}
                     >
                       <p
@@ -137,7 +162,7 @@ const TestHeader = () => {
                           margin: 0,
                         }}
                       >
-                        ورود کاربران
+                        ورود
                       </p>
                       {/* <img
                         alt="avatar"
@@ -154,8 +179,8 @@ const TestHeader = () => {
                     </a> */}
                   </>
                 )}
-              </div>
-            </div>
+              </Col>
+            </Row>
           </Container>
 
           {/* <div className="site-logo">
