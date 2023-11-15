@@ -4,7 +4,7 @@ const SectionTitle = ({ TitleText }) => {
   return (
     <>
       <div className="sectionTitleContainer">
-        <h1 className="sectionTitle">{TitleText}</h1>
+        <h1 className="sectionTitles">{TitleText}</h1>
       </div>
     </>
   );

@@ -57,9 +57,9 @@ const TextNews = () => {
     <>
       {categoryData?.data.result[0] ? (
         <>
-          <Container fluid className="pr-lg-5 pt-lg-5">
+          <Container fluid className="pr-lg-5 pt-lg-5 text-news-section-container">
             <section className="text-news-section ">
-              <SectionTitle className="sectionTitle" TitleText=" اخبار" />
+              <SectionTitle className="sectionTitle " TitleText=" اخبار" />
               <Link
                 style={{
                   color: 'rgba(0, 0, 0, 0.5)',

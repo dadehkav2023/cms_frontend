@@ -9,6 +9,7 @@ import IranMap from './IranMap/IranMap';
 import StatementsGridFlashCard from '../../StatementsGrid/StatementsGridFlashCard/StatementsGridFlashCard';
 import MoreItemsButton from '../../common/Buttons/MoreItemsButton/MoreItemsButton';
 import OpenItemButton from '../../common/Buttons/OpenItemButton/OpenItemButton';
+import SectionTitle from '../../common/SectionTitle/SectionTitle';
 
 const Announcement = () => {
   const { data, isLoading, isError, isSuccess } = UseGetMap();
@@ -71,19 +72,19 @@ const Announcement = () => {
     <FallBackSpinner />
   ) : (
     <section className="announcement-section">
-      <Container fluid className="announcements-container">
+      <Container fluid className="announcements-container pr-lg-5 pt-lg-5">
         <Row>
           <Col xl={8}>
-            <Row>
-              <Col lg={10}>
-                <span className="provinces-title pr-lg-5 pt-lg-5">
-                  استان ها
-                </span>
+            <Row className="province-title">
+              <Col  lg={10}>
+              <SectionTitle  TitleText="استان ها"/>
               </Col>
             </Row>
             <Row className="provinces-detail-row">
               <Col className="provinces-news pr-5 pr-lg-0" xl={5}>
-                <span>{provinces[currentProvince]}</span>
+                <span className="provinces-title-news">
+                  {provinces[currentProvince]}
+                </span>
                 <p className="province-description">
                   {currentProvince === 0
                     ? 'جهت مشاهده توضیحات هر استان ماوس(موشواره) را بر بروی مکان آن از روی نقشه ببرید و جهت مشاهوه وبسایت استان مورد نظر روی موقعیت مکانی آن کلیک کنید'
@@ -106,10 +107,9 @@ const Announcement = () => {
               </Col>
             </Row>
           </Col>
-          <Col xl={4} className='mb-5'>
-            <span className="announcements-title pr-lg-5 pt-lg-5 mt-lg-4 mb-lg-0 ">
-              بیانیه و اطلاعیه
-            </span>
+          <Col xl={4} className="mb-5">
+            <SectionTitle TitleText="بیانیه و اطلاعیه" className="statement-title"/>
+            
             <Row className="statement-card" style={{ direction: 'rtl' }}>
               {StatementsData?.status < 300 ? (
                 StatementsData?.data.result.statementList[0] &&
@@ -123,7 +123,9 @@ const Announcement = () => {
                               className="custom-style "
                               to={`/Statement/Statements/${news.id}`}
                             >
-                              <StatementsGridFlashCard statement={news} />
+                              {/* <a className="" href={news.linkAddress}> */}
+                                <StatementsGridFlashCard statement={news} />
+                              {/* </a> */}
                             </div>
                           </div>
                         </div>
@@ -164,9 +166,8 @@ const Announcement = () => {
                   <div className="spinner"></div>
                 </div>
               )}
-              <div dir='ltr' className="w-100 d-flex justify-content-start ">
-               
-              <OpenItemButton text="مشاهده بیشتر" />
+              <div dir="ltr" className="w-100 d-flex justify-content-start ">
+                <OpenItemButton text="مشاهده بیشتر" />
               </div>
             </Row>
           </Col>

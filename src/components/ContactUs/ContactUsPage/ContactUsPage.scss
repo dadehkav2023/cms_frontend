@@ -71,16 +71,18 @@
   display: flex;
   justify-content: center;
   justify-self: center;
-  margin:0 auto;
+  margin: 0px auto;
   width: 10%;
-  background-color: #0B1803;
+  background-color: #0b1803 !important;
   padding: 5px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 10px;
-  border-radius: 25px;
-  
+  border: 1px solid #0b1803 !important;
+  color: #ffffff !important;
+  margin-top: 30px;
+  border-radius: 25px; 
 }
+
+
 @media (max-width: 1380px) {
   .contact-us-section {
     font-size: 17px;

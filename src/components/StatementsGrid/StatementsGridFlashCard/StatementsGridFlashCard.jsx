@@ -10,7 +10,7 @@ const StatementsGridFlashCard = ({ statement }) => {
     <div className="StatmentsBox">
       <div className="row">
         <div className="col-12">
-          <p>{statement.title}</p>
+          <p className='statement-title'>{statement.title}</p>
         </div>
         
       </div>

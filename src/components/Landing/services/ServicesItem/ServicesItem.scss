@@ -1,11 +1,13 @@
 .services-card-item {
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 5px !important;
   box-shadow: 0px 14px 10px -10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   cursor: pointer;
   margin-bottom: 13px;
-  width: 315px;
+  width: 300px;
+  height: 200px;
+  
 }
 
 .services-flash-card-title {
@@ -13,8 +15,8 @@
   text-align: right;
 }
 .services-flash-card-img {
-  height: 230px;
-  width: 100%;
+  width: 300px;
+  height: 200px;
   position: relative;
   overflow: hidden;
 }
@@ -22,6 +24,7 @@
   height: 100%;
   width: 100%;
 }
+
 .services-dim-bg {
   width: 100%;
   height: 100%;
@@ -31,12 +34,19 @@
   top: 0;
 }
 .services-dim-bg > h2 {
+  height:50px !important;
+  background-color: rgba(195, 203, 190, 0.5);
   width: 100%;
   display: inline-block;
   text-align: center;
   color: #fff;
-  padding-top: 10%;
+  position: relative;
+  top: 70% !important;
+  font-size: 18px !important;
+  padding-top: 10px;
 }
+
+
 
 // .services-hover {
 //   width: 250%;
@@ -53,15 +63,28 @@
 //   right: 40px;
 //   top: 20px;
 // }
+// @media only screen and (max-width: 425px) {
+//   .services-card-item {
+//     border-radius: 5px !important;
+//     width: 250px;
+//     height: 150px;
+//   }
+//   .services-flash-card-img {
+//     border-radius: 5px !important;
+//     width: 250px !important;
+//     height: 150px !important;
+//   }
+//   .services-flash-card-img > img {
+//     border-radius: 5px !important;
+//     width: 100%;
+//     height: 100%;
+//   }
+//   .services-dim-bg > h2 {
 
-@media (max-width: 1200px) {
-  .services-card-item {
-    margin: 15px auto;
-  }
-}
+//     position: relative;
+//     top: 75% !important;
+//     font-size: 10px !important;
+//     padding-top: 2px;
+//   }
+// }
 
-@media (max-width: 400px) {
-  .services-card-item {
-    font-size: 13px;
-  }
-}

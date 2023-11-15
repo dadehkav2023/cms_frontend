@@ -105,8 +105,19 @@
   }
 }
 
-@media (max-width: 400px) {
-  .statement-grid-card-item {
-    font-size: 13px;
+
+@media only screen and (max-width: 425px) {
+  .statement-title {
+    font-size: 10px !important;
   }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+  .statement-title {
+    font-size: 10px !important;
+  }
+
+
 }

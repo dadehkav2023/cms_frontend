@@ -1,6 +1,5 @@
-body {
-  overflow-x: hidden;
-}
+
+
 // .SearchBox {
 //   display: flex;
 //   justify-content: center;
@@ -110,7 +109,7 @@ border-radius: 25px !important;
   display: none;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
   .typed-text {
     display: none;
   }
@@ -127,30 +126,7 @@ border-radius: 25px !important;
   .login {
     display: none !important;
   }
-
-  .navbarMenuBox {
-    display: flex;
-    justify-content: end !important;
-  }
-  .SearchBox {
-    display: flex !important;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .typed-text {
-    display: none;
-  }
-  .menu {
-    display: flex;
-    justify-content: end;
-  }
-  .navLink {
-    display: none;
-  }
-  .site-header {
-    height: 50px;
-  }
-  .login {
+  .User-features{
     display: none !important;
   }
 
@@ -162,6 +138,32 @@ border-radius: 25px !important;
     display: flex !important;
   }
 }
+// @media only screen and (max-width: 600px) {
+//   .typed-text {
+//     display: none;
+//   }
+//   .menu {
+//     display: flex;
+//     justify-content: end;
+//   }
+//   .navLink {
+//     display: none;
+//   }
+//   .site-header {
+//     height: 50px;
+//   }
+//   .login {
+//     display: none !important;
+//   }
+
+//   .navbarMenuBox {
+//     display: flex;
+//     justify-content: end !important;
+//   }
+//   .SearchBox {
+//     display: flex !important;
+//   }
+// }
 
 // .login > div {
 //   width: 100%;
@@ -227,3 +229,55 @@ border-radius: 25px !important;
 //     margin-bottom: 70px;
 //   }
 // }
+@media only screen and (max-width: 2560px) {
+  .navLink {
+    position: relative;
+    right: -6%;
+  }
+}
+
+
+@media only screen and (max-width: 1440px) {
+  .navLink {
+    position: relative;
+    right: -2%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .navLink {
+    position: relative;
+    right: 1%;
+  }
+
+}
+
+@media only screen and (max-width: 425px) {
+  .typed-text {
+    display: none;
+  }
+  .menu {
+    display: flex;
+    justify-content: end;
+  }
+  .navLink {
+    display: none;
+  }
+  .site-header {
+    height: 50px;
+  }
+  .login {
+    display: none !important;
+  }
+  .User-features{
+    display: none !important;
+  }
+
+  .navbarMenuBox {
+    display: flex;
+    justify-content: end !important;
+  }
+  .SearchBox {
+    display: flex !important;
+  }
+}
