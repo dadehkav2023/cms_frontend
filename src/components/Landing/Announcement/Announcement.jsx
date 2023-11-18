@@ -10,9 +10,13 @@ import StatementsGridFlashCard from '../../StatementsGrid/StatementsGridFlashCar
 import MoreItemsButton from '../../common/Buttons/MoreItemsButton/MoreItemsButton';
 import OpenItemButton from '../../common/Buttons/OpenItemButton/OpenItemButton';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
+import { Link } from 'react-router-dom';
 
 const Announcement = () => {
   const { data, isLoading, isError, isSuccess } = UseGetMap();
+  const scrollToTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
   const [currentProvince, setCurrentProvince] = useState(0);
   const provinces = [
     'استان ها',
@@ -50,6 +54,7 @@ const Announcement = () => {
   ];
 
   useEffect(() => {}, [currentProvince]);
+
   const state = useSelector((state) => state.setting);
 
   const {
@@ -71,13 +76,13 @@ const Announcement = () => {
   return isLoading ? (
     <FallBackSpinner />
   ) : (
-    <section className="announcement-section">
+    <section className="announcement-section ">
       <Container fluid className="announcements-container pr-lg-5 pt-lg-5">
         <Row>
           <Col xl={8}>
             <Row className="province-title">
-              <Col  lg={10}>
-              <SectionTitle  TitleText="استان ها"/>
+              <Col lg={10}>
+                <SectionTitle TitleText="استان ها" />
               </Col>
             </Row>
             <Row className="provinces-detail-row">
@@ -108,25 +113,34 @@ const Announcement = () => {
             </Row>
           </Col>
           <Col xl={4} className="mb-5">
-            <SectionTitle TitleText="بیانیه و اطلاعیه" className="statement-title"/>
-            
-            <Row className="statement-card" style={{ direction: 'rtl' }}>
+            <SectionTitle
+              TitleText="بیانیه و اطلاعیه"
+              className="statement-title"
+            />
+
+            <Row className="statement-card pt-3 pr-2" style={{ direction: 'rtl' }}>
               {StatementsData?.status < 300 ? (
-                StatementsData?.data.result.statementList[0] &&
+                StatementsData?.data?.result.statementList[0] &&
                 (StatementsIsError || StatementsIsSuccess) ? (
-                  StatementsData?.data.result.statementList.map(
+                  StatementsData?.data?.result.statementList.map(
                     (news, index) => (
-                      <div key={index}>
+                      <div key={index} className=''>
                         <div className="row ">
                           <div className="col ">
-                            <div
-                              className="custom-style "
-                              to={`/Statement/Statements/${news.id}`}
+                            <Link
+                              style={{
+                                color: '#000',
+                                textDecoration: 'none',
+                              
+                              }}
+                              to={{
+                                pathname: `/Statement/Statements/${news.id}`,
+                                state: { manifestData: news },
+                              }}
+                              onClick={scrollToTop}
                             >
-                              {/* <a className="" href={news.linkAddress}> */}
-                                <StatementsGridFlashCard statement={news} />
-                              {/* </a> */}
-                            </div>
+                              <StatementsGridFlashCard statement={news} />
+                            </Link>
                           </div>
                         </div>
                       </div>

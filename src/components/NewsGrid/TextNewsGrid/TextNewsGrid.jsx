@@ -141,7 +141,10 @@ const TextNewsGrid = () => {
                     <Col lg={4} key={index} className="mt-5 mb-5">
                       <Link
                         className="text-news-grid-item"
-                        to={`/News/TextNews/${news.id}`}
+                        to={{
+                          pathname: `/News/TextNews/${news.id}`,
+                          state: { newsData: news },
+                        }}
                       >
                         <TextNewsFlashCard
                           title={news.title}
@@ -181,14 +184,15 @@ const TextNewsGrid = () => {
           </Row>
 
           <ReactPaginate
+          
             previousLabel={
               <span className="page-prev">
                 <IoIosArrowForward style={iconStyle} />
               </span>
             }
             nextLabel={
-              <span className="page-prev">
-                <IoIosArrowBack style={iconStyle} />
+              <span className="page-prev ">
+                <IoIosArrowBack style={iconStyle} />     
               </span>
             }
             breakLabel="..."
@@ -196,8 +200,8 @@ const TextNewsGrid = () => {
             pageCount={Math.ceil(
               textNewsData?.data.result.totalCount / pageSize
             )}
-            containerClassName="disabled-pagination-btn pagination-holder"
-            activeClassName="page-active"
+            containerClassName="disabled-pagination-btn pagination-holder "
+            activeClassName="page-active   "
             forcePage={pageNumber - 1}
             pageRangeDisplayed={2}
             marginPagesDisplayed={2}

@@ -9,8 +9,9 @@ const StatementsGridFlashCard = ({ statement }) => {
   return (
     <div className="StatmentsBox">
       <div className="row">
-        <div className="col-12">
+        <div className="col-12 " >
           <p className='statement-title'>{statement.title}</p>
+         <hr className='customize-hr'/>
         </div>
         
       </div>

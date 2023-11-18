@@ -28,9 +28,8 @@ const TextNewsPage = () => {
   const [newsData, setNewsData] = useState();
 
   useEffect(() => {
-    console.log('location.state.newsData:', location.state.newsData);
-    setNewsData(location.state.newsData);
-  }, [location.state.newsData]);
+    // console.log('location.state.newsData:', location.state.newsData);
+    setNewsData(location?.state?.newsData);}, [location?.state?.newsData]);
 
   const { id } = useParams();
 
@@ -139,8 +138,8 @@ const TextNewsPage = () => {
             className="custom-breadcrumb "
             style={{
               
-              minWidth: '800px',
-              maxWidth: '800px',
+              // minWidth: '800px',
+              // maxWidth: '800px',
             }}
           >
             <Breadcrumb.Item href="#" active>

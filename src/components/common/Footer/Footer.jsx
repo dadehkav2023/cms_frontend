@@ -17,17 +17,9 @@ import { useSelector } from 'react-redux';
 import { englishNumbersToPersian } from '../../../core/utils/englishNumbersToPersian';
 import { UseGetQuickAccess } from '../../../core/services/api/get-quick-access';
 import { UseGetRelatedLinks } from '../../../core/services/api/get-related-links';
-import { UseGetSocialMedia } from '../../../core/services/api/get-social-media';
 
 const Footer = () => {
   const state = useSelector((state) => state.setting);
-  const {
-    data: socialMediaData,
-    isLoading: socialMediaIsLoading,
-    isSuccess: socialMediaIsSuccess,
-    isError: socialMediaIsError,
-    mutate: socialMediaMutate,
-  } = UseGetSocialMedia();
 
   const {
     data: quickAccessData,
@@ -47,7 +39,7 @@ const Footer = () => {
   useEffect(() => {
     quickAccessMutate({ page: 1, pageSize: 10, isActive: true });
     relatedLinksMutate({ page: 1, pageSize: 10, isActive: true });
-    socialMediaMutate({ page: 1, pageSize: 10, isActive: true });
+    
   }, []);
   return (
     <section className="footer-section  pt-lg-5">

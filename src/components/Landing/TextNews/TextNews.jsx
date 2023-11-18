@@ -57,7 +57,7 @@ const TextNews = () => {
     <>
       {categoryData?.data.result[0] ? (
         <>
-          <Container fluid className="pr-lg-5 pt-lg-5 text-news-section-container">
+          <Container fluid className="pr-lg-5 pt-lg-5 text-news-section-container ">
             <section className="text-news-section ">
               <SectionTitle className="sectionTitle " TitleText=" اخبار" />
               <Link
@@ -101,6 +101,7 @@ const TextNews = () => {
                                       textDecoration: 'none',
                                       marginTop: '50px',
                                     }}
+                                    
                                     to={{
                                       pathname: `/News/TextNews/${news.id}`,
                                       state: { newsData: news },

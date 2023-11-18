@@ -117,9 +117,18 @@
 @media only screen and (max-width: 2560px) {
   .statement-card {
     position: relative;
-    left: 25%;
+    left: 57%;
   }
 }
+@media only screen and (max-width: 1930px) {
+
+  .statement-card {
+    position: relative;
+    left: 24%;
+  }
+ 
+}
+
 @media only screen and (max-width: 1440px) {
   .statement-card {
     position: relative;

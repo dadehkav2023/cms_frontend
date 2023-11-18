@@ -90,7 +90,7 @@
   }
   .slider-caption {
     position: absolute;
-    left: 0% !important;
+    left: 40% !important;
     width: 1240px !important;
   }
   .slider-caption-title {
@@ -100,6 +100,15 @@
   .slider-caption-text {
     font-size: 14px;
   }
+}
+@media only screen and (max-width: 1930px) {
+
+  .slider-caption {
+    position: absolute;
+    left: 0% !important;
+    width: 1240px !important;
+  }
+ 
 }
 
 @media only screen and (max-width: 1440px) {
