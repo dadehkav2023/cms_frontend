@@ -6,10 +6,11 @@ import { Route, Switch } from "react-router-dom";
 import "./StatementsGrid.scss";
 import StatementsGridPage from "../../components/StatementsGrid/StatementsGridPage/StatementsGridPage";
 import StatementsPage from "../../components/StatementsGrid/StatementsPage/StatementsPage";
+import TestHeader from "../../components/common/TestHeader/TestHeader";
 const StatementsGrid = () => {
   return (
     <>
-      <Header />
+      <TestHeader/>
       <Switch>
         <Route
           path="/Statement/Statements"

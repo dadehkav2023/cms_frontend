@@ -1,10 +1,14 @@
 .StatmentsBox{
-  padding: 10px;
+  // padding: 10px;
   
   width: 300px;
   
   
   text-align: right;
+}
+.customize-hr{
+  width: 90%;
+  margin: 10px 5px 10px 5px;
 }
 
 
@@ -105,8 +109,19 @@
   }
 }
 
-@media (max-width: 400px) {
-  .statement-grid-card-item {
-    font-size: 13px;
+
+@media only screen and (max-width: 425px) {
+  .statement-title {
+    font-size: 10px !important;
   }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+  .statement-title {
+    font-size: 10px !important;
+  }
+
+
 }

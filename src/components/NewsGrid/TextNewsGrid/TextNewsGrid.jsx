@@ -4,16 +4,23 @@ import ReactPaginate from 'react-paginate';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import { Col, Container, Row, Tab, Tabs } from 'react-bootstrap';
 import { UseGetTextNews } from '../../../core/services/api/get-text-news';
-import TextNewsFlashCard from '../NewsGridFlashCard/NewsGridFlashCard';
+
 import { UseGetCategories } from '../../../core/services/api/get-news-categories';
 import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
 import { useHistory, Link } from 'react-router-dom';
+import TextNewsFlashCard from '../../Landing/TextNews/TextNewsFlashCard/TextNewsFlashCard';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 const TextNewsGrid = () => {
   const history = useHistory();
   const [pageSize, setPageSize] = useState(12);
   const [pageNumber, setPageNumber] = useState(1);
   const [searchText, setSearchText] = useState('');
   const [newsType, setNewsType] = useState(1);
+
+  const iconStyle = {
+    color: '#0B1803',
+    fontSize: '24px',
+  };
 
   useEffect(() => {
     if (newsType === 1) {
@@ -53,7 +60,7 @@ const TextNewsGrid = () => {
   return (
     <>
       <section
-        className="text-news-section-grid"
+        className="text-news-section-grid mt-5"
         style={{ textAlign: 'center' }}
       >
         <Container className="container" fluid>
@@ -131,17 +138,20 @@ const TextNewsGrid = () => {
               (textNewsIsError || textNewsIsSuccess) ? (
                 textNewsData.data.result.newsList.map((news, index) => {
                   return (
-                    <Col lg={3} key={index}>
+                    <Col lg={4} key={index} className="mt-5 mb-5">
                       <Link
                         className="text-news-grid-item"
-                        to={`/News/TextNews/${news.id}`}
+                        to={{
+                          pathname: `/News/TextNews/${news.id}`,
+                          state: { newsData: news },
+                        }}
                       >
                         <TextNewsFlashCard
-                          id={news.id}
                           title={news.title}
-                          subTitle={news.subTitle}
-                          date={news.publishedDateTimeAsJalali}
+                          description={news.summaryTitle}
                           img={news.imagePath}
+                          id={news.id}
+                          date={news.publishedDateTimeAsJalali}
                         />
                       </Link>
                     </Col>
@@ -174,16 +184,15 @@ const TextNewsGrid = () => {
           </Row>
 
           <ReactPaginate
+          
             previousLabel={
               <span className="page-prev">
-                <ChevronRight size={15} />
-                {'<'}
+                <IoIosArrowForward style={iconStyle} />
               </span>
             }
             nextLabel={
-              <span className="page-prev">
-                <ChevronLeft size={15} />
-                {'>'}
+              <span className="page-prev ">
+                <IoIosArrowBack style={iconStyle} />     
               </span>
             }
             breakLabel="..."
@@ -191,8 +200,8 @@ const TextNewsGrid = () => {
             pageCount={Math.ceil(
               textNewsData?.data.result.totalCount / pageSize
             )}
-            containerClassName="disabled-pagination-btn pagination-holder"
-            activeClassName="page-active"
+            containerClassName="disabled-pagination-btn pagination-holder "
+            activeClassName="page-active   "
             forcePage={pageNumber - 1}
             pageRangeDisplayed={2}
             marginPagesDisplayed={2}

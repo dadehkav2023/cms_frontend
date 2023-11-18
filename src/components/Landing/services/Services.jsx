@@ -37,7 +37,7 @@ function Services() {
     <Container fluid className="pr-lg-5 pt-lg-5">
       <section className="service-section">
         <div className="service-container">
-          <SectionTitle TitleText=" خدمات ما" className="sectionTitle"/>
+          <SectionTitle TitleText=" خدمات ما" className=""/>
 
           <Carousel itemPosition="CENTER" isRTL breakPoints={breakPoints}>
             {getAllData && getAllData.data ? (
