@@ -10,6 +10,7 @@ import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSp
 import { useHistory, Link } from 'react-router-dom';
 import TextNewsFlashCard from '../../Landing/TextNews/TextNewsFlashCard/TextNewsFlashCard';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+
 const TextNewsGrid = () => {
   const history = useHistory();
   const [pageSize, setPageSize] = useState(12);
@@ -140,6 +141,11 @@ const TextNewsGrid = () => {
                   return (
                     <Col lg={4} key={index} className="mt-5 mb-5">
                       <Link
+                        style={{
+                          color: '#000',
+                          textDecoration: 'none',
+                          marginTop: '50px',
+                        }}
                         className="text-news-grid-item"
                         to={{
                           pathname: `/News/TextNews/${news.id}`,
@@ -161,30 +167,39 @@ const TextNewsGrid = () => {
                 <h2
                   style={{
                     color: 'red',
+                    fontSize: '14px',
                     textAlign: 'center',
                     width: '100%',
-                    margin: '20px 0 20px 0',
+                    margin: '10% ',
                   }}
                 >
                   هیچ اطلاعاتی جهت نمایش وجود ندارد
                 </h2>
               )
             ) : (
-              <h1
+              <div
                 style={{
-                  color: '#000',
+                  color: 'black',
                   textAlign: 'center',
                   width: '100%',
-                  margin: '20px 0 20px 0',
+                  margin: '10% ',
                 }}
               >
-                لطفا منتظر بمانید
-              </h1>
+                <h1
+                  style={{
+                    fontSize: '14px',
+                    color: '#2A7221',
+                    width: '100%',
+                  }}
+                >
+                  لطفا منتظر بمانید...
+                </h1>
+                <div className="spinner"></div>
+              </div>
             )}
           </Row>
 
           <ReactPaginate
-          
             previousLabel={
               <span className="page-prev">
                 <IoIosArrowForward style={iconStyle} />
@@ -192,7 +207,7 @@ const TextNewsGrid = () => {
             }
             nextLabel={
               <span className="page-prev ">
-                <IoIosArrowBack style={iconStyle} />     
+                <IoIosArrowBack style={iconStyle} />
               </span>
             }
             breakLabel="..."
