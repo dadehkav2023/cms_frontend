@@ -8,10 +8,23 @@ import { UseGetCategories } from '../../../core/services/api/get-news-categories
 import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
 import { UseGetPhotoNews } from '../../../core/services/api/get-photo-news';
 import { useHistory, Link } from 'react-router-dom';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import NewsGridFlashCard from '../NewsGridFlashCard/NewsGridFlashCard';
 
 const PhotoNewsGrid = () => {
+  const paginateStyle = {
+    color: '#0B1803',
+    fontSize: '24px',
+  };
+  const scrollToTop = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
   const [newsType, setNewsType] = useState(2);
   const history = useHistory();
+  const iconStyle = {
+    color: '#0B1803',
+    fontSize: '24px',
+  };
 
   useEffect(() => {
     if (newsType === 1) {
@@ -54,7 +67,10 @@ const PhotoNewsGrid = () => {
 
   return (
     <>
-      <section className="photo-news-section" style={{ textAlign: 'center' }}>
+      <section
+        className="photo-news-section mt-5"
+        style={{ textAlign: 'center' }}
+      >
         <Container className="container" fluid>
           <Row style={{ direction: 'rtl' }}>
             <Col lg={4} style={{ direction: 'rtl' }}>
@@ -123,12 +139,22 @@ const PhotoNewsGrid = () => {
               (photoNewsIsError || photoNewsIsSuccess) ? (
                 photoNewsData.data.result.newsList.map((news, index) => {
                   return (
-                    <Col lg={3} key={index}>
+                    <Col lg={4} key={index} className="mt-5 mb-5">
                       <Link
-                        className="text-news-grid-item"
-                        to={`/News/PhotoNews/${news.id}`}
+                        key={index}
+                        className="photo-news-grid-item "
+                        style={{
+                          color: '#000',
+                          textDecoration: 'none',
+                          marginTop: '50px',
+                        }}
+                        to={{
+                          pathname: `/News/PhotoNews/${news.id}`,
+                          state: { photosNewsData: news },
+                        }}
+                        onClick={scrollToTop} // Call scrollToTop when the link is clicked
                       >
-                        <TextNewsFlashCard
+                        <NewsGridFlashCard
                           id={news.id}
                           title={news.title}
                           subTitle={news.subTitle}
@@ -167,14 +193,12 @@ const PhotoNewsGrid = () => {
           <ReactPaginate
             previousLabel={
               <span className="page-prev">
-                <ChevronRight size={15} />
-                {'<'}
-              </span>
+              <IoIosArrowForward style={paginateStyle} />
+            </span>
             }
             nextLabel={
-              <span className="page-prev">
-                <ChevronLeft size={15} />
-                {'>'}
+              <span className="page-prev ">
+                <IoIosArrowBack style={paginateStyle} />
               </span>
             }
             breakLabel="..."

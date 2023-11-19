@@ -1,26 +1,40 @@
-import React, { useEffect, useState } from "react";
-import "./PhotoNewsPage.scss";
-import ReactPaginate from "react-paginate";
-import { ChevronLeft, ChevronRight } from "react-feather";
-import { Card, Button, Col, Row, Container } from "react-bootstrap";
-import { UseGetTextNews } from "../../../core/services/api/get-text-news";
-import TextNewsFlashCard from "../NewsGridFlashCard/NewsGridFlashCard";
-import { UseGetCategories } from "../../../core/services/api/get-news-categories";
-import { FallBackSpinner } from "../../common/Spinner/FallBackSpinner/FallbackSpinner";
-import { useParams, Redirect } from "react-router-dom";
-import SectionTitle from "../../common/SectionTitle/SectionTitle";
-import mockImage from "../../../assets/img/landing/slid1.jpg";
-import telegram from "../../../assets/img/icons/telegram.svg";
-import facebook from "../../../assets/img/icons/facebook.svg";
-import twitter from "../../../assets/img/icons/twitter.svg";
-import instagram from "../../../assets/img/icons/instagram.svg";
-import Carousel from "react-elastic-carousel";
-import { UseGetPhotoNewsAttachments } from "../../../core/services/api/get-photo-news-attachments";
-import { UseGetPhotoNews } from "../../../core/services/api/get-photo-news";
-import { englishNumbersToPersian } from "../../../core/utils/englishNumbersToPersian";
+import React, { useEffect, useState } from 'react';
+import './PhotoNewsPage.scss';
+import ReactPaginate from 'react-paginate';
+import { ChevronLeft, ChevronRight } from 'react-feather';
+import { Card, Button, Col, Row, Container, Breadcrumb } from 'react-bootstrap';
+import { UseGetTextNews } from '../../../core/services/api/get-text-news';
+import TextNewsFlashCard from '../NewsGridFlashCard/NewsGridFlashCard';
+import { UseGetCategories } from '../../../core/services/api/get-news-categories';
+import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
+import { useParams, Redirect, useLocation } from 'react-router-dom';
+import SectionTitle from '../../common/SectionTitle/SectionTitle';
+import mockImage from '../../../assets/img/landing/slid1.jpg';
+import telegram from '../../../assets/img/icons/telegram.svg';
+import facebook from '../../../assets/img/icons/facebook.svg';
+import twitter from '../../../assets/img/icons/twitter.svg';
+import instagram from '../../../assets/img/icons/instagram.svg';
+import Carousel from 'react-elastic-carousel';
+import { UseGetPhotoNewsAttachments } from '../../../core/services/api/get-photo-news-attachments';
+import { UseGetPhotoNews } from '../../../core/services/api/get-photo-news';
+import { englishNumbersToPersian } from '../../../core/utils/englishNumbersToPersian';
+import TextNews from '../../Landing/TextNews/TextNews';
+import PhotoNews from '../../Landing/PhotoNews/PhotoNews';
 
 const PhotoNewsPage = () => {
+  // const breadcrumbText = 'Category 2 / 1402/08/13';
+  // const modifiedBreadcrumbText = breadcrumbText.replace(/\//g, ' > ');
+
+  const location = useLocation();
+  const [photosNewsData, setPhotosNewsData] = useState();
+
+  useEffect(() => {
+    // console.log('location.state.newsData:', location.state.newsData);
+    setPhotosNewsData(location?.state?.photosNewsData);
+  }, [location?.state?.photosNewsData]);
+
   const { id } = useParams();
+
   const {
     data: photoNewsData,
     isError: photoNewsIsError,
@@ -41,73 +55,88 @@ const PhotoNewsPage = () => {
   }, []);
 
   const breakPoints = [
-    { width: 400, itemsToShow: 1 },
-    { width: 800, itemsToShow: 2 },
-    { width: 1200, itemsToShow: 3 },
-    { width: 1600, itemsToShow: 4 },
+    { width: 500, itemsToShow: 1 },
+    { width: 1000, itemsToShow: 2 },
+    { width: 1500, itemsToShow: 3 },
   ];
 
   return photoNewsIsLoading || !photoNewsIsSuccess || attachmentIsLoading ? (
     <FallBackSpinner />
   ) : !photoNewsData?.data.result.newsList[0] &&
     (photoNewsIsSuccess || photoNewsIsError) ? (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: 'center' }}>
       <p>اطلاعات مورد نظر شما یافت نشد</p>
       <Redirect to="/News/PhotoNews" />
     </div>
   ) : (
     <>
-      <section className="photo-news-page">
+      <section  className="photo-news-page">
         <Container fluid>
-          <Row>
-            <Col lg={4}>
-              <div className="share-news">
-                <img src={facebook} alt="facebook" />
-                <img src={telegram} alt="telegram" />
-                <img src={instagram} alt="instagram" />
-                <img src={twitter} alt="twitter" />
-              </div>
-            </Col>
-            <Col lg={4}>
-              <p className="photo-news-date">
-                {englishNumbersToPersian(
-                  photoNewsData?.data.result.newsList[0]
-                    .publishedDateTimeAsJalali
-                )}
-              </p>
-            </Col>
-            <Col lg={4} className="category-box">
-              {photoNewsData?.data.result.newsList[0].newsCategories.map(
-                (category, index) => {
-                  return (
-                    <p key={index}>
-                      {index === 0 ? category.title : ` / ${category.title} `}
-                    </p>
-                  );
-                }
-              )}
-            </Col>
+          <Row className="">
+            <h4
+            className='photo-news-title'
+              
+            >{photosNewsData?.title}</h4>
+            <img
+            className='photo-news-image-page'
+              src={`${process.env.REACT_APP_PUBLIC_PATH}/${photosNewsData?.imagePath}`}
+              alt="news"
+            />
+            <p
+              className="photo-news-summary"
+              dangerouslySetInnerHTML={{
+                __html: photosNewsData?.summary,
+              }}
+            />
           </Row>
-          <hr />
+
+          <Row>
+            <Breadcrumb
+              className="photo-news-breadcrumb"
+          
+            >
+              <Breadcrumb.Item href="#" active>
+                <span
+                  style={{
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {englishNumbersToPersian(
+                    photoNewsData?.data.result.newsList[0]
+                      .publishedDateTimeAsJalali
+                  )}
+                </span>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <span
+                  style={{
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {photoNewsData?.data.result.newsList[0].newsCategories.map(
+                    (category, index) => {
+                      return (
+                        <p key={index}>
+                          {index === 0
+                            ? category.title
+                            : ` / ${category.title} `}
+                        </p>
+                      );
+                    }
+                  )}
+                </span>
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          </Row>
         </Container>
-        <SectionTitle
-          TitleText={photoNewsData?.data.result.newsList[0].title}
-        />
 
-        <img
-          src={`${process.env.REACT_APP_PUBLIC_PATH}/${photoNewsData?.data.result.newsList[0].imagePath}`}
-          alt="news"
-        />
-        <p
-          className="photo-news-summary"
-          dangerouslySetInnerHTML={{
-            __html: photoNewsData?.data.result.newsList[0].summary,
-          }}
-        />
-
-        {attachmentData.data.result.newsAttachmentList[0] && (
+        {/* {attachmentData.data.result.newsAttachmentList[0] && (
           <>
-            <SectionTitle TitleText="پیوست ها" />{" "}
+            <SectionTitle TitleText="پیوست ها" />{' '}
             <Carousel isRTL breakPoints={breakPoints}>
               {attachmentData && attachmentData.data ? (
                 attachmentData.data.result.newsAttachmentList.map(
@@ -116,9 +145,9 @@ const PhotoNewsPage = () => {
                       <Card
                         key={index}
                         style={{
-                          width: "400px",
-                          textAlign: "center",
-                          marginBottom: "100px",
+                          width: '400px',
+                          textAlign: 'center',
+                          marginBottom: '100px',
                         }}
                       >
                         <Card.Body>
@@ -134,7 +163,7 @@ const PhotoNewsPage = () => {
                             />
                           </a>
 
-                          <Card.Text style={{ marginTop: "30px" }}>
+                          <Card.Text style={{ marginTop: '30px' }}>
                             جهت مشاهده پیوست از دکمه زیر استفاده کنید
                           </Card.Text>
                           <Card.Link
@@ -151,10 +180,14 @@ const PhotoNewsPage = () => {
               ) : (
                 <h1>لطفا منتظر بمانید</h1>
               )}
-            </Carousel>{" "}
+            </Carousel>{' '}
           </>
-        )}
+        )} */}
       </section>
+      <hr className="custom-hr" />
+      <div className="container-fluid pr-5 ">
+        <PhotoNews photosNewsData={photosNewsData} />
+      </div>
     </>
   );
 };

@@ -21,15 +21,16 @@ import { englishNumbersToPersian } from '../../../core/utils/englishNumbersToPer
 import SocialMedia from '../../common/Social/socialMedia';
 
 const TextNewsPage = () => {
-  const breadcrumbText = 'Category 2 / 1402/08/13';
-  const modifiedBreadcrumbText = breadcrumbText.replace(/\//g, ' > ');
+  // const breadcrumbText = 'Category 2 / 1402/08/13';
+  // const modifiedBreadcrumbText = breadcrumbText.replace(/\//g, ' > ');
 
   const location = useLocation();
   const [newsData, setNewsData] = useState();
 
   useEffect(() => {
     // console.log('location.state.newsData:', location.state.newsData);
-    setNewsData(location?.state?.newsData);}, [location?.state?.newsData]);
+    setNewsData(location?.state?.newsData);
+  }, [location?.state?.newsData]);
 
   const { id } = useParams();
 
@@ -136,11 +137,12 @@ const TextNewsPage = () => {
         <Row>
           <Breadcrumb
             className="custom-breadcrumb "
-            style={{
-              
-              // minWidth: '800px',
-              // maxWidth: '800px',
-            }}
+            style={
+              {
+                // minWidth: '800px',
+                // maxWidth: '800px',
+              }
+            }
           >
             <Breadcrumb.Item href="#" active>
               <span
