@@ -49,7 +49,7 @@ const TestHeader = () => {
   return (
     isSuccess && (
       <>
-        <header className="site-header mb-5">
+        <header className="site-header ">
           <h6 className="typed-text">
             <Typed
               strings={[
@@ -122,6 +122,7 @@ const TestHeader = () => {
                       key="down-centered"
                       className="profile-dropdown User-features "
                       title="امکانات کاربری"
+                      
                      
                     >
                       <div className="User-features-items">
@@ -154,6 +155,7 @@ const TestHeader = () => {
                       style={{}}
                     >
                       <p
+                      className=''
                         style={{
                           display: 'inline',
                           margin: 0,

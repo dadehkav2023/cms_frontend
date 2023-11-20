@@ -163,7 +163,7 @@ const VideoNews = () => {
         </>
       ) : (
         <>
-          <SectionTitle TitleText="ویدئو" />
+          {/* <SectionTitle TitleText="ویدئو" />
           <h2
             style={{
               color: 'red',
@@ -173,7 +173,7 @@ const VideoNews = () => {
             }}
           >
             هیچ اطلاعاتی جهت نمایش وجود ندارد
-          </h2>
+          </h2> */}
         </>
       )}
     </>

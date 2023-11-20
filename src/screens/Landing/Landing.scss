@@ -13,7 +13,7 @@
   overflow: hidden;
 }
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   font-family: shabanam !important;
 }
 .carousel-indicators > li {
@@ -27,3 +27,14 @@ body {
 }
 .carousel-indicators > .active {
 }
+
+@media only screen and (max-width: 2560px) {
+body{
+  overflow-x: hidden !important;
+}
+}
+@media only screen and (max-width: 375px) {
+  body{
+    overflow-x: hidden !important;
+  }
+  }

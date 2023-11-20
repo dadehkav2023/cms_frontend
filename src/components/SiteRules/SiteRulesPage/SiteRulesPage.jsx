@@ -52,7 +52,7 @@ const SiteRulesPage = () => {
   return (
     <>
       <section className="site-rules-section">
-        <h3>قوانین و مقررات</h3>
+        <h3 className="mt-5">قوانین و مقررات</h3>
         <hr />
         <Container className="site-rules-container" fluid>
           <Row>

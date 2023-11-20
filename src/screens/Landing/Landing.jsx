@@ -13,6 +13,7 @@ import Survey from "../../components/Landing/Survey/Survey";
 import "./Landing.scss";
 import VideoNews from "../../components/Landing/VideoNews/VideoNews";
 import TestHeader from "../../components/common/TestHeader/TestHeader";
+import PhotoNews from "../../components/Landing/PhotoNews/PhotoNews";
 const Landing = () => {
   return (
     <>
@@ -21,7 +22,8 @@ const Landing = () => {
       <SlideShow />
       <Services />
       <TextNews />
-      <PeoplesVoice />
+      <PhotoNews/>
+      {/* <PeoplesVoice /> */}
       <VideoNews />
       <Announcement />
       {/* <Survey /> */}

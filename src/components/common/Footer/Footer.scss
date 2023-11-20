@@ -1,3 +1,10 @@
+
+
+.social-media-icon > a > img {
+  width: 25px !important;
+  height: 25px !important;
+}
+
 .footer-section {
   width: 100%;
   position: relative;
@@ -5,10 +12,10 @@
 .footer-top {
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: #0B1803;
+  background-color: #0b1803;
 }
 .footer-card > div {
-  background-color: #0B1803;
+  background-color: #0b1803;
   color: #fff;
 }
 .footer-card {
@@ -21,7 +28,6 @@
   position: relative;
 }
 .footer-card > div > ul {
-  
   list-style: none;
 }
 .footer-card > div > span {
@@ -37,7 +43,7 @@
   display: flex;
   list-style: none;
   font-size: 14px;
-  
+
   margin-top: 10px;
 }
 .footer-card > div > ul > li > p {
@@ -72,16 +78,19 @@
 }
 
 .footer-bottom > a {
-  color: #6DCE0E !important;}
+  color: #6dce0e !important;
+}
 
 .social-media-footer-box {
-  width: 300px;
-  height: 50px;
-  margin-left: 15%;
-  margin-top: 35px;
+  width: 250px;
+  // padding: 10px;
+  position: absolute;
+  top: 230% !important;
+  left: -120%;
+  // background-color: #6dce0e !important;
 }
 .social-media-footer-box > div {
-  margin-left: 40px;
+  margin-left: 25px;
   width: 8%;
   float: left;
   cursor: pointer;
@@ -90,6 +99,22 @@
   width: 100%;
   height: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .social-media-footer-box > div > a > img {
   width: 100%;
   transition: 0.2s;
@@ -98,11 +123,73 @@
   width: 110%;
 }
 
-@media (max-width: 1700px) {
-  .footer-card > div > span {
-    padding-left: 0%;
+@media only screen and (max-width: 2560px) {
+  .social-media-footer-box {
+    position: absolute;
+    top: 230% !important;
+    left: -110%;
   }
 }
+
+@media only screen and (max-width: 1930px) {
+
+  .social-media-footer-box {
+    position: absolute;
+    top: 230% !important;
+    left: -120%;
+  }
+ 
+}
+@media only screen and (max-width: 1024px) {
+  .social-media-footer-box {
+    position: absolute;
+    top: 197% !important;
+    left: -94%;
+    
+    
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .social-media-footer-box {
+    position: absolute;
+    top: 265% !important;
+    left: 32% !important;
+  
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .social-media-footer-box {
+    position: absolute;
+    top: 205% !important;
+    left: 18% !important;
+  
+  }
+}
+
+
+@media only screen and (max-width: 375px) {
+  .social-media-footer-box {
+    position: absolute;
+    top: 200% !important;
+    left: 14% !important;
+    
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 992px) {
   .enamad > img {
     position: static;

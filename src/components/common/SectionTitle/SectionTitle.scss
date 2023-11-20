@@ -2,11 +2,35 @@
   text-align: right;
   padding-right: 0px;
 }
-.sectionTitle {
-  
+.sectionTitles {
   display: inline-block;
   text-align: center;
-  margin: 30px 10px 50px 10px;
-  border-bottom: 4px solid #000;
+  margin: 20px 10px 50px 10px;
   font-size: 25px;
+  font-weight: 600;
+}
+@media only screen and (max-width: 1024px) {
+  .sectionTitles {
+    font-size: 18px !important;
+    margin-right: -2%;
+    
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sectionTitles {
+    font-size: 18px !important;
+    margin-right: 2%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .sectionTitles {
+    font-size: 12px !important;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .sectionTitles {
+    font-size: 12px !important;
+  }
 }

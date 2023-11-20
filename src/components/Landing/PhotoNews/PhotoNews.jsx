@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
-import { Container, Tab, Tabs } from 'react-bootstrap';
+import { Col, Container, Tab, Tabs } from 'react-bootstrap';
 import Carousel from 'react-elastic-carousel';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { UseGetCategories } from '../../../core/services/api/get-news-categories';
-import { UseGetTextNews } from '../../../core/services/api/get-text-news';
+import { UseGetPhotoNews } from '../../../core/services/api/get-photo-news';
 import MoreItemsButton from '../../common/Buttons/MoreItemsButton/MoreItemsButton';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import { FallBackSpinner } from '../../common/Spinner/FallBackSpinner/FallbackSpinner';
-import './TextNews.scss';
-import TextNewsFlashCard from './TextNewsFlashCard/TextNewsFlashCard';
+import './PhotoNews.scss';
+import NewsGridFlashCard from '../../NewsGrid/NewsGridFlashCard/NewsGridFlashCard';
 
-const TextNews = () => {
+const PhotoNews = () => {
   const scrollToTop = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
@@ -31,12 +31,12 @@ const TextNews = () => {
     isSuccess: categoryIsSuccess,
   } = UseGetCategories();
   const {
-    data: textNewsData,
-    isError: textNewsIsError,
-    isLoading: textNewsIsLoading,
-    isSuccess: textNewsIsSuccess,
-    mutate: textNewsMutate,
-  } = UseGetTextNews();
+    data: photoNewsData,
+    isError: photoNewsIsError,
+    isLoading: photoNewsIsLoading,
+    isSuccess: photoNewsIsSuccess,
+    mutate: photoNewsMutate,
+  } = UseGetPhotoNews();
 
   useEffect(() => {
     categoryData &&
@@ -46,7 +46,7 @@ const TextNews = () => {
   }, [categoryData]);
 
   useEffect(() => {
-    textNewsMutate({
+    photoNewsMutate({
       page: 1,
       pageSize: state.homePageNewsCount,
       categoryIds: [selectedCategory],
@@ -59,15 +59,15 @@ const TextNews = () => {
         <>
           <Container
             fluid
-            className="pr-lg-5 pt-lg-5 text-news-section-container "
+            className="pr-lg-5 pt-lg-5 photo-news-section-container  "
           >
-            <section className="text-news-section ">
-              <SectionTitle className="sectionTitle " TitleText=" اخبار" />
+            <section className="photo-news-section ">
+              <SectionTitle className="sectionTitle " TitleText=" تصاویر" />
               <Link
                 style={{
                   color: 'rgba(0, 0, 0, 0.5)',
                 }}
-                to="/News/TextNews"
+                to="/News/PhotoNews"
                 onClick={scrollToTop} // Call scrollToTop when the link is clicked
               >
                 <MoreItemsButton text=" مشاهده بیشتر" />
@@ -76,7 +76,7 @@ const TextNews = () => {
                 onSelect={(e) => {
                   setSelectedCategory(+e);
                 }}
-                className="text-news-tab"
+                className="photo-news-tab"
                 defaultActiveKey={categoryData?.data.result[0].id}
               >
                 {categoryData?.data.result.map((category, index) => {
@@ -92,33 +92,36 @@ const TextNews = () => {
                         isRTL
                         breakPoints={breakPoints}
                       >
-                        {textNewsData && textNewsData.data ? (
-                          textNewsData?.data?.result.newsList[0] &&
-                          (textNewsIsError || textNewsIsSuccess) ? (
-                            textNewsData?.data?.result.newsList.map(
+                        {photoNewsData && photoNewsData.data ? (
+                          photoNewsData?.data?.result.newsList[0] &&
+                          (photoNewsIsError || photoNewsIsSuccess) ? (
+                            photoNewsData?.data?.result.newsList.map(
                               (news, index) => {
                                 return (
-                                  <Link
-                                    key={index}
-                                    style={{
-                                      color: '#000',
-                                      textDecoration: 'none',
-                                      marginTop: '50px',
-                                    }}
-                                    to={{
-                                      pathname: `/News/TextNews/${news.id}`,
-                                      state: { newsData: news },
-                                    }}
-                                    onClick={scrollToTop} // Call scrollToTop when the link is clicked
-                                  >
-                                    <TextNewsFlashCard
-                                      title={news.title}
-                                      description={news.summaryTitle}
-                                      img={news.imagePath}
-                                      id={news.id}
-                                      date={news.publishedDateTimeAsJalali}
-                                    />
-                                  </Link>
+                                  <Col lg={3} className="mt-5 mb-5">
+                                    <Link
+                                      key={index}
+                                      className="photo-news-grid-item "
+                                      style={{
+                                        color: '#000',
+                                        textDecoration: 'none',
+                                        marginTop: '50px',
+                                      }}
+                                      to={{
+                                        pathname: `/News/PhotoNews/${news.id}`,
+                                        state: { photosNewsData: news },
+                                      }}
+                                      onClick={scrollToTop} // Call scrollToTop when the link is clicked
+                                    >
+                                      <NewsGridFlashCard
+                                        id={news.id}
+                                        title={news.title}
+                                        subTitle={news.subTitle}
+                                        date={news.publishedDateTimeAsJalali}
+                                        img={news.imagePath}
+                                      />
+                                    </Link>
+                                  </Col>
                                 );
                               }
                             )
@@ -126,10 +129,10 @@ const TextNews = () => {
                             <h2
                               style={{
                                 color: 'red',
-                                fontSize: '14px',
                                 textAlign: 'center',
+                                fontSize: '14px',
                                 width: '100%',
-                                margin: '10% ',
+                                margin: '10%',
                               }}
                             >
                               هیچ اطلاعاتی جهت نمایش وجود ندارد
@@ -186,4 +189,4 @@ const TextNews = () => {
     </>
   );
 };
-export default TextNews;
+export default PhotoNews;

@@ -1,3 +1,5 @@
+
+
 .buttonContainer > button {
   margin: 15px auto;
 }
@@ -32,19 +34,31 @@
   line-height: 35px;
   border-right: 0.1px solid rgba(204, 204, 204, 0.473);
 }
+.page-active{
+  background-color: #0B1803 !important;
+}
 
 .pagination-holder li.page-active > a {
-  background-color: #7367f0;
+  background-color: #0B1803 !important;
   color: rgb(255, 255, 255);
 }
-.pagination-holder li:hover > a {
-  background-color: #a5a0dfb0;
-  color: rgb(255, 255, 255);
-}
-.pagination-holder li.page-active:hover > a {
-  background-color: #a5a0dfb0;
-  color: rgb(255, 255, 255);
-}
+
+
+
+
+
+
+
+
+
+// .pagination-holder li:hover > a {
+//   background-color: #a5a0dfb0;
+//   color: rgb(255, 255, 255);
+// }
+// .pagination-holder li.page-active:hover > a {
+//   background-color: #a5a0dfb0;
+//   color: rgb(255, 255, 255);
+// }
 
 .table-header:hover .resizer {
   background-color: red;
@@ -129,12 +143,15 @@
   border-radius: 10px !important;
 }
 .grid-tab > .active {
-  color: rgb(0, 89, 253) !important;
-  border: 1px solid rgb(0, 89, 253) !important;
+  color: #0B1803 !important;
+  // border: 1px solid rgb(0, 89, 253) !important;
 }
 .grid-tab > a {
   margin-top: 10px;
 }
+
+
+
 .text-news-grid-item > div > div > p,
 .text-news-grid-item > div > div > div {
   color: #222;
