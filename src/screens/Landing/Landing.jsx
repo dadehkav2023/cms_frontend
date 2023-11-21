@@ -15,13 +15,22 @@ import VideoNews from '../../components/Landing/VideoNews/VideoNews';
 import TestHeader from '../../components/common/TestHeader/TestHeader';
 import PhotoNews from '../../components/Landing/PhotoNews/PhotoNews';
 import ElectionBanner from '../../components/ElectionGrid/ElectionBanner/ElectionBanner';
+import { Col, Container, Row } from 'reactstrap';
 const Landing = () => {
   return (
     <>
       <TestHeader />
 
       <SlideShow />
-      <ElectionBanner />
+
+      <Container>
+        <Row className="justify-content-center">
+          <Col xs="auto" className="d-flex align-items-center">
+            <ElectionBanner />
+          </Col>
+        </Row>
+      </Container>
+
       <Services />
       <TextNews />
       <PhotoNews />

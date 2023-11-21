@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const ElectionBanner = () => {
   return (
     <Container>
-      <Row className="justify-content-center mt-5">
-        <Col lg={8}>
+      <Row  className="mt-5 banerContainer">
+        <Col>
           <Link className="title" to="/Election/Province">
             <h4>برگذاری انتخابات اتحادیه های اتاق اصناف کشاورزی ایران</h4>
           </Link>

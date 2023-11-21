@@ -1,16 +1,15 @@
 import { correctUploadPath } from '../../../core/utils/image-path-correction';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import './ElectionLogo.scss';
+import './ElectionTemplate.scss';
 import { Col, Container, Row } from 'reactstrap';
 
-const ElectionLogo = () => {
+const ElectionTemplate = () => {
   const state = useSelector((state) => state.setting);
   return (
     <Container>
-      <Row className="justify-content-start ">
-        <Col lg={2}>
-       
+      <Row className="mt-5 justify-content-around ">
+        <Col lg={2} md={1} >
           {state.logoImageAddress !== '' && (
             <Link className="logo" to="/">
               <img
@@ -24,9 +23,15 @@ const ElectionLogo = () => {
             </Link>
           )}
         </Col>
+
+        <Col lg={8} md={9} className="justify-content-center  pt-lg-5 ">
+          <Link className="title" to="/Election/Province">
+            <h4>برگذاری انتخابات اتحادیه های اتاق اصناف کشاورزی ایران</h4>
+          </Link>
+        </Col>
       </Row>
     </Container>
   );
 };
 
-export default ElectionLogo;
+export default ElectionTemplate;

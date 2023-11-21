@@ -1,18 +1,12 @@
 import { Container, Row } from 'reactstrap';
-import ElectionBanner from '../../ElectionBanner/ElectionBanner';
-import ElectionLogo from '../../ElectionLogo/ElectionLogo';
+import ElectionTemplate from '../../ElectionTemplate/ElectionTemplate';
 
 const ElectionLayout = ({ children }) => {
   return (
     <Container>
-      <Row >
-        <ElectionBanner />
-         <ElectionLogo />
-      </Row>
       <Row>
-    
+        <ElectionTemplate />
       </Row>
-
       <div>{children}</div>
     </Container>
   );

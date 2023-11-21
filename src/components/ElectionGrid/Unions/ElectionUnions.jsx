@@ -1,7 +1,5 @@
-import { Col, Container, Row } from 'reactstrap';
-
+import { Col, Container, Row, Table } from 'reactstrap';
 import './ElectionUnions.scss';
-
 import { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UseGetElectionUnions } from '../../../core/services/api/get-election-unions';
@@ -24,27 +22,42 @@ const ElectionUnions = () => {
   return (
     <>
       <ElectionLayout>
-        <Container fluid dir="rtl" className="">
+        <Container fluid dir="rtl">
           <Row>
             <Col>
-              <h6 className="unionsParagraph">
-                اتحادیه هایی که درانتخابات حضور دارند
+              <h6 className="unionsParagraph mb-5">
+                اتحادیه هایی که درانتخابات حضور دارند:
               </h6>
 
               <Row className="">
+              <Table>
+              <thead>
+                    <tr>
+                      <th>ردیف</th>
+                      <th>نام اتحادیه</th>
+                      </tr>
+                  </thead>
                 {electionUnionsData && electionUnionsData.data ? (
                   electionUnionsData.data.result &&
                   (electionUnionsIsError || electionUnionsIsSuccess) ? (
                     electionUnionsData.data.result.map((election, index) => {
                       return (
-                        <div key={index} className="unionsButton">
-                          <Link
+                        <>
+                        <tbody>
+                          <tr>
+                            <th scope="row">{index+1}</th>
+                            <Link
                             className="unionsButtonLink"
                             to={`/Election/Candidates/${election.unionId}`}
                           >
-                            <p>{election.unionTitle}</p>
+                          <td>
+                            {election.unionTitle}
+                             
+                            </td>
                           </Link>
-                        </div>
+                          </tr>
+                              </tbody>
+                      </>
                       );
                     })
                   ) : (
@@ -81,6 +94,7 @@ const ElectionUnions = () => {
                     <div className="spinner"></div>
                   </div>
                 )}
+                </Table>
               </Row>
             </Col>
           </Row>

@@ -1,9 +1,7 @@
 import { Link, useHistory } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 import './ElectionCounties.scss';
-
 import { useEffect } from 'react';
-
 import { UseGetElectionCounties } from '../../../core/services/api/get-election-counties';
 import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
 
@@ -24,26 +22,25 @@ const ElectionCounties = () => {
   return (
     <>
       <ElectionLayout>
-        <Container fluid dir="rtl" className="">
+        <Container fluid dir="rtl" >
           <Row>
             <Col>
               <h6 className="countiesParagraph">
-                شهرستان هایی که درانتخابات حضور دارند
+                شهرستان هایی که درانتخابات حضور دارند :
               </h6>
 
-              <Row className="">
+              <Row>
                 {electionCountiesData && electionCountiesData.data ? (
                   electionCountiesData.data.result &&
                   (electionCountiesIsError || electionCountiesIsSuccess) ? (
                     electionCountiesData.data.result.map((election, index) => {
                       return (
-                        <div key={index} className="countieseButton">
+                        <div key={index} className="countieseButton mb-5">
                           <Link
                             className="countiesButtonLink"
                             to={`/Election/Unions/${election.countyId}`}
                           >
                             <p>{election.countyTitle}</p>
-                            
                           </Link>
                         </div>
                       );

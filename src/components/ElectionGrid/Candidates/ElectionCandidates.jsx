@@ -1,11 +1,8 @@
 import { Col, Container, Row, Table } from 'reactstrap';
-
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import ReactPaginate from 'react-paginate';
 import { useSelector } from 'react-redux';
-
 import './ElectionCandidates.scss';
-
 import { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UseGetElectionCandidates } from '../../../core/services/api/get-election-candidates';
@@ -13,15 +10,10 @@ import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
 
 const ElectionCandidates = () => {
   const history = useHistory();
-  // const [pageSize, setPageSize] = useState(6);
+
   const [pageNumber, setPageNumber] = useState(1);
 
   const state = useSelector((state) => state.setting);
- 
-
-  
- 
- 
 
   const {
     data: electionCandidatesData,
@@ -36,15 +28,7 @@ const ElectionCandidates = () => {
     fontSize: '24px',
   };
 
-
-  // const [pagination , setPagination] = useState({
-  //   page : 1 ,
-  //   pageSize : pageSize ,
-  //   unionElectionId :  45,
-  // })
-
   useEffect(() => {
-   
     electionCandidatesMutate({
       page: pageNumber,
       pageSize: 10,
@@ -55,21 +39,36 @@ const ElectionCandidates = () => {
   return (
     <>
       <ElectionLayout>
-        <Container fluid dir="rtl" className="">
+        <Container fluid dir="rtl">
           <Row>
             <Col>
-              <h6 className="candidatesParagraph">
-                کاندید هایی که درانتخابات حضور دارند
-              </h6>
+              <Row>
+                <div className="description mb-5">
+                  <h5 className="d-flex row">
+                    نام اتحادیه:
+                    <p>
+                      {`${electionCandidatesData?.data?.result?.unionInfo?.unionTitle}`}
+                    </p>
+                  </h5>
 
-              <Row className="">
-                 <div>
-               {`${electionCandidatesData?.data?.result?.unionInfo?.unionTitle}`} 
-                </div> 
+                  <h5 className="d-flex row">
+                    نوع اتحادیه:{' '}
+                    <p>
+                      {`${electionCandidatesData?.data?.result?.unionInfo?.unionTypeTitle}`}
+                    </p>
+                  </h5>
+
+                  <h5 className="d-flex row">
+                    تاریخ برگزاری:{' '}
+                    <p>
+                      {`${electionCandidatesData?.data?.result?.electionInfo?.electionDate}`}
+                    </p>
+                  </h5>
+                </div>
 
                 <Table>
                   <thead>
-                    <tr>
+                    <tr className="tableTitle">
                       <th>ردیف</th>
                       <th> نام و نام خانوادگی کاندیدا</th>
                       <th> شغل اصلی </th>
@@ -87,8 +86,8 @@ const ElectionCandidates = () => {
                           return (
                             <>
                               <tbody>
-                                <tr>
-                                  <th scope="row"></th>
+                                <tr className="tableDetails">
+                                  <th scope="row">{index + 1}</th>
                                   <td>
                                     {election.candidateFirstName}{' '}
                                     {election.candidateLastName}{' '}
@@ -99,12 +98,6 @@ const ElectionCandidates = () => {
                                   <td>*</td>
                                 </tr>
                               </tbody>
-
-                              {/* <Col lg={4} key={index} className="mt-5 mb-5">
-                              <Link className="">
-                               
-                              </Link>
-                            </Col> */}
                             </>
                           );
                         }
@@ -144,10 +137,26 @@ const ElectionCandidates = () => {
                     </div>
                   )}
                 </Table>
+
+                <div className="description mt-5">
+                  <h5 className="d-flex row">
+                    محل برگذاری انتخابات :{' '}
+                    <p>
+                      {`${electionCandidatesData?.data?.result?.electionInfo?.electionAddress}`}
+                    </p>
+                  </h5>
+
+                  <h5 className="d-flex row">
+                    توضیحات تکمیلی :{' '}
+                    <p>
+                      {`${electionCandidatesData?.data?.result?.electionInfo?.electionDescription}`}
+                    </p>
+                  </h5>
+                </div>
               </Row>
             </Col>
           </Row>
-          <Row>
+          <Row className="justify-content-center mb-5">
             <ReactPaginate
               previousLabel={
                 <span className="">
@@ -169,9 +178,8 @@ const ElectionCandidates = () => {
               forcePage={pageNumber - 1}
               pageRangeDisplayed={2}
               marginPagesDisplayed={2}
-              onPageChange={(page , pageSize) => {
+              onPageChange={(page, pageSize) => {
                 setPageNumber(page.selected + 1);
-          
               }}
             />
           </Row>

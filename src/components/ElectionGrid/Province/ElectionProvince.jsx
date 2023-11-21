@@ -1,10 +1,7 @@
 import { Col, Container, Row } from 'reactstrap';
-
 import { Link, useHistory } from 'react-router-dom';
 import './ElectionProvince.scss';
-
 import { useEffect } from 'react';
-
 import { UseGetElectionProvince } from '../../../core/services/api/get-election-province';
 import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
 
@@ -25,21 +22,20 @@ const ElectionProvince = () => {
   return (
     <>
       <ElectionLayout>
-        <Container fluid dir="rtl" className="">
-          <Row className="">
+        <Container fluid dir="rtl">
+          <Row>
             <Col>
               <h6 className="provinceParagraph">
                 استان هایی که درانتخابات حضور دارند:
               </h6>
 
-              <Row className="">
+              <Row>
                 {electionProvinceData && electionProvinceData.data ? (
                   electionProvinceData.data.result &&
                   (electionProvinceIsError || electionProvinceIsSuccess) ? (
                     electionProvinceData.data.result.map((election, index) => {
-                      console.log('election: ', election);
                       return (
-                        <div key={index} className=" provinceButton">
+                        <div key={index} className=" provinceButton mb-5">
                           <Link
                             className="provinceButtonLink"
                             to={`/Election/Counties/${election.provinceId}`}

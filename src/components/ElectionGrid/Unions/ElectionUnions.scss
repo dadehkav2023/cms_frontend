@@ -2,19 +2,40 @@
   font-size: 20px;
   font-weight: 400;
 }
-.unionsButton {
-  margin-top: 10px;
-  width: 300px !important;
-  height: 72px !important;
-  border: 1px solid rgb(113, 102, 240);
-  border-radius: 20px;
-  background-color: rgba(113, 102, 240, 0.3) !important;
-  margin: 10px;
-}
+
 .unionsButtonLink {
   color: black !important;
   font-size: 16px;
   text-decoration: none !important;
   text-align: center !important;
-  line-height: 72px !important;
+}
+
+.spinner {
+  border: 4px solid #2a7221;
+  border-top: 4px solid #119822;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .unionsParagraph {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .unionsButtonLink{
+    font-size: 12px;
+  }
+
 }
