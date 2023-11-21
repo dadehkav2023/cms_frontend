@@ -4,6 +4,7 @@ import './ElectionCounties.scss';
 import { useEffect } from 'react';
 import { UseGetElectionCounties } from '../../../core/services/api/get-election-counties';
 import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
+import { ListTable } from '../../common/ListTable/ListTable';
 
 const ElectionCounties = () => {
   const history = useHistory();
@@ -22,6 +23,7 @@ const ElectionCounties = () => {
   return (
     <>
       <ElectionLayout>
+       
         <Container fluid dir="rtl" >
           <Row>
             <Col>

@@ -1,3 +1,5 @@
+
+
 .title {
   text-decoration: none !important;
 }
@@ -9,11 +11,13 @@
   border-radius: 10px;
   cursor: pointer;
   text-align: center;
-  font-weight: 400;
-  font-size: 26px !important;
+  font-weight: 600;
+  font-size: 60px !important;
   color: rgb(0, 0, 0);
   padding-left: 20px;
   padding-right: 20px;
+  font-family: iranNastaliq;
+
 }
 
 .banerContainer {
@@ -22,7 +26,7 @@
 
 @media only screen and (max-width: 1024px) {
   .title > h4 {
-    font-size: 20px !important;
+    font-size: 40px !important;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -30,14 +34,14 @@
 
 @media only screen and (max-width: 425px) {
   .title > h4 {
-    font-size: 15px !important;
+    font-size: 30px !important;
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 @media only screen and (max-width: 375px) {
   .title > h4 {
-    font-size: 12px !important;
+    font-size: 30px !important;
     padding-left: 5px;
     padding-right: 5px;
   }

@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UseGetElectionCandidates } from '../../../core/services/api/get-election-candidates';
 import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
+import { englishNumbersToPersian } from "../../../../src/core/utils/englishNumbersToPersian";
 
 const ElectionCandidates = () => {
   const history = useHistory();
@@ -22,6 +23,9 @@ const ElectionCandidates = () => {
     isSuccess: electionCandidatesIsSuccess,
     mutate: electionCandidatesMutate,
   } = UseGetElectionCandidates();
+
+  const electionDate = `${electionCandidatesData?.data?.result?.electionInfo?.electionDate}`;
+
 
   const iconStyle = {
     color: '#0B1803',
@@ -42,26 +46,27 @@ const ElectionCandidates = () => {
         <Container fluid dir="rtl">
           <Row>
             <Col>
-              <Row>
-                <div className="description mb-5">
-                  <h5 className="d-flex row">
-                    نام اتحادیه:
-                    <p>
+              <Row className=' '>
+                <div className="description mb-5 m-auto ">
+                  <h5 >
+                    نام اتحادیه
+                    <p className="descriptionDetails mt-3">
                       {`${electionCandidatesData?.data?.result?.unionInfo?.unionTitle}`}
                     </p>
                   </h5>
 
-                  <h5 className="d-flex row">
-                    نوع اتحادیه:{' '}
-                    <p>
+                  <h5 >
+                    نوع اتحادیه
+                    <p className="descriptionDetails mt-3">
                       {`${electionCandidatesData?.data?.result?.unionInfo?.unionTypeTitle}`}
                     </p>
                   </h5>
 
-                  <h5 className="d-flex row">
-                    تاریخ برگزاری:{' '}
-                    <p>
-                      {`${electionCandidatesData?.data?.result?.electionInfo?.electionDate}`}
+                  <h5 >
+                    تاریخ برگزاری
+                    <p className="descriptionDetails mt-3">
+                    {englishNumbersToPersian(electionDate)}
+                   
                     </p>
                   </h5>
                 </div>
@@ -138,20 +143,20 @@ const ElectionCandidates = () => {
                   )}
                 </Table>
 
-                <div className="description mt-5">
-                  <h5 className="d-flex row">
+                <div className=" mt-5  ">
+                  <h6 className="d-flex row">
                     محل برگذاری انتخابات :{' '}
                     <p>
                       {`${electionCandidatesData?.data?.result?.electionInfo?.electionAddress}`}
                     </p>
-                  </h5>
+                  </h6>
 
-                  <h5 className="d-flex row">
+                  <h6 className="d-flex row">
                     توضیحات تکمیلی :{' '}
                     <p>
                       {`${electionCandidatesData?.data?.result?.electionInfo?.electionDescription}`}
                     </p>
-                  </h5>
+                  </h6>
                 </div>
               </Row>
             </Col>
