@@ -3,10 +3,10 @@
   font-family: iranNastaliq;
 }
 .description > h5 > p {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 100;
   font-family: shabnam;
-  line-height: 60px;
+  line-height: 40px;
   height: 50px;
 }
 .description{
@@ -20,11 +20,26 @@
   border-radius: 20px;
   background-color: rgba(55, 241, 198, 0.3);
   text-align: center;
-  height: 60px !important;
- 
+  height: 40px !important;
+
   padding-right: 20px;
   padding-left: 20px;
 }
+.descriptionDetails:hover{
+cursor: default;
+}
+.operationsButton{
+  border: 1px solid rgb(113, 102, 240);
+  border-radius: 20px;
+  background-color: rgba(55, 241, 198, 0.3);
+  font-size: 9px !important;
+  color: black !important;
+  margin-left: 5px;
+}
+.operationsButton:hover{
+  background-color: rgba(55, 241, 198, 0.3) !important;
+}
+
 .spinner {
   border: 4px solid #2a7221;
   border-top: 4px solid #119822;
@@ -64,31 +79,61 @@
 
 @media only screen and (max-width: 425px) {
   .description > h5 {
-    font-size: 14px;
+    font-size: 18px;
     margin-right: 10px;
   }
   .description > h5 > p {
-    font-size: 12px;
+    font-size: 8px;
   }
   .tableTitle {
     font-size: 10px !important;
   }
   .tableDetails{
     font-size: 10px !important;
+  }
+  .operation{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .extraDescription{
+    margin-right: 10px;
+    font-size: 12px;
+  }
+  .extraDescription > h6{
+    font-size: 12px;
   }
 }
 @media only screen and (max-width: 375px) {
   .description > h5 {
-    font-size: 14px;
+    font-size: 18px;
     margin-right: 10px;
   }
   .description > h5 > p {
-    font-size: 12px;
+    font-size: 8px;
+    
+  }
+  .description{
+  
+    gap: 5px;
+  
   }
   .tableTitle {
     font-size: 10px !important;
   }
   .tableDetails{
     font-size: 10px !important;
+  }
+  .operation{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .extraDescription{
+    margin-right: 10px;
+    font-size: 12px;
+  }
+  .extraDescription > h6{
+    font-size: 12px;
   }
 }

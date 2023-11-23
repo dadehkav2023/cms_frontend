@@ -1,4 +1,4 @@
-import { Col, Container, Row, Table } from 'reactstrap';
+import { Col, Container, Row, Table, Button } from 'reactstrap';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import ReactPaginate from 'react-paginate';
 import { useSelector } from 'react-redux';
@@ -6,13 +6,26 @@ import './ElectionCandidates.scss';
 import { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UseGetElectionCandidates } from '../../../core/services/api/get-election-candidates';
+import { UseGetElectionCandidatesProfile } from '../../../core/services/api/get-election-candidates-profile';
+
 import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
-import { englishNumbersToPersian } from "../../../../src/core/utils/englishNumbersToPersian";
+import { englishNumbersToPersian } from '../../../../src/core/utils/englishNumbersToPersian';
+import ElectionModal from '../ResumeElectionModal/ResumeElectionModal';
+import VideoElectionModal from '../VideoElectionModal/VideoElectionModal';
+import AudioElectionModal from '../AudioElectionModal/AudioElectionModal';
+import ResumeElectionModal from '../ResumeElectionModal/ResumeElectionModal';
+
+import { useServeFile } from '../../../core/services/api/get-election-candidates-downloads';
 
 const ElectionCandidates = () => {
   const history = useHistory();
 
   const [pageNumber, setPageNumber] = useState(1);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenVideoModal, setIsOpenVideoModal] = useState(false);
+  const [isOpenAudioModal, setIsOpenAudioModal] = useState(false);
+
+  const [result, setResult] = useState();
 
   const state = useSelector((state) => state.setting);
 
@@ -25,7 +38,6 @@ const ElectionCandidates = () => {
   } = UseGetElectionCandidates();
 
   const electionDate = `${electionCandidatesData?.data?.result?.electionInfo?.electionDate}`;
-
 
   const iconStyle = {
     color: '#0B1803',
@@ -40,33 +52,90 @@ const ElectionCandidates = () => {
     });
   }, [pageNumber]);
 
+
+
+  useEffect(() => {
+    getElectionCandidateProfile.mutate();
+  }, []);
+
+  const getElectionCandidateProfile = UseGetElectionCandidatesProfile();
+  const [candidateProfile, setCandidateProfile] = useState([]);
+  useEffect(() => {
+    if (
+      getElectionCandidateProfile.data &&
+      getElectionCandidateProfile.data.data.result
+    ) {
+      const result = getElectionCandidateProfile.data.data.result?.files;
+      setCandidateProfile(result);
+    }
+  }, [getElectionCandidateProfile.isSuccess]);
+
+
+  const useServeFileMutation = useServeFile();
+
+  const profile = (candidateNationalCode) => {
+    useServeFileMutation.mutate(candidateNationalCode);
+  };
+
   return (
     <>
       <ElectionLayout>
         <Container fluid dir="rtl">
+          {isOpenModal && (
+            <ResumeElectionModal
+              isOpen={isOpenModal}
+              toggle={() => {
+                setIsOpenModal(!isOpenModal);
+              }}
+              data={result}
+            />
+          )}
+
+          {isOpenVideoModal && (
+            <VideoElectionModal
+              isOpen={isOpenVideoModal}
+              toggle={() => {
+                setIsOpenVideoModal(!isOpenVideoModal);
+              }}
+              data={result}
+            />
+          )}
+
+          {isOpenAudioModal && (
+            <AudioElectionModal
+              isOpen={isOpenAudioModal}
+              toggle={() => {
+                setIsOpenAudioModal(!isOpenAudioModal);
+              }}
+              data={result}
+            />
+          )}
+
           <Row>
             <Col>
-              <Row className=' '>
+              <Row className=" ">
                 <div className="description mb-5 m-auto ">
-                  <h5 >
+                  <h5>
                     نام اتحادیه
                     <p className="descriptionDetails mt-3">
                       {`${electionCandidatesData?.data?.result?.unionInfo?.unionTitle}`}
                     </p>
                   </h5>
 
-                  <h5 >
+                  <h5>
                     نوع اتحادیه
                     <p className="descriptionDetails mt-3">
                       {`${electionCandidatesData?.data?.result?.unionInfo?.unionTypeTitle}`}
                     </p>
                   </h5>
 
-                  <h5 >
+                  <h5>
                     تاریخ برگزاری
-                    <p className="descriptionDetails mt-3">
-                    {englishNumbersToPersian(electionDate)}
-                   
+                    <p
+                      className="descriptionDetails mt-3"
+                      style={{ color: 'red' }}
+                    >
+                      {englishNumbersToPersian(electionDate)}
                     </p>
                   </h5>
                 </div>
@@ -99,8 +168,54 @@ const ElectionCandidates = () => {
                                   </td>
                                   <td> {election.mainJobTitle}</td>
                                   <td>{election.address}</td>
-                                  <td>*</td>
-                                  <td>*</td>
+
+                                  <td>
+                                    {/* {election.candidateNationalCode} */}
+                                     {profile(election.candidateNationalCode)} 
+                                   
+                                  </td>
+
+                                  <td className="d-flex operation">
+                                    <Button
+                                      className="operationsButton"
+                                      onClick={() => {
+                                        setResult({
+                                          nationalCode:
+                                            election?.candidateNationalCode,
+                                          unionElectionId: 45,
+                                        });
+                                        setIsOpenModal(true);
+                                      }}
+                                    >
+                                      نمایش رزومه
+                                    </Button>
+                                    <Button
+                                      className="operationsButton"
+                                      onClick={() => {
+                                        setResult({
+                                          nationalCode:
+                                            election?.candidateNationalCode,
+                                          unionElectionId: 45,
+                                        });
+                                        setIsOpenVideoModal(true);
+                                      }}
+                                    >
+                                      فایل تصویری{' '}
+                                    </Button>
+                                    <Button
+                                      className="operationsButton"
+                                      onClick={() => {
+                                        setResult({
+                                          nationalCode:
+                                            election?.candidateNationalCode,
+                                          unionElectionId: 45,
+                                        });
+                                        setIsOpenAudioModal(true);
+                                      }}
+                                    >
+                                      فایل صوتی{' '}
+                                    </Button>
+                                  </td>
                                 </tr>
                               </tbody>
                             </>
@@ -143,7 +258,7 @@ const ElectionCandidates = () => {
                   )}
                 </Table>
 
-                <div className=" mt-5  ">
+                <div className=" mt-5  extraDescription">
                   <h6 className="d-flex row">
                     محل برگذاری انتخابات :{' '}
                     <p>

@@ -30,70 +30,67 @@ const ElectionUnions = () => {
               </h6>
 
               <Row className="">
-              <Table>
-              <thead>
+                <Table>
+                  <thead>
                     <tr>
                       <th>ردیف</th>
                       <th>نام اتحادیه</th>
-                      </tr>
+                    </tr>
                   </thead>
-                {electionUnionsData && electionUnionsData.data ? (
-                  electionUnionsData.data.result &&
-                  (electionUnionsIsError || electionUnionsIsSuccess) ? (
-                    electionUnionsData.data.result.map((election, index) => {
-                      return (
-                        <>
-                        <tbody>
-                          <tr>
-                            <th scope="row">{index+1}</th>
-                            <Link
-                            className="unionsButtonLink"
-                            to={`/Election/Candidates/${election.unionId}`}
-                          >
-                          <td>
-                            {election.unionTitle}
-                             
-                            </td>
-                          </Link>
-                          </tr>
-                              </tbody>
-                      </>
-                      );
-                    })
+                  {electionUnionsData && electionUnionsData.data ? (
+                    electionUnionsData.data.result &&
+                    (electionUnionsIsError || electionUnionsIsSuccess) ? (
+                      electionUnionsData.data.result.map((election, index) => {
+                        return (
+                          <>
+                            <tbody>
+                              <tr>
+                                <th scope="row">{index + 1}</th>
+                                <Link
+                                  className="unionsButtonLink"
+                                  to={`/Election/Candidates/${election.unionId}`}
+                                >
+                                  <td>{election.unionTitle}</td>
+                                </Link>
+                              </tr>
+                            </tbody>
+                          </>
+                        );
+                      })
+                    ) : (
+                      <h2
+                        style={{
+                          color: 'red',
+                          fontSize: '14px',
+                          textAlign: 'center',
+                          width: '100%',
+                          margin: '10% ',
+                        }}
+                      >
+                        هیچ اطلاعاتی جهت نمایش وجود ندارد
+                      </h2>
+                    )
                   ) : (
-                    <h2
+                    <div
                       style={{
-                        color: 'red',
-                        fontSize: '14px',
+                        color: 'black',
                         textAlign: 'center',
                         width: '100%',
                         margin: '10% ',
                       }}
                     >
-                      هیچ اطلاعاتی جهت نمایش وجود ندارد
-                    </h2>
-                  )
-                ) : (
-                  <div
-                    style={{
-                      color: 'black',
-                      textAlign: 'center',
-                      width: '100%',
-                      margin: '10% ',
-                    }}
-                  >
-                    <h1
-                      style={{
-                        fontSize: '14px',
-                        color: '#2A7221',
-                        width: '100%',
-                      }}
-                    >
-                      لطفا منتظر بمانید...
-                    </h1>
-                    <div className="spinner"></div>
-                  </div>
-                )}
+                      <h1
+                        style={{
+                          fontSize: '14px',
+                          color: '#2A7221',
+                          width: '100%',
+                        }}
+                      >
+                        لطفا منتظر بمانید...
+                      </h1>
+                      <div className="spinner"></div>
+                    </div>
+                  )}
                 </Table>
               </Row>
             </Col>
