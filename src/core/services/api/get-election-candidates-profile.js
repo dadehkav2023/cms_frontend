@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useMutation } from 'react-query';
 
-const ProfileUrl = process.env.REACT_APP_Profile_Path;
+const sabakUrl = process.env.REACT_APP_Sabak_Path;
 
-const url = ProfileUrl + '/api/UnionCandidate/ServeUnionCandidateProfilePicture';
+const url = sabakUrl + '/UnionCandidate/ServeUnionCandidateProfilePicture';
 
 const GetElectionCandidatesProfileApi = async (candidateNationalCode) => {
   return await axios.get(url);

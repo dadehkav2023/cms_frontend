@@ -60,7 +60,7 @@ function AudioElectionModal({ isOpen, toggle, data }) {
                         <tr>
                           <th>{key + 1}</th>
                           <td dir="ltr">
-                            {row?.fileName.slice(0, 30) + '...'}
+                            {row?.fileName?.slice(0, 30) + '...'}
                           </td>
                           <td>
                             <Button

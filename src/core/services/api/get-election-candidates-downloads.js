@@ -1,16 +1,3 @@
-// import axios from 'axios';
-// import { useMutation } from 'react-query';
-// const url =
-//   'https://dev.api.sabakorg.ir/api/UnionCandidate/ServeFileForUnionCandidate';
-// const GetElectionDownloadApi = async (value) => {
-//   return await axios.get(
-//     `https://dev.api.sabakorg.ir/api/UnionCandidate/ServeFileForUnionCandidate/?fileName=${value}`
-//   );
-// };
-// export const UseGetElectionDownload = () => {
-//   return useMutation(GetElectionDownloadApi);
-// };
-
 import axios from 'axios';
 import { useMutation } from 'react-query';
 
@@ -19,7 +6,7 @@ export const useServeFile = () => {
   return useMutation(
     async (fileName) => {
       const response = await axios.get(
-        `https://dev.api.sabakorg.ir/api/UnionCandidate/ServeFileForUnionCandidate/?fileName=${fileName}`,
+        `${process.env.REACT_APP_Sabak_Path}/UnionCandidate/ServeFileForUnionCandidate/?fileName=${fileName}`,
         {
           responseType: 'blob',
         }
@@ -50,8 +37,7 @@ export const useServeFile = () => {
         } else if (fileExtension === 'png') {
           data = new Blob([value], { type: 'image/png' });
           fileType = 'png';
-        }
-        else if (fileExtension === 'jpg' || fileExtension === 'jpeg') {
+        } else if (fileExtension === 'jpg' || fileExtension === 'jpeg') {
           data = new Blob([value], { type: 'image/jpeg' });
           fileType = 'jpg'; // You can set it to 'jpg' or 'jpeg' as desired
         } else {
@@ -73,7 +59,7 @@ export const useServeFile = () => {
 // Function to get file download information
 const GetElectionDownloadApi = async (value) => {
   return await axios.get(
-    `https://dev.api.sabakorg.ir/api/UnionCandidate/ServeFileForUnionCandidate/?fileName=${value}`
+    `${process.env.REACT_APP_Sabak_Path}/UnionCandidate/ServeFileForUnionCandidate/?fileName=${value}`
   );
 };
 

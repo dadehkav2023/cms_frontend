@@ -16,6 +16,7 @@ import AudioElectionModal from '../AudioElectionModal/AudioElectionModal';
 import ResumeElectionModal from '../ResumeElectionModal/ResumeElectionModal';
 
 import { useServeFile } from '../../../core/services/api/get-election-candidates-downloads';
+import { useParams } from 'react-router-dom';
 
 
 import ProfileElectionModal from '../ProfileElectionModal/ProfileElectionModal';
@@ -41,11 +42,16 @@ const ElectionCandidates = () => {
   const [candidates, setCandidates] = useState([]);
 
   const [extra, setExtra] = useState([]);
+
+
+
+  const { id } = useParams();
+
   useEffect(() => {
     getElectionCandidate.mutate({
       page: pageNumber,
       pageSize: 10,
-      unionElectionId: 45,
+      unionElectionId: id,
     });
   }, [pageNumber]);
 
@@ -161,7 +167,7 @@ const ElectionCandidates = () => {
 
                               <td>
                                 <ProfileElectionModal
-                                  imageUrl={`${process.env.REACT_APP_Profile_Path}UnionCandidate/ServeUnionCandidateProfilePicture/?candidateNationalCode=${election.candidateNationalCode}`}
+                                  imageUrl={`${process.env.REACT_APP_Sabak_Path}/UnionCandidate/ServeUnionCandidateProfilePicture/?candidateNationalCode=${election.candidateNationalCode}`}
                                 />
                               </td>
 
@@ -172,7 +178,7 @@ const ElectionCandidates = () => {
                                     setResult1({
                                       nationalCode:
                                         election?.candidateNationalCode,
-                                      unionElectionId: 45,
+                                      unionElectionId: id,
                                     });
                                     setIsOpenModal(true);
                                   }}
@@ -185,7 +191,7 @@ const ElectionCandidates = () => {
                                     setResult1({
                                       nationalCode:
                                         election?.candidateNationalCode,
-                                      unionElectionId: 45,
+                                      unionElectionId: id,
                                     });
                                     setIsOpenVideoModal(true);
                                   }}
@@ -198,7 +204,7 @@ const ElectionCandidates = () => {
                                     setResult1({
                                       nationalCode:
                                         election?.candidateNationalCode,
-                                      unionElectionId: 45,
+                                      unionElectionId: id,
                                     });
                                     setIsOpenAudioModal(true);
                                   }}

@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { useMutation } from 'react-query';
 
-const electionUrl = process.env.REACT_APP_Election_Path;
+const sabakUrl = process.env.REACT_APP_Sabak_Path;
 
-const url =
-  'https://dev.api.sabakorg.ir/api/UnionCandidate/GetUnionCandidateVideoFiles';
+const url = sabakUrl + '/UnionCandidate/GetUnionCandidateVideoFiles';
 
 const GetElectionCandidatesVideoApi = async (value) => {
   return await axios.post(url, value);

@@ -48,7 +48,7 @@ const ElectionUnions = () => {
                                 <th scope="row">{index + 1}</th>
                                 <Link
                                   className="unionsButtonLink"
-                                  to={`/Election/Candidates/${election.unionId}`}
+                                  to={`/Election/Candidates/${election.unionElectionId}`}
                                 >
                                   <td>{election.unionTitle}</td>
                                 </Link>
