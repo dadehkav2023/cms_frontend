@@ -93,7 +93,7 @@ const Announcement = () => {
                 <p className="province-description">
                   {currentProvince === 0
                     ? 'جهت مشاهده توضیحات هر استان ماوس(موشواره) را بر بروی مکان آن از روی نقشه ببرید و جهت مشاهوه وبسایت استان مورد نظر روی موقعیت مکانی آن کلیک کنید'
-                    : data.data.result
+                    : data?.data?.result
                         .map((item) => item.province.province)
                         .includes(currentProvince)
                     ? data.data.result.filter(
