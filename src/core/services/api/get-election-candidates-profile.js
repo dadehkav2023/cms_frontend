@@ -1,17 +1,15 @@
 import axios from 'axios';
 import { useMutation } from 'react-query';
 
-const electionUrl = process.env.REACT_APP_Election_Path;
+const ProfileUrl = process.env.REACT_APP_Profile_Path;
 
-const url =
-  'https://dev.api.sabakorg.ir/api/UnionCandidate/ServeUnionCandidateProfilePicture';
+const url = ProfileUrl + '/api/UnionCandidate/ServeUnionCandidateProfilePicture';
 
 const GetElectionCandidatesProfileApi = async (candidateNationalCode) => {
-  return await axios.get(
-    `https://dev.api.sabakorg.ir/api/UnionCandidate/ServeUnionCandidateProfilePicture/?candidateNationalCode=${candidateNationalCode}`
-  );
+  return await axios.get(url);
 };
 
 export const UseGetElectionCandidatesProfile = () => {
   return useMutation(GetElectionCandidatesProfileApi);
 };
+
