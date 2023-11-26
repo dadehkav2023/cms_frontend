@@ -5,7 +5,7 @@ import { UseGetElectionUnions } from '../../../core/services/api/get-election-un
 import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
 import { useParams } from 'react-router-dom';
 import Loading from '../../common/Loading/Loading';
-import  Style  from './ElectionUnions.module.scss';
+import Style from './ElectionUnions.module.scss';
 
 const ElectionUnions = () => {
   const { id } = useParams();
@@ -19,38 +19,33 @@ const ElectionUnions = () => {
     <>
       <ElectionLayout title={':اتحادیه'}>
         {isLoading && <Loading />}
-        <Container fluid dir="rtl">
-          <Row>
-            <Col>
-              <Table>
-                <thead>
-                  <tr>
-                    <th>ردیف</th>
-                    <th>نام اتحادیه</th>
-                  </tr>
-                </thead>
-                {unions?.length > 0 &&
-                  unions?.map((election, index) => {
-                    return (
-                      <>
-                        <tbody>
-                          <tr>
-                            <th scope="row">{index + 1}</th>
-                            <Link
-                              className={Style.unionsButtonLink}
-                              to={`/Election/Candidates/${election.unionElectionId}`}
-                            >
-                              <td>{election.unionTitle}</td>
-                            </Link>
-                          </tr>
-                        </tbody>
-                      </>
-                    );
-                  })}
-              </Table>
-            </Col>
-          </Row>
-        </Container>
+
+        <Table>
+          <thead>
+            <tr>
+              <th>ردیف</th>
+              <th>نام اتحادیه</th>
+            </tr>
+          </thead>
+          {unions?.length > 0 &&
+            unions?.map((election, index) => {
+              return (
+                <>
+                  <tbody>
+                    <tr>
+                      <th scope="row">{index + 1}</th>
+                      <Link
+                        className={Style.unionsButtonLink}
+                        to={`/Election/Candidates/${election.unionElectionId}`}
+                      >
+                        <td>{election.unionTitle}</td>
+                      </Link>
+                    </tr>
+                  </tbody>
+                </>
+              );
+            })}
+        </Table>
       </ElectionLayout>
     </>
   );

@@ -58,7 +58,7 @@ const ElectionCandidates = () => {
   return (
     <>
       <ElectionLayout >
-        <Container fluid dir="rtl" >
+        
           {isOpenModal && (
             <ResumeElectionModal
               isOpen={isOpenModal}
@@ -243,7 +243,7 @@ const ElectionCandidates = () => {
               }}
             />
           </Row>
-        </Container>
+       
       </ElectionLayout>
     </>
   );

@@ -5,7 +5,7 @@ import { UseGetElectionCounties } from '../../../core/services/api/get-election-
 import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
 import Loading from '../../common/Loading/Loading';
 import { useParams } from 'react-router-dom';
-import Style from './ElectionCounties.module.scss'
+import Location from '../Location/Location';
 
 const ElectionCounties = () => {
   const { id } = useParams();
@@ -18,26 +18,20 @@ const ElectionCounties = () => {
   return (
     <>
       <ElectionLayout title={':شهرستان'}>
-        <Container fluid dir="rtl">
-          {isLoading && <Loading />}
-          <Row>
-            <Col>
-              {counties?.length > 0 &&
-                counties?.map((election, index) => {
-                  return (
-                    <div key={index} className={`${Style.countieseButton} mb-5`}>
-                      <Link
-                        className={Style.countiesButtonLink}
-                        to={`/Election/Unions/${election.countyId}`}
-                      >
-                        <p>{election.countyTitle}</p>
-                      </Link>
-                    </div>
-                  );
-                })}
-            </Col>
-          </Row>
-        </Container>
+        {isLoading && <Loading />}
+
+        {counties?.length > 0 &&
+          counties?.map((election, index) => {
+            return (
+              <Location
+                key={index}
+                index={index}
+                locationId={election.countyId}
+                locationTitle={election.countyTitle}
+                urlTitle="Unions"
+              />
+            );
+          })}
       </ElectionLayout>
     </>
   );

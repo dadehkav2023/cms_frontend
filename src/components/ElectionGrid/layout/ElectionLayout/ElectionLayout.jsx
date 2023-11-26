@@ -13,7 +13,7 @@ const ElectionLayout = ({ children, title }) => {
           {title} هایی که در انتخابات حضور دارند
         </h6>
       )}
-      <div>{children}</div>
+      <div dir='rtl'>{children}</div>
     </Container>
   );
 };
