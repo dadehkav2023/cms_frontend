@@ -2,51 +2,43 @@ import { Col, Container, Row, Table, Button } from 'reactstrap';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import ReactPaginate from 'react-paginate';
 import { useSelector } from 'react-redux';
-import './ElectionCandidates.scss';
 import { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UseGetElectionCandidates } from '../../../core/services/api/get-election-candidates';
 import { UseGetElectionCandidatesProfile } from '../../../core/services/api/get-election-candidates-profile';
-
 import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
 import { englishNumbersToPersian } from '../../../../src/core/utils/englishNumbersToPersian';
 import ElectionModal from './ResumeElectionModal/ResumeElectionModal';
 import VideoElectionModal from './VideoElectionModal/VideoElectionModal';
 import AudioElectionModal from './AudioElectionModal/AudioElectionModal';
 import ResumeElectionModal from './ResumeElectionModal/ResumeElectionModal';
-
 import { useServeFile } from '../../../core/services/api/get-election-candidates-downloads';
 import { useParams } from 'react-router-dom';
 
+import Style from './ElectionCandidates.module.scss';
 import ProfileElectionModal from './ProfileElectionModal/ProfileElectionModal';
 
 const ElectionCandidates = () => {
-
-  const{id}=useParams();
-
+  const { id } = useParams();
 
   const [pageNumber, setPageNumber] = useState(1);
+
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenVideoModal, setIsOpenVideoModal] = useState(false);
   const [isOpenAudioModal, setIsOpenAudioModal] = useState(false);
-
-
-
-
-  const [candidateProfile, setCandidateProfile] = useState([]);
-  const [result1, setResult1] = useState();
-  const [result2, setResult2] = useState();
-  const [candidatena, setCandidatena] = useState();
-
   const state = useSelector((state) => state.setting);
 
-  const getElectionCandidateProfile = UseGetElectionCandidatesProfile();
   const getElectionCandidate = UseGetElectionCandidates();
+
+  const [result, setResult] = useState();
   const [candidates, setCandidates] = useState([]);
-
-  const [extra, setExtra] = useState([]);
-
- 
+  useEffect(() => {
+    if (getElectionCandidate.data && getElectionCandidate.data.data.result) {
+      const result = getElectionCandidate.data.data.result.candidates;
+      setCandidates(result);
+   
+    }
+  }, [getElectionCandidate.isSuccess]);
 
   useEffect(() => {
     getElectionCandidate.mutate({
@@ -55,19 +47,6 @@ const ElectionCandidates = () => {
       unionElectionId: id,
     });
   }, [pageNumber]);
-
-  useEffect(() => {
-    if (getElectionCandidate.data && getElectionCandidate.data.data.result) {
-      const result1 = getElectionCandidate.data.data.result.candidates;
-
-      setCandidates(result1);
-
-      result1.candidate &&
-        result1.candidate.map((candidate) => {
-          setCandidatena(candidate.candidateNationalCode);
-        });
-    }
-  }, [getElectionCandidate.isSuccess]);
 
   const electionDate = `${getElectionCandidate?.data?.data?.result?.electionInfo?.electionDate}`;
 
@@ -78,15 +57,15 @@ const ElectionCandidates = () => {
 
   return (
     <>
-      <ElectionLayout>
-        <Container fluid dir="rtl">
+      <ElectionLayout >
+        <Container fluid dir="rtl" >
           {isOpenModal && (
             <ResumeElectionModal
               isOpen={isOpenModal}
               toggle={() => {
                 setIsOpenModal(!isOpenModal);
               }}
-              data={result1}
+              data={result}
             />
           )}
 
@@ -96,7 +75,7 @@ const ElectionCandidates = () => {
               toggle={() => {
                 setIsOpenVideoModal(!isOpenVideoModal);
               }}
-              data={result1}
+              data={result}
             />
           )}
 
@@ -106,26 +85,24 @@ const ElectionCandidates = () => {
               toggle={() => {
                 setIsOpenAudioModal(!isOpenAudioModal);
               }}
-              data={result1}
+              data={result}
             />
           )}
 
           <Row>
-            {getElectionCandidate.isLoading && <div className="spinner"></div>}
-
             <Col>
-              <Row className=" ">
-                <div className="description mb-5 m-auto ">
+              <Row>
+                <div className={`${Style.description} mb-5 m-auto `}>
                   <h5>
                     نام اتحادیه
-                    <p className="descriptionDetails mt-3">
+                    <p className={`${Style.descriptionDetails} mt-3`}>
                       {`${getElectionCandidate?.data?.data?.result?.unionInfo?.unionTitle}`}
                     </p>
                   </h5>
 
                   <h5>
                     نوع اتحادیه
-                    <p className="descriptionDetails mt-3">
+                    <p className={`${Style.descriptionDetails} mt-3`}>
                       {`${getElectionCandidate?.data?.data?.result?.unionInfo?.unionTypeTitle}`}
                     </p>
                   </h5>
@@ -133,7 +110,7 @@ const ElectionCandidates = () => {
                   <h5>
                     تاریخ برگزاری
                     <p
-                      className="descriptionDetails mt-3"
+                      className={`${Style.descriptionDetails} mt-3`}
                       style={{ color: 'red' }}
                     >
                       {englishNumbersToPersian(electionDate)}
@@ -143,7 +120,7 @@ const ElectionCandidates = () => {
 
                 <Table>
                   <thead>
-                    <tr className="tableTitle">
+                    <tr className={Style.tableTitle}>
                       <th>ردیف</th>
                       <th> نام و نام خانوادگی کاندیدا</th>
                       <th> شغل اصلی </th>
@@ -152,12 +129,13 @@ const ElectionCandidates = () => {
                       <th> عملیات </th>
                     </tr>
                   </thead>
-                  {candidates.length > 0 &&
+                  {candidates &&
+                    candidates.length > 0 &&
                     candidates.map((election, index) => {
                       return (
                         <>
                           <tbody>
-                            <tr className="tableDetails">
+                            <tr className={Style.tableDetails}>
                               <th scope="row">{index + 1}</th>
                               <td>
                                 {election.candidateFirstName}{' '}
@@ -172,11 +150,11 @@ const ElectionCandidates = () => {
                                 />
                               </td>
 
-                              <td className="d-flex operation">
+                              <td className={`d-flex ${Style.operation}`}>
                                 <Button
-                                  className="operationsButton"
+                                  className={Style.operationsButton}
                                   onClick={() => {
-                                    setResult1({
+                                    setResult({
                                       nationalCode:
                                         election?.candidateNationalCode,
                                       unionElectionId: id,
@@ -187,9 +165,9 @@ const ElectionCandidates = () => {
                                   نمایش رزومه
                                 </Button>
                                 <Button
-                                  className="operationsButton"
+                                  className={Style.operationsButton}
                                   onClick={() => {
-                                    setResult1({
+                                    setResult({
                                       nationalCode:
                                         election?.candidateNationalCode,
                                       unionElectionId: id,
@@ -200,9 +178,9 @@ const ElectionCandidates = () => {
                                   فایل تصویری{' '}
                                 </Button>
                                 <Button
-                                  className="operationsButton"
+                                  className={Style.operationsButton}
                                   onClick={() => {
-                                    setResult1({
+                                    setResult({
                                       nationalCode:
                                         election?.candidateNationalCode,
                                       unionElectionId: id,
@@ -220,7 +198,7 @@ const ElectionCandidates = () => {
                     })}
                 </Table>
 
-                <div className=" mt-5  extraDescription">
+                <div className={`mt-5  ${Style.extraDescription}`}>
                   <h6 className="d-flex row">
                     محل برگذاری انتخابات :{' '}
                     <p>
@@ -241,12 +219,12 @@ const ElectionCandidates = () => {
           <Row className="justify-content-center mb-5">
             <ReactPaginate
               previousLabel={
-                <span className="">
+                <span>
                   <IoIosArrowForward style={iconStyle} />
                 </span>
               }
               nextLabel={
-                <span className="">
+                <span>
                   <IoIosArrowBack style={iconStyle} />
                 </span>
               }
@@ -256,7 +234,7 @@ const ElectionCandidates = () => {
                 getElectionCandidate?.data?.data?.result?.totalCount / 10
               )}
               containerClassName="disabled-pagination-btn pagination-holder "
-              activeClassName="page-active   "
+              activeClassName="page-active"
               forcePage={pageNumber - 1}
               pageRangeDisplayed={2}
               marginPagesDisplayed={2}

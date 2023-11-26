@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { Col, Container, Row, Table } from 'reactstrap';
 
 import { useServeFile } from '../../../../core/services/api/get-election-candidates-downloads';
-import './ResumeElectionModal.scss';
+import Loading from '../../../common/Loading/Loading';
 
 function ResumeElectionModal({ isOpen, toggle, data }) {
   const closeBtn = (
@@ -38,7 +38,7 @@ function ResumeElectionModal({ isOpen, toggle, data }) {
       <Modal isOpen={isOpen} toggle={toggle}>
         <ModalHeader toggle={toggle} close={closeBtn}></ModalHeader>
         <ModalBody>
-          {getElectionCandidate.isLoading && <div className="spinner"></div>}
+          {getElectionCandidate.isLoading && <Loading />}
           <Row dir="rtl" className="">
             <Table>
               <thead>

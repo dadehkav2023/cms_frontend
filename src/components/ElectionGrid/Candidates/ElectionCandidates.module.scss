@@ -1,7 +1,6 @@
-.profileImage{
-  width: 50px;
+.profileBox{
+  width: 50px ;
   height: 50px;
-  border-radius: 50%;
 }
 .description > h5 {
   font-size: 40px;
@@ -14,13 +13,12 @@
   line-height: 40px;
   height: 50px;
 }
-.description{
+.description {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   gap: 50px;
-
 }
-.descriptionDetails{
+.descriptionDetails {
   border: 1px solid rgb(113, 102, 240);
   border-radius: 20px;
   background-color: rgba(55, 241, 198, 0.3);
@@ -30,10 +28,10 @@
   padding-right: 20px;
   padding-left: 20px;
 }
-.descriptionDetails:hover{
-cursor: default;
+.descriptionDetails:hover {
+  cursor: default;
 }
-.operationsButton{
+.operationsButton {
   border: 1px solid rgb(113, 102, 240);
   border-radius: 20px;
   background-color: rgba(55, 241, 198, 0.3);
@@ -41,28 +39,10 @@ cursor: default;
   color: black !important;
   margin-left: 5px;
 }
-.operationsButton:hover{
+.operationsButton:hover {
   background-color: rgba(55, 241, 198, 0.3) !important;
 }
 
-.spinner {
-  border: 4px solid #2a7221;
-  border-top: 4px solid #119822;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
-  margin: 20px auto;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 @media only screen and (max-width: 768px) {
   .description > h5 {
     font-size: 16px;
@@ -75,12 +55,10 @@ cursor: default;
   .tableTitle {
     font-size: 12px !important;
   }
-  .tableDetails{
+  .tableDetails {
     font-size: 10px !important;
   }
 }
-
-
 
 @media only screen and (max-width: 425px) {
   .description > h5 {
@@ -93,19 +71,19 @@ cursor: default;
   .tableTitle {
     font-size: 10px !important;
   }
-  .tableDetails{
+  .tableDetails {
     font-size: 10px !important;
   }
-  .operation{
+  .operation {
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
-  .extraDescription{
+  .extraDescription {
     margin-right: 10px;
     font-size: 12px;
   }
-  .extraDescription > h6{
+  .extraDescription > h6 {
     font-size: 12px;
   }
 }
@@ -116,29 +94,26 @@ cursor: default;
   }
   .description > h5 > p {
     font-size: 8px;
-    
   }
-  .description{
-  
+  .description {
     gap: 5px;
-  
   }
   .tableTitle {
     font-size: 10px !important;
   }
-  .tableDetails{
+  .tableDetails {
     font-size: 10px !important;
   }
-  .operation{
+  .operation {
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
-  .extraDescription{
+  .extraDescription {
     margin-right: 10px;
     font-size: 12px;
   }
-  .extraDescription > h6{
+  .extraDescription > h6 {
     font-size: 12px;
   }
 }

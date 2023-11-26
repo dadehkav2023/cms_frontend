@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Modal, ModalBody, ModalFooter ,ModalHeader} from 'reactstrap';
-import './ProfileElectionModal.scss'
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import Style from './ProfileElectionModal.module.scss';
+
 const ProfileElectionModal = ({ imageUrl }) => {
   const [modal, setModal] = useState(false);
 
@@ -17,20 +18,19 @@ const ProfileElectionModal = ({ imageUrl }) => {
     <div>
       <img
         src={imageUrl}
-        className="profileImage"
-        alt=""
-        onClick={toggle} 
+        className={Style.profileImage}
+        alt="candidates image"
+        onClick={toggle}
       />
 
       <Modal isOpen={modal} toggle={toggle}>
-      <ModalHeader toggle={toggle} close={closeBtn}></ModalHeader>
+        <ModalHeader toggle={toggle} close={closeBtn}></ModalHeader>
         <ModalBody>
-          <img src={imageUrl} alt="Large Image" className="largeImage" />
+          <img src={imageUrl} alt="Large Image" className={Style.largeImage} />
         </ModalBody>
-        
       </Modal>
     </div>
   );
-}
+};
 
 export default ProfileElectionModal;

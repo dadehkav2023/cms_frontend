@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
 import { UseGetElectionCandidatesAudio } from '../../../../core/services/api/get-election-candidates-audio';
 import { useEffect } from 'react';
 import { Col, Container, Row, Table } from 'reactstrap';
-
 import { useServeFile } from '../../../../core/services/api/get-election-candidates-downloads';
-import './AudioElectionModal.scss';
+import Loading from '../../../common/Loading/Loading';
 
 function AudioElectionModal({ isOpen, toggle, data }) {
   const closeBtn = (
@@ -41,9 +39,7 @@ function AudioElectionModal({ isOpen, toggle, data }) {
       <Modal isOpen={isOpen} toggle={toggle}>
         <ModalHeader toggle={toggle} close={closeBtn}></ModalHeader>
         <ModalBody>
-          {getElectionCandidateAudio.isLoading && (
-            <div className="spinner"></div>
-          )}
+          {getElectionCandidateAudio.isLoading && <Loading />}
           <Row dir="rtl" className="">
             <Table>
               <thead>

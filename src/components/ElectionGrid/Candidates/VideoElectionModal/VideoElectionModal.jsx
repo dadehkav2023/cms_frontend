@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { Col, Container, Row, Table } from 'reactstrap';
 
 import { useServeFile } from '../../../../core/services/api/get-election-candidates-downloads';
-import './VideoElectionModal.scss';
+import Loading from '../../../common/Loading/Loading';
 
 function VideoElectionModal({ isOpen, toggle, data }) {
   const closeBtn = (
@@ -43,7 +43,7 @@ function VideoElectionModal({ isOpen, toggle, data }) {
         <ModalHeader toggle={toggle} close={closeBtn}></ModalHeader>
         <ModalBody>
           {getElectionCandidateVideo.isLoading && (
-            <div className="spinner"></div>
+           <Loading/>
           )}
           <Row dir="rtl" className="">
             <Table>

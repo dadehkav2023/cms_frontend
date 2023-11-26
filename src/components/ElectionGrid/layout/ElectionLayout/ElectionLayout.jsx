@@ -8,9 +8,11 @@ const ElectionLayout = ({ children, title }) => {
       <Row>
         <ElectionTemplate />
       </Row>
-      <h6 className={`text-right ${Style.title}`}>
-        {title} هایی که در انتخابات حضور دارند
-      </h6>
+      {title && (
+        <h6 className={`text-right ${Style.title}`}>
+          {title} هایی که در انتخابات حضور دارند
+        </h6>
+      )}
       <div>{children}</div>
     </Container>
   );
