@@ -15,7 +15,6 @@ import { ChevronLeft, ChevronRight, Download } from "react-feather";
 import { ComponentSpinner } from "../Spinner/LoadingSpinner";
 
 import Styled from "./ListTable.module.scss";
-import "jspdf-autotable";
 
 interface IPageChange {
   page: number;
