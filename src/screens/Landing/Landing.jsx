@@ -14,7 +14,7 @@ import './Landing.scss';
 import VideoNews from '../../components/Landing/VideoNews/VideoNews';
 import TestHeader from '../../components/common/TestHeader/TestHeader';
 import PhotoNews from '../../components/Landing/PhotoNews/PhotoNews';
-import ElectionBanner from '../../components/ElectionGrid/ElectionBanner/ElectionBanner';
+import ElectionBanner from '../../components/Landing/ElectionBanner/ElectionBanner';
 import { Col, Container, Row } from 'reactstrap';
 const Landing = () => {
   return (

@@ -17,6 +17,7 @@ function VideoElectionModal({ isOpen, toggle, data }) {
   );
 
   const getElectionCandidateVideo = UseGetElectionCandidatesVideo();
+  
   const [state, setState] = useState([]);
   useEffect(() => {
     if (getElectionCandidateVideo.data && getElectionCandidateVideo.data.data.result) {
