@@ -10,8 +10,8 @@ const TextNewsFlashCard = ({ title, description, img, id, date }) => {
         src={`${process.env.REACT_APP_PUBLIC_PATH}/${img}`}
       />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text  className="truncate">{description}</Card.Text>
+        <Card.Title className="card-title">{title}</Card.Title>
+        <Card.Text  className="truncate card-description">{description}</Card.Text>
         <span className="text-news-flash-card-date">
           {englishNumbersToPersian(date)}
         </span>

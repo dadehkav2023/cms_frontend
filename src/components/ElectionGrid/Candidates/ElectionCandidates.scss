@@ -1,0 +1,144 @@
+.profileImage{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.description > h5 {
+  font-size: 40px;
+  font-family: iranNastaliq;
+}
+.description > h5 > p {
+  font-size: 14px;
+  font-weight: 100;
+  font-family: shabnam;
+  line-height: 40px;
+  height: 50px;
+}
+.description{
+  display: flex;
+  flex-direction:row;
+  gap: 50px;
+
+}
+.descriptionDetails{
+  border: 1px solid rgb(113, 102, 240);
+  border-radius: 20px;
+  background-color: rgba(55, 241, 198, 0.3);
+  text-align: center;
+  height: 40px !important;
+
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.descriptionDetails:hover{
+cursor: default;
+}
+.operationsButton{
+  border: 1px solid rgb(113, 102, 240);
+  border-radius: 20px;
+  background-color: rgba(55, 241, 198, 0.3);
+  font-size: 9px !important;
+  color: black !important;
+  margin-left: 5px;
+}
+.operationsButton:hover{
+  background-color: rgba(55, 241, 198, 0.3) !important;
+}
+
+.spinner {
+  border: 4px solid #2a7221;
+  border-top: 4px solid #119822;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .description > h5 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 10px;
+  }
+  .description > h5 > p {
+    font-size: 16px;
+  }
+  .tableTitle {
+    font-size: 12px !important;
+  }
+  .tableDetails{
+    font-size: 10px !important;
+  }
+}
+
+
+
+@media only screen and (max-width: 425px) {
+  .description > h5 {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  .description > h5 > p {
+    font-size: 8px;
+  }
+  .tableTitle {
+    font-size: 10px !important;
+  }
+  .tableDetails{
+    font-size: 10px !important;
+  }
+  .operation{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .extraDescription{
+    margin-right: 10px;
+    font-size: 12px;
+  }
+  .extraDescription > h6{
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .description > h5 {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  .description > h5 > p {
+    font-size: 8px;
+    
+  }
+  .description{
+  
+    gap: 5px;
+  
+  }
+  .tableTitle {
+    font-size: 10px !important;
+  }
+  .tableDetails{
+    font-size: 10px !important;
+  }
+  .operation{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .extraDescription{
+    margin-right: 10px;
+    font-size: 12px;
+  }
+  .extraDescription > h6{
+    font-size: 12px;
+  }
+}

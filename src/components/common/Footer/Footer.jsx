@@ -5,16 +5,22 @@ import Backward from '../../../assets/img/landing/icon/Backward.png';
 import './Footer.scss';
 import JumpToTop from '../Buttons/JumpToTop/JumpToTop';
 import { Col, Container, Row, Card } from 'react-bootstrap';
-import facebook from '../../../assets/img/landing/icon/facebook.png';
 import website from '../../../assets/img/landing/icon/google.png';
-import instagram from '../../../assets/img/landing/icon/insta.png';
+
+import facebook from '../../../assets/img/landing/icon/facebook.png';
+import instagram from '../../../assets/img/landing/icon/instagram.png';
 import twiter from '../../../assets/img/landing/icon/twiter.png';
+import telegram from '../../../assets/img/landing/icon/telegram.png';
+import whatsapp from '../../../assets/img/landing/icon/whatsapp.png';
+
 import { useSelector } from 'react-redux';
 import { englishNumbersToPersian } from '../../../core/utils/englishNumbersToPersian';
 import { UseGetQuickAccess } from '../../../core/services/api/get-quick-access';
 import { UseGetRelatedLinks } from '../../../core/services/api/get-related-links';
+
 const Footer = () => {
   const state = useSelector((state) => state.setting);
+
   const {
     data: quickAccessData,
     isLoading: quickAccessIsLoading,
@@ -33,13 +39,14 @@ const Footer = () => {
   useEffect(() => {
     quickAccessMutate({ page: 1, pageSize: 10, isActive: true });
     relatedLinksMutate({ page: 1, pageSize: 10, isActive: true });
+    
   }, []);
   return (
     <section className="footer-section  pt-lg-5">
       <footer>
         <Container fluid className="footer-top">
           <Row>
-            <Col lg={2} className="enamad">
+            <Col lg={3} className="enamad">
               <img alt="enamad-logo" src={enamad} />
               <div>
                 {/* <a
@@ -75,10 +82,10 @@ const Footer = () => {
             <Col lg={3} className="footer-col1">
               <Card className="footer-card">
                 <Card.Body>
-                  <span>تماس با ما</span>
+                  <span className="title-footer-col">تماس با ما</span>
                   <ul>
                     <li>
-                      <p>{state.address}</p>
+                      <p className="title-footer-link">{state.address}</p>
                     </li>
                     <li>
                       <span>
@@ -88,36 +95,55 @@ const Footer = () => {
                     <li>
                       <span>تلفن : {englishNumbersToPersian(state.tell)}</span>
                     </li>
+
+                    {/* <a href={`${state?.facebookAddress}`}>فیس بوک </a>
+                    <a href={`${state?.twitterAddress}`}>توئیتر</a>
+                    <a href={`${state?.instagramAddress}`}> اینستاگرام </a>
+                    <a href={`${state?.telegramAddress}`}>تلگرام</a>
+                    <a  href={`${state?.whatsappAddress}`}>واتس آپ</a> */}
                   </ul>
-                  {/* <div className="social-media-footer-box">
-                    <div className="instagram-footer">
-                      <a href={state.instagramAddress}>
+                  <div className="social-media-footer-box">
+                    <div className="social-media-icon">
+                      <a
+                        href={`https://instagram.com/${state?.instagramAddress}`}
+                      >
                         <img alt="instagram-logo" src={instagram} />
                       </a>
                     </div>
-                    <div className="twitter-footer">
-                      <a href={state.twitterAddress}>
+                    <div className="social-media-icon">
+                      <a href={`https://twitter.com/${state?.twitterAddress}`}>
                         <img alt="twitter-logo" src={twiter} />
                       </a>
                     </div>
-                    <div className="facebook-footer">
-                      <a href={state.facebookAddress}>
+                    <div className="social-media-icon">
+                      <a
+                        href={`https://facebook.com/${state?.facebookAddress}`}
+                      >
                         <img alt="facebook-logo" src={facebook} />
                       </a>
                     </div>
-                    <div className="website-footer">
-                      <a href="/">
-                        <img alt="website-logo" src={website} />
+                    <div className="social-media-icon">
+                      <a
+                        href={`https://telegram.org/${state?.telegramAddress}`}
+                      >
+                        <img alt="telegram-logo" src={telegram} />
                       </a>
                     </div>
-                  </div> */}
+                    <div className="social-media-icon">
+                      <a
+                        href={`https://whatsapp.com/${state?.whatsappAddress}`}
+                      >
+                        <img alt="whatsapp-logo" src={whatsapp} />
+                      </a>
+                    </div>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
             <Col lg={3} className="footer-col2">
               <Card className="footer-card">
                 <Card.Body>
-                  <span>لینک های مرتبط</span>
+                  <span className="title-footer-col">لینک های مرتبط</span>
                   <ul>
                     {relatedLinksIsSuccess &&
                       relatedLinksData?.data.result.relatedLinkList.map(
@@ -190,10 +216,11 @@ const Footer = () => {
                 </Card.Body>
               </Card>
             </Col>
+
             <Col lg={3} className="footer-col3">
               <Card className="footer-card">
                 <Card.Body className="footer">
-                  <span>دسترسی سریع</span>
+                  <span className="title-footer-col">دسترسی سریع</span>
                   <ul>
                     {quickAccessIsSuccess &&
                       quickAccessData?.data.result.quickAccessList.map(

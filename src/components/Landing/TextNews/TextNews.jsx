@@ -57,14 +57,18 @@ const TextNews = () => {
     <>
       {categoryData?.data.result[0] ? (
         <>
-          <Container fluid className="pr-lg-5 pt-lg-5">
+          <Container
+            fluid
+            className="pr-lg-5 pt-lg-5 text-news-section-container "
+          >
             <section className="text-news-section ">
-              <SectionTitle className="sectionTitle" TitleText=" اخبار" />
+              <SectionTitle className="sectionTitle " TitleText=" اخبار" />
               <Link
                 style={{
                   color: 'rgba(0, 0, 0, 0.5)',
                 }}
                 to="/News/TextNews"
+                onClick={scrollToTop} // Call scrollToTop when the link is clicked
               >
                 <MoreItemsButton text=" مشاهده بیشتر" />
               </Link>
@@ -162,7 +166,7 @@ const TextNews = () => {
         </>
       ) : (
         <>
-          <SectionTitle TitleText="اخبار" />
+          {/* <SectionTitle TitleText="اخبار" />
           <h2
             style={{
               color: 'red',
@@ -172,7 +176,7 @@ const TextNews = () => {
             }}
           >
             هیچ اطلاعاتی جهت نمایش وجود ندارد
-          </h2>
+          </h2> */}
         </>
       )}
     </>

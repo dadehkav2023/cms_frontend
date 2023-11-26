@@ -8,11 +8,12 @@ const NewsGridFlashCard = ({ title, subTitle, img, id, date }) => {
   return (
     <Card className="news-grid-card-item">
       <Card.Img
+      className="photo-news-image"
         variant="top"
         src={`${process.env.REACT_APP_PUBLIC_PATH}/${img}`}
       />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title className="truncate">{title}</Card.Title>
         <span className="news-grid-flash-card-date">
           {englishNumbersToPersian(date)}
         </span>

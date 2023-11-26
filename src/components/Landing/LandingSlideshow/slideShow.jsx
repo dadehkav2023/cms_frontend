@@ -32,9 +32,9 @@ const SlideShow = () => {
   console.log('selected tab: ', selectedTab);
 
   return isSuccess ? (
-    <Container fluid>
+    <Container  fluid className='sliderContainer pt-5' >
       <Row>
-        <Col className="tab" xs={12} sm={12} md={12} lg={10} >         
+        <Col className="tab" xs={12} sm={12} md={12} lg={10} >
           <Carousel
             autoPlaySpeed={2000}
             className="slide-show"
@@ -51,7 +51,7 @@ const SlideShow = () => {
                 }}
               >
                 <IoIosArrowBack
-                  className="backIcon"
+                  className="backIconSlider"
                   style={{
                     fontSize: '24px',
                     color: 'white',
@@ -73,6 +73,7 @@ const SlideShow = () => {
                 }}
               >
                 <IoIosArrowForward
+                className="nextIconSlider"
                   style={{
                     fontSize: '24px',
                     color: 'white',
@@ -86,14 +87,12 @@ const SlideShow = () => {
           >
             {data?.data.result.sliderList.map((slide, index) => {
               return (
-                <Carousel.Item key={index} className="slide-show-item" >
-                  
+                <Carousel.Item key={index} className="slide-show-item">
                   <a className="" href={slide.linkAddress}>
                     <img
                       className="rounded-lg imgSliderNews "
                       alt="first slide1"
-                      style={{ width : "100%", height : "80%"}}
-                    
+                      style={{ width: '100%', height: '80%' }}
                       src={
                         process.env.REACT_APP_PUBLIC_PATH +
                         '/' +
@@ -101,10 +100,10 @@ const SlideShow = () => {
                       }
                     />
                   </a>
-                  <a className="slider-caption" href={slide.linkAddress}>
-                    <Carousel.Caption className="slider-caption">
-                      <h5 className="slider-caption-title">{slide.title}</h5>
-                      <p className="slider-caption-text">{slide.description}</p>
+                  <a className="" href={slide.linkAddress}>
+                    <Carousel.Caption className="slider-caption ">
+                      <h5 className="slider-caption-title ">{slide.title}</h5>
+                      <p className="slider-caption-text ">{slide.description}</p>
                     </Carousel.Caption>
                   </a>
                 </Carousel.Item>
@@ -112,36 +111,44 @@ const SlideShow = () => {
             })}
           </Carousel>
         </Col>
-        <Col className="pt-2 sliderNewsTab" xs={0} sm={0} md={0} lg={2} style={{}}>
-         
+        <Col
+          className="sliderNewsTab"
+          xs={0}
+          sm={0}
+          md={0}
+          lg={2}
+          
+          
+          style={{}}
+        >
           {data?.data.result.sliderList.map((slide, index) => (
             <div
               key={index}
-              className={` mb-2  ${
-                selectedTab === index ? 'active' : ''
-              }`}
+              className={` mb-2  ${selectedTab === index ? 'active' : ''}`}
             >
               <Row>
                 <a
                   className=""
-                  href={slide.linkAddress}
+                  // href={slide.linkAddress}
                   onClick={() => handleTabClick(index)}
+                  style={{ width: '200px', height: '100px', borderRadius:'25px',marginLeft:'30px' }}
                 >
-                  <img
+              
+                    <img
+                      className={` grayscale-filter   ${
+                        selectedTab === index
+                          ? 'active grayscale-filter-selected'
+                          : ''
+                      }`}
+                      alt={`slide-${index}`}
+                      style={{ width: '100%', height: '100%', borderRadius:'5px' }}
+                      src={
+                        process.env.REACT_APP_PUBLIC_PATH +
+                        '/' +
+                        correctUploadPath(slide.imagePath)
+                      }
+                    />
                  
-                    className={` grayscale-filter pl-2  ${
-                      selectedTab === index
-                        ? 'active grayscale-filter-selected'
-                        : ''
-                    }`}
-                    alt={`slide-${index}`}
-                    style={{ width : "90%", height : "90%"}}
-                    src={
-                      process.env.REACT_APP_PUBLIC_PATH +
-                      '/' +
-                      correctUploadPath(slide.imagePath)
-                    }
-                  />
                 </a>
               </Row>
             </div>
