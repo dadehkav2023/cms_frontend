@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-import { UseGetElectionCandidatesVideo } from '../../../core/services/api/get-election-candidates-video';
+import { UseGetElectionCandidatesVideo } from '../../../../core/services/api/get-election-candidates-video';
 import { useEffect } from 'react';
 import { Col, Container, Row, Table } from 'reactstrap';
 
-import { useServeFile } from '../../../core/services/api/get-election-candidates-downloads';
-import './VideoElectionModal.scss'
-
+import { useServeFile } from '../../../../core/services/api/get-election-candidates-downloads';
+import './VideoElectionModal.scss';
 
 function VideoElectionModal({ isOpen, toggle, data }) {
   const closeBtn = (
@@ -17,10 +16,13 @@ function VideoElectionModal({ isOpen, toggle, data }) {
   );
 
   const getElectionCandidateVideo = UseGetElectionCandidatesVideo();
-  
+
   const [state, setState] = useState([]);
   useEffect(() => {
-    if (getElectionCandidateVideo.data && getElectionCandidateVideo.data.data.result) {
+    if (
+      getElectionCandidateVideo.data &&
+      getElectionCandidateVideo.data.data.result
+    ) {
       const result = getElectionCandidateVideo.data.data.result?.files;
       setState(result);
     }
@@ -29,14 +31,10 @@ function VideoElectionModal({ isOpen, toggle, data }) {
     getElectionCandidateVideo.mutate(data);
   }, [data]);
 
-
   const useServeFileMutation = useServeFile();
 
-
   const handleDownloadClick = (fileName) => {
-    useServeFileMutation.mutate(
-      fileName
-    );
+    useServeFileMutation.mutate(fileName);
   };
 
   return (
@@ -44,7 +42,9 @@ function VideoElectionModal({ isOpen, toggle, data }) {
       <Modal isOpen={isOpen} toggle={toggle}>
         <ModalHeader toggle={toggle} close={closeBtn}></ModalHeader>
         <ModalBody>
-          {getElectionCandidateVideo.isLoading && <div className="spinner"></div>}
+          {getElectionCandidateVideo.isLoading && (
+            <div className="spinner"></div>
+          )}
           <Row dir="rtl" className="">
             <Table>
               <thead>

@@ -10,26 +10,29 @@ import { UseGetElectionCandidatesProfile } from '../../../core/services/api/get-
 
 import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
 import { englishNumbersToPersian } from '../../../../src/core/utils/englishNumbersToPersian';
-import ElectionModal from '../ResumeElectionModal/ResumeElectionModal';
-import VideoElectionModal from '../VideoElectionModal/VideoElectionModal';
-import AudioElectionModal from '../AudioElectionModal/AudioElectionModal';
-import ResumeElectionModal from '../ResumeElectionModal/ResumeElectionModal';
+import ElectionModal from './ResumeElectionModal/ResumeElectionModal';
+import VideoElectionModal from './VideoElectionModal/VideoElectionModal';
+import AudioElectionModal from './AudioElectionModal/AudioElectionModal';
+import ResumeElectionModal from './ResumeElectionModal/ResumeElectionModal';
 
 import { useServeFile } from '../../../core/services/api/get-election-candidates-downloads';
 import { useParams } from 'react-router-dom';
 
-
-import ProfileElectionModal from '../ProfileElectionModal/ProfileElectionModal';
+import ProfileElectionModal from './ProfileElectionModal/ProfileElectionModal';
 
 const ElectionCandidates = () => {
 
+  const{id}=useParams();
 
-  const history = useHistory();
 
   const [pageNumber, setPageNumber] = useState(1);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenVideoModal, setIsOpenVideoModal] = useState(false);
   const [isOpenAudioModal, setIsOpenAudioModal] = useState(false);
+
+
+
+
   const [candidateProfile, setCandidateProfile] = useState([]);
   const [result1, setResult1] = useState();
   const [result2, setResult2] = useState();
@@ -43,9 +46,7 @@ const ElectionCandidates = () => {
 
   const [extra, setExtra] = useState([]);
 
-
-
-  const { id } = useParams();
+ 
 
   useEffect(() => {
     getElectionCandidate.mutate({

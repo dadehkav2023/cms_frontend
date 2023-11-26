@@ -1,0 +1,23 @@
+.provinceButton {
+  margin-top: 20px;
+  width: 113px ;
+  height: 72px ;
+  border: 1px solid rgb(113, 102, 240);
+  border-radius: 20px;
+  background-color: rgba(55, 241, 198, 0.3);
+  margin-right: 50px ;
+}
+.provinceButtonLink {
+  color: black !important ;
+  font-size: 40px;
+  text-decoration: none !important ;
+  text-align: center ;
+  line-height: 72px ;
+  font-family: iranNastaliq;
+}
+@media only screen and (max-width: 425px) {
+  .provinceButton {
+    margin-right: 0px ;
+  }
+}
+

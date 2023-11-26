@@ -1,41 +1,39 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-import { UseGetElectionCandidatesResume } from '../../../core/services/api/get-election-candidates-resume';
+import { UseGetElectionCandidatesAudio } from '../../../../core/services/api/get-election-candidates-audio';
 import { useEffect } from 'react';
 import { Col, Container, Row, Table } from 'reactstrap';
 
-import { useServeFile } from '../../../core/services/api/get-election-candidates-downloads';
-import './ResumeElectionModal.scss'
+import { useServeFile } from '../../../../core/services/api/get-election-candidates-downloads';
+import './AudioElectionModal.scss';
 
-
-function ResumeElectionModal({ isOpen, toggle, data }) {
+function AudioElectionModal({ isOpen, toggle, data }) {
   const closeBtn = (
     <button className="close" onClick={toggle} type="button">
       &times;
     </button>
   );
 
-  const getElectionCandidate = UseGetElectionCandidatesResume();
+  const getElectionCandidateAudio = UseGetElectionCandidatesAudio();
   const [state, setState] = useState([]);
   useEffect(() => {
-    if (getElectionCandidate.data && getElectionCandidate.data.data.result) {
-      const result = getElectionCandidate.data.data.result?.files;
+    if (
+      getElectionCandidateAudio.data &&
+      getElectionCandidateAudio.data.data.result
+    ) {
+      const result = getElectionCandidateAudio.data.data.result?.files;
       setState(result);
     }
-  }, [getElectionCandidate.isSuccess]);
+  }, [getElectionCandidateAudio.isSuccess]);
   useEffect(() => {
-    getElectionCandidate.mutate(data);
+    getElectionCandidateAudio.mutate(data);
   }, [data]);
-
 
   const useServeFileMutation = useServeFile();
 
-
   const handleDownloadClick = (fileName) => {
-    useServeFileMutation.mutate(
-      fileName
-    );
+    useServeFileMutation.mutate(fileName);
   };
 
   return (
@@ -43,13 +41,15 @@ function ResumeElectionModal({ isOpen, toggle, data }) {
       <Modal isOpen={isOpen} toggle={toggle}>
         <ModalHeader toggle={toggle} close={closeBtn}></ModalHeader>
         <ModalBody>
-          {getElectionCandidate.isLoading && <div className="spinner"></div>}
+          {getElectionCandidateAudio.isLoading && (
+            <div className="spinner"></div>
+          )}
           <Row dir="rtl" className="">
             <Table>
               <thead>
                 <tr>
                   <th>ردیف</th>
-                  <th>نام رزمه</th>
+                  <th>نام صوت</th>
                 </tr>
               </thead>
               {state.length > 0 &&
@@ -82,4 +82,4 @@ function ResumeElectionModal({ isOpen, toggle, data }) {
   );
 }
 
-export default ResumeElectionModal;
+export default AudioElectionModal;
