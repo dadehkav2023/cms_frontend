@@ -2,10 +2,10 @@ import { Link, useHistory } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { UseGetElectionCounties } from '../../../core/services/api/get-election-counties';
-import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
+import ElectionLayout from '../common/layout/ElectionLayout/ElectionLayout';
 import Loading from '../../common/Loading/Loading';
 import { useParams } from 'react-router-dom';
-import Location from '../Location/Location';
+import Location from '../common/Location/Location';
 
 const ElectionCounties = () => {
   const { id } = useParams();

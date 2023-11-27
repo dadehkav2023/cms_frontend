@@ -21,6 +21,7 @@ import { SigninOidc } from './components/Authentication/SigninOidc/SigninOidc';
 import { SignOutOidc } from './components/Authentication/SignOutOidc/SignOutOidc';
 import PeoplesVoice from './screens/PeoplesVoice/PeoplesVoice';
 import ElectionGrid from './screens/ElectionGrid/ElectionGrid';
+import RedirectTop from './components/common/RedirectTop/RedirectTop';
 
 function App() {
   const state = useSelector((state) => state.setting);
@@ -91,7 +92,8 @@ function App() {
             }
           />
         </Helmet>
-        <HandleScroll />
+        {/* <HandleScroll /> */}
+        <RedirectTop />
         <SiteModal />
         <Switch>
           <Route path="/signin-oidc" component={SigninOidc} />
@@ -100,7 +102,7 @@ function App() {
           <Route exact path="/AboutUs" component={AboutUs} />
           <Route exact path="/ContactUs" component={ContactUs} />
           <Route exact path="/SiteRules" component={SiteRules} />
-          <Route path="/Election"  component={ElectionGrid} />
+          <Route path="/Election" component={ElectionGrid} />
 
           <Route path="/News" component={NewsGrid} />
           <Route path="/Statement" component={StatementsGrid} />

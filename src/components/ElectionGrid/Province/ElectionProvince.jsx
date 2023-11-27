@@ -2,9 +2,9 @@ import { Col, Container, Row } from 'reactstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { UseGetElectionProvince } from '../../../core/services/api/get-election-province';
-import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
+import ElectionLayout from '../common/layout/ElectionLayout/ElectionLayout';
 import Loading from '../../common/Loading/Loading';
-import Location from '../Location/Location';
+import Location from '../common/Location/Location';
 
 const ElectionProvince = () => {
   const [Province, setProvince] = useState();

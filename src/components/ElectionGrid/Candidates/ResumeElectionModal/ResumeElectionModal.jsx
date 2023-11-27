@@ -5,8 +5,8 @@ import { UseGetElectionCandidatesResume } from '../../../../core/services/api/ge
 import { useEffect } from 'react';
 import { Col, Container, Row, Table } from 'reactstrap';
 
-import { useServeFile } from '../../../../core/services/api/get-election-candidates-downloads';
 import Loading from '../../../common/Loading/Loading';
+import ModalLocation from '../../common/Modal/ModalLocation';
 
 function ResumeElectionModal({ isOpen, toggle, data }) {
   const closeBtn = (
@@ -27,12 +27,6 @@ function ResumeElectionModal({ isOpen, toggle, data }) {
     getElectionCandidate.mutate(data);
   }, [data]);
 
-  const useServeFileMutation = useServeFile();
-
-  const handleDownloadClick = (fileName) => {
-    useServeFileMutation.mutate(fileName);
-  };
-
   return (
     <div>
       <Modal isOpen={isOpen} toggle={toggle}>
@@ -45,27 +39,17 @@ function ResumeElectionModal({ isOpen, toggle, data }) {
                 <tr>
                   <th>ردیف</th>
                   <th>نام رزمه</th>
+                  <th>لینک دانلود</th>
                 </tr>
               </thead>
               {state.length > 0 &&
-                state.map((row, key) => {
+                state.map((row, index) => {
                   return (
                     <>
-                      <tbody>
-                        <tr>
-                          <th>{key + 1}</th>
-                          <td dir="ltr">
-                            {row?.fileName?.slice(0, 30) + '...'}
-                          </td>
-                          <td>
-                            <Button
-                              onClick={() => handleDownloadClick(row?.fileName)}
-                            >
-                              دانلود
-                            </Button>
-                          </td>
-                        </tr>
-                      </tbody>
+                      <ModalLocation
+                        index={index + 1}
+                        fileName={row.fileName}
+                      />
                     </>
                   );
                 })}

@@ -1,6 +1,6 @@
 import { Container, Row } from 'reactstrap';
-import ElectionTemplate from '../ElectionTemplate/ElectionTemplate';
 import Style from './ElectionLayout.module.scss';
+import ElectionTemplate from '../ElectionTemplate/ElectionTemplate';
 
 const ElectionLayout = ({ children, title }) => {
   return (

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UseGetElectionCandidates } from '../../../core/services/api/get-election-candidates';
 import { UseGetElectionCandidatesProfile } from '../../../core/services/api/get-election-candidates-profile';
-import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
+import ElectionLayout from '../common/layout/ElectionLayout/ElectionLayout';
 import { englishNumbersToPersian } from '../../../../src/core/utils/englishNumbersToPersian';
 import ElectionModal from './ResumeElectionModal/ResumeElectionModal';
 import VideoElectionModal from './VideoElectionModal/VideoElectionModal';
@@ -36,7 +36,6 @@ const ElectionCandidates = () => {
     if (getElectionCandidate.data && getElectionCandidate.data.data.result) {
       const result = getElectionCandidate.data.data.result.candidates;
       setCandidates(result);
-   
     }
   }, [getElectionCandidate.isSuccess]);
 
@@ -57,193 +56,191 @@ const ElectionCandidates = () => {
 
   return (
     <>
-      <ElectionLayout >
-        
-          {isOpenModal && (
-            <ResumeElectionModal
-              isOpen={isOpenModal}
-              toggle={() => {
-                setIsOpenModal(!isOpenModal);
-              }}
-              data={result}
-            />
-          )}
+      <ElectionLayout>
+        {isOpenModal && (
+          <ResumeElectionModal
+            isOpen={isOpenModal}
+            toggle={() => {
+              setIsOpenModal(!isOpenModal);
+            }}
+            data={result}
+          />
+        )}
 
-          {isOpenVideoModal && (
-            <VideoElectionModal
-              isOpen={isOpenVideoModal}
-              toggle={() => {
-                setIsOpenVideoModal(!isOpenVideoModal);
-              }}
-              data={result}
-            />
-          )}
+        {isOpenVideoModal && (
+          <VideoElectionModal
+            isOpen={isOpenVideoModal}
+            toggle={() => {
+              setIsOpenVideoModal(!isOpenVideoModal);
+            }}
+            data={result}
+          />
+        )}
 
-          {isOpenAudioModal && (
-            <AudioElectionModal
-              isOpen={isOpenAudioModal}
-              toggle={() => {
-                setIsOpenAudioModal(!isOpenAudioModal);
-              }}
-              data={result}
-            />
-          )}
+        {isOpenAudioModal && (
+          <AudioElectionModal
+            isOpen={isOpenAudioModal}
+            toggle={() => {
+              setIsOpenAudioModal(!isOpenAudioModal);
+            }}
+            data={result}
+          />
+        )}
 
-          <Row>
-            <Col>
-              <Row>
-                <div className={`${Style.description} mb-5 m-auto `}>
-                  <h5>
-                    نام اتحادیه
-                    <p className={`${Style.descriptionDetails} mt-3`}>
-                      {`${getElectionCandidate?.data?.data?.result?.unionInfo?.unionTitle}`}
-                    </p>
-                  </h5>
+        <Row>
+          <Col>
+            <Row>
+              <div className={`${Style.description} mb-5 m-auto `}>
+                <h5>
+                  نام اتحادیه
+                  <p className={`${Style.descriptionDetails} mt-3`}>
+                    {`${getElectionCandidate?.data?.data?.result?.unionInfo?.unionTitle}`}
+                  </p>
+                </h5>
 
-                  <h5>
-                    نوع اتحادیه
-                    <p className={`${Style.descriptionDetails} mt-3`}>
-                      {`${getElectionCandidate?.data?.data?.result?.unionInfo?.unionTypeTitle}`}
-                    </p>
-                  </h5>
+                <h5>
+                  نوع اتحادیه
+                  <p className={`${Style.descriptionDetails} mt-3`}>
+                    {`${getElectionCandidate?.data?.data?.result?.unionInfo?.unionTypeTitle}`}
+                  </p>
+                </h5>
 
-                  <h5>
-                    تاریخ برگزاری
-                    <p
-                      className={`${Style.descriptionDetails} mt-3`}
-                      style={{ color: 'red' }}
-                    >
-                      {englishNumbersToPersian(electionDate)}
-                    </p>
-                  </h5>
-                </div>
+                <h5>
+                  تاریخ برگزاری
+                  <p
+                    className={`${Style.descriptionDetails} mt-3`}
+                    style={{ color: 'red' }}
+                  >
+                    {englishNumbersToPersian(electionDate)}
+                  </p>
+                </h5>
+              </div>
 
-                <Table>
-                  <thead>
-                    <tr className={Style.tableTitle}>
-                      <th>ردیف</th>
-                      <th> نام و نام خانوادگی کاندیدا</th>
-                      <th> شغل اصلی </th>
-                      <th>محل فعالیت</th>
-                      <th> تصویر متقاضی </th>
-                      <th> عملیات </th>
-                    </tr>
-                  </thead>
-                  {candidates &&
-                    candidates.length > 0 &&
-                    candidates.map((election, index) => {
-                      return (
-                        <>
-                          <tbody>
-                            <tr className={Style.tableDetails}>
-                              <th scope="row">{index + 1}</th>
-                              <td>
-                                {election.candidateFirstName}{' '}
-                                {election.candidateLastName}{' '}
-                              </td>
-                              <td> {election.mainJobTitle}</td>
-                              <td>{election.address}</td>
+              <Table>
+                <thead>
+                  <tr className={Style.tableTitle}>
+                    <th>ردیف</th>
+                    <th> نام و نام خانوادگی کاندیدا</th>
+                    <th> شغل اصلی </th>
+                    <th>محل فعالیت</th>
+                    <th> تصویر متقاضی </th>
+                    <th> عملیات </th>
+                  </tr>
+                </thead>
+                {candidates &&
+                  candidates.length > 0 &&
+                  candidates.map((election, index) => {
+                    return (
+                      <>
+                        <tbody>
+                          <tr className={Style.tableDetails}>
+                            <th scope="row">{index + 1}</th>
+                            <td>
+                              {election.candidateFirstName}{' '}
+                              {election.candidateLastName}{' '}
+                            </td>
+                            <td> {election.mainJobTitle}</td>
+                            <td>{election.address}</td>
 
-                              <td>
-                                <ProfileElectionModal
-                                  imageUrl={`${process.env.REACT_APP_Sabak_Path}/UnionCandidate/ServeUnionCandidateProfilePicture/?candidateNationalCode=${election.candidateNationalCode}`}
-                                />
-                              </td>
+                            <td>
+                              <ProfileElectionModal
+                                imageUrl={`${process.env.REACT_APP_Sabak_Path}/UnionCandidate/ServeUnionCandidateProfilePicture/?candidateNationalCode=${election.candidateNationalCode}`}
+                              />
+                            </td>
 
-                              <td className={`d-flex ${Style.operation}`}>
-                                <Button
-                                  className={Style.operationsButton}
-                                  onClick={() => {
-                                    setResult({
-                                      nationalCode:
-                                        election?.candidateNationalCode,
-                                      unionElectionId: id,
-                                    });
-                                    setIsOpenModal(true);
-                                  }}
-                                >
-                                  نمایش رزومه
-                                </Button>
-                                <Button
-                                  className={Style.operationsButton}
-                                  onClick={() => {
-                                    setResult({
-                                      nationalCode:
-                                        election?.candidateNationalCode,
-                                      unionElectionId: id,
-                                    });
-                                    setIsOpenVideoModal(true);
-                                  }}
-                                >
-                                  فایل تصویری{' '}
-                                </Button>
-                                <Button
-                                  className={Style.operationsButton}
-                                  onClick={() => {
-                                    setResult({
-                                      nationalCode:
-                                        election?.candidateNationalCode,
-                                      unionElectionId: id,
-                                    });
-                                    setIsOpenAudioModal(true);
-                                  }}
-                                >
-                                  فایل صوتی{' '}
-                                </Button>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </>
-                      );
-                    })}
-                </Table>
+                            <td className={`d-flex ${Style.operation}`}>
+                              <Button
+                                className={Style.operationsButton}
+                                onClick={() => {
+                                  setResult({
+                                    nationalCode:
+                                      election?.candidateNationalCode,
+                                    unionElectionId: id,
+                                  });
+                                  setIsOpenModal(true);
+                                }}
+                              >
+                                نمایش رزومه
+                              </Button>
+                              <Button
+                                className={Style.operationsButton}
+                                onClick={() => {
+                                  setResult({
+                                    nationalCode:
+                                      election?.candidateNationalCode,
+                                    unionElectionId: id,
+                                  });
+                                  setIsOpenVideoModal(true);
+                                }}
+                              >
+                                فایل تصویری{' '}
+                              </Button>
+                              <Button
+                                className={Style.operationsButton}
+                                onClick={() => {
+                                  setResult({
+                                    nationalCode:
+                                      election?.candidateNationalCode,
+                                    unionElectionId: id,
+                                  });
+                                  setIsOpenAudioModal(true);
+                                }}
+                              >
+                                فایل صوتی{' '}
+                              </Button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </>
+                    );
+                  })}
+              </Table>
 
-                <div className={`mt-5  ${Style.extraDescription}`}>
-                  <h6 className="d-flex row">
-                    محل برگذاری انتخابات :{' '}
-                    <p>
-                      {`${getElectionCandidate?.data?.data?.result?.electionInfo?.electionAddress}`}
-                    </p>
-                  </h6>
+              <div className={`mt-5  ${Style.extraDescription}`}>
+                <h6 className="d-flex row">
+                  محل برگذاری انتخابات :{' '}
+                  <p>
+                    {`${getElectionCandidate?.data?.data?.result?.electionInfo?.electionAddress}`}
+                  </p>
+                </h6>
 
-                  <h6 className="d-flex row">
-                    توضیحات تکمیلی :{' '}
-                    <p>
-                      {`${getElectionCandidate?.data?.data?.result?.electionInfo?.electionDescription}`}
-                    </p>
-                  </h6>
-                </div>
-              </Row>
-            </Col>
-          </Row>
-          <Row className="justify-content-center mb-5">
-            <ReactPaginate
-              previousLabel={
-                <span>
-                  <IoIosArrowForward style={iconStyle} />
-                </span>
-              }
-              nextLabel={
-                <span>
-                  <IoIosArrowBack style={iconStyle} />
-                </span>
-              }
-              breakLabel="..."
-              breakClassName="break-me"
-              pageCount={Math.ceil(
-                getElectionCandidate?.data?.data?.result?.totalCount / 10
-              )}
-              containerClassName="disabled-pagination-btn pagination-holder "
-              activeClassName="page-active"
-              forcePage={pageNumber - 1}
-              pageRangeDisplayed={2}
-              marginPagesDisplayed={2}
-              onPageChange={(page, pageSize) => {
-                setPageNumber(page.selected + 1);
-              }}
-            />
-          </Row>
-       
+                <h6 className="d-flex row">
+                  توضیحات تکمیلی :{' '}
+                  <p>
+                    {`${getElectionCandidate?.data?.data?.result?.electionInfo?.electionDescription}`}
+                  </p>
+                </h6>
+              </div>
+            </Row>
+          </Col>
+        </Row>
+        <Row className="justify-content-center mb-5">
+          <ReactPaginate
+            previousLabel={
+              <span>
+                <IoIosArrowForward style={iconStyle} />
+              </span>
+            }
+            nextLabel={
+              <span>
+                <IoIosArrowBack style={iconStyle} />
+              </span>
+            }
+            breakLabel="..."
+            breakClassName="break-me"
+            pageCount={Math.ceil(
+              getElectionCandidate?.data?.data?.result?.totalCount / 10
+            )}
+            containerClassName="disabled-pagination-btn pagination-holder "
+            activeClassName="page-active"
+            forcePage={pageNumber - 1}
+            pageRangeDisplayed={2}
+            marginPagesDisplayed={2}
+            onPageChange={(page, pageSize) => {
+              setPageNumber(page.selected + 1);
+            }}
+          />
+        </Row>
       </ElectionLayout>
     </>
   );

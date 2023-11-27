@@ -1,4 +1,4 @@
-import { correctUploadPath } from '../../../../core/utils/image-path-correction';
+import { correctUploadPath } from '../../../../../core/utils/image-path-correction';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Col, Container, Row } from 'reactstrap';

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
 import { UseGetElectionCandidatesVideo } from '../../../../core/services/api/get-election-candidates-video';
 import { useEffect } from 'react';
 import { Col, Container, Row, Table } from 'reactstrap';
-
-import { useServeFile } from '../../../../core/services/api/get-election-candidates-downloads';
 import Loading from '../../../common/Loading/Loading';
+import ModalLocation from '../../common/Modal/ModalLocation';
 
 function VideoElectionModal({ isOpen, toggle, data }) {
   const closeBtn = (
@@ -31,47 +29,29 @@ function VideoElectionModal({ isOpen, toggle, data }) {
     getElectionCandidateVideo.mutate(data);
   }, [data]);
 
-  const useServeFileMutation = useServeFile();
-
-  const handleDownloadClick = (fileName) => {
-    useServeFileMutation.mutate(fileName);
-  };
-
   return (
     <div>
       <Modal isOpen={isOpen} toggle={toggle}>
         <ModalHeader toggle={toggle} close={closeBtn}></ModalHeader>
         <ModalBody>
-          {getElectionCandidateVideo.isLoading && (
-           <Loading/>
-          )}
+          {getElectionCandidateVideo.isLoading && <Loading />}
           <Row dir="rtl" className="">
             <Table>
               <thead>
                 <tr>
                   <th>ردیف</th>
                   <th>نام ویدیو</th>
+                  <th> لینک دانلود</th>
                 </tr>
               </thead>
               {state.length > 0 &&
-                state.map((row, key) => {
+                state.map((row, index) => {
                   return (
                     <>
-                      <tbody>
-                        <tr>
-                          <th>{key + 1}</th>
-                          <td dir="ltr">
-                            {row?.fileName?.slice(0, 30) + '...'}
-                          </td>
-                          <td>
-                            <Button
-                              onClick={() => handleDownloadClick(row?.fileName)}
-                            >
-                              دانلود
-                            </Button>
-                          </td>
-                        </tr>
-                      </tbody>
+                      <ModalLocation
+                        index={index + 1}
+                        fileName={row.fileName}
+                      />
                     </>
                   );
                 })}

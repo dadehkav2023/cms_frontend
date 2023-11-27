@@ -16,3 +16,9 @@ const Location = ({ index, locationId, locationTitle,urlTitle }) => {
 };
 
 export default Location;
+
+
+
+
+
+

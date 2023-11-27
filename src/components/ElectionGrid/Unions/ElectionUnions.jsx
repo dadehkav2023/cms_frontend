@@ -2,7 +2,7 @@ import { Col, Container, Row, Table } from 'reactstrap';
 import { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UseGetElectionUnions } from '../../../core/services/api/get-election-unions';
-import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
+import ElectionLayout from '../common/layout/ElectionLayout/ElectionLayout';
 import { useParams } from 'react-router-dom';
 import Loading from '../../common/Loading/Loading';
 import Style from './ElectionUnions.module.scss';

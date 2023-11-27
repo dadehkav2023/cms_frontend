@@ -20,9 +20,7 @@ const Landing = () => {
   return (
     <>
       <TestHeader />
-
       <SlideShow />
-
       <Container>
         <Row className="justify-content-center">
           <Col xs="auto" className="d-flex align-items-center">
