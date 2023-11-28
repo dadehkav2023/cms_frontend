@@ -1,22 +1,20 @@
 import React, { useEffect } from 'react';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import enamad from '../../../assets/img/landing/enamad.png';
-import Backward from '../../../assets/img/landing/icon/Backward.png';
-import './Footer.scss';
 import JumpToTop from '../Buttons/JumpToTop/JumpToTop';
-import { Col, Container, Row, Card } from 'react-bootstrap';
-import website from '../../../assets/img/landing/icon/google.png';
+import './Footer.scss';
 
 import facebook from '../../../assets/img/landing/icon/facebook.png';
 import instagram from '../../../assets/img/landing/icon/instagram.png';
-import twiter from '../../../assets/img/landing/icon/twiter.png';
 import telegram from '../../../assets/img/landing/icon/telegram.png';
+import twiter from '../../../assets/img/landing/icon/twiter.png';
 import whatsapp from '../../../assets/img/landing/icon/whatsapp.png';
 
 import { useSelector } from 'react-redux';
-import { englishNumbersToPersian } from '../../../core/utils/englishNumbersToPersian';
 import { UseGetQuickAccess } from '../../../core/services/api/get-quick-access';
 import { UseGetRelatedLinks } from '../../../core/services/api/get-related-links';
+import { englishNumbersToPersian } from '../../../core/utils/englishNumbersToPersian';
 
 const Footer = () => {
   const state = useSelector((state) => state.setting);
@@ -39,10 +37,9 @@ const Footer = () => {
   useEffect(() => {
     quickAccessMutate({ page: 1, pageSize: 10, isActive: true });
     relatedLinksMutate({ page: 1, pageSize: 10, isActive: true });
-    
   }, []);
   return (
-    <section className="footer-section  pt-lg-5">
+    <section className="footer-section  pt-lg-2">
       <footer>
         <Container fluid className="footer-top">
           <Row>
@@ -82,7 +79,7 @@ const Footer = () => {
             <Col lg={3} className="footer-col1">
               <Card className="footer-card">
                 <Card.Body>
-                  <span className="title-footer-col">تماس با ما</span>
+                  <span className="title-footer-col mb-2">تماس با ما</span>
                   <ul>
                     <li>
                       <p className="title-footer-link">{state.address}</p>
@@ -102,48 +99,13 @@ const Footer = () => {
                     <a href={`${state?.telegramAddress}`}>تلگرام</a>
                     <a  href={`${state?.whatsappAddress}`}>واتس آپ</a> */}
                   </ul>
-                  <div className="social-media-footer-box">
-                    <div className="social-media-icon">
-                      <a
-                        href={`https://instagram.com/${state?.instagramAddress}`}
-                      >
-                        <img alt="instagram-logo" src={instagram} />
-                      </a>
-                    </div>
-                    <div className="social-media-icon">
-                      <a href={`https://twitter.com/${state?.twitterAddress}`}>
-                        <img alt="twitter-logo" src={twiter} />
-                      </a>
-                    </div>
-                    <div className="social-media-icon">
-                      <a
-                        href={`https://facebook.com/${state?.facebookAddress}`}
-                      >
-                        <img alt="facebook-logo" src={facebook} />
-                      </a>
-                    </div>
-                    <div className="social-media-icon">
-                      <a
-                        href={`https://telegram.org/${state?.telegramAddress}`}
-                      >
-                        <img alt="telegram-logo" src={telegram} />
-                      </a>
-                    </div>
-                    <div className="social-media-icon">
-                      <a
-                        href={`https://whatsapp.com/${state?.whatsappAddress}`}
-                      >
-                        <img alt="whatsapp-logo" src={whatsapp} />
-                      </a>
-                    </div>
-                  </div>
                 </Card.Body>
               </Card>
             </Col>
             <Col lg={3} className="footer-col2">
               <Card className="footer-card">
                 <Card.Body>
-                  <span className="title-footer-col">لینک های مرتبط</span>
+                  <span className="title-footer-col mb-2">لینک های مرتبط</span>
                   <ul>
                     {relatedLinksIsSuccess &&
                       relatedLinksData?.data.result.relatedLinkList.map(
@@ -220,7 +182,7 @@ const Footer = () => {
             <Col lg={3} className="footer-col3">
               <Card className="footer-card">
                 <Card.Body className="footer">
-                  <span className="title-footer-col">دسترسی سریع</span>
+                  <span className="title-footer-col mb-2">دسترسی سریع</span>
                   <ul>
                     {quickAccessIsSuccess &&
                       quickAccessData?.data.result.quickAccessList.map(
@@ -242,22 +204,53 @@ const Footer = () => {
           </Row>
         </Container>
         <JumpToTop />
+        <Container fluid className="footer-bottom">
+          <Row>
+            <Col className="footer-bottom  justify-content-center align-items-center ">
+              <p className="mt-2">
+                .کلیه حقوق بهره برداری از سامانه مربوط به نظام صنفی کشور میباشد
+              </p>
 
-        <div className="footer-bottom  line-height-2">
-          {englishNumbersToPersian(
-            '.کلیه حقوق بهره برداری از سامانه مربوط به نظام صنفی کشور میباشد'
-          )}
-          <a
-            href="https://dadehkavdehghan.ir/"
-            target="_blank"
-            rel="noreferrer"
-            style={{ textDecoration: 'none' }}
-          >
-            <p className="pt-2">
-              تولید کننده سامانه شرکت داده کاو دهقان طبرستان
-            </p>
-          </a>
-        </div>
+              <a
+                href="https://dadehkavdehghan.ir/"
+                target="_blank"
+                rel="noreferrer"
+                style={{ textDecoration: 'none' }}
+              >
+                <p className="">
+                  تولید کننده سامانه شرکت داده کاو دهقان طبرستان
+                </p>
+              </a>
+              <div className="social-media-footer-box m-auto">
+                <div className="social-media-icon">
+                  <a href={`https://instagram.com/${state?.instagramAddress}`}>
+                    <img alt="instagram-logo" src={instagram} />
+                  </a>
+                </div>
+                <div className="social-media-icon">
+                  <a href={`https://twitter.com/${state?.twitterAddress}`}>
+                    <img alt="twitter-logo" src={twiter} />
+                  </a>
+                </div>
+                <div className="social-media-icon">
+                  <a href={`https://facebook.com/${state?.facebookAddress}`}>
+                    <img alt="facebook-logo" src={facebook} />
+                  </a>
+                </div>
+                <div className="social-media-icon">
+                  <a href={`https://telegram.org/${state?.telegramAddress}`}>
+                    <img alt="telegram-logo" src={telegram} />
+                  </a>
+                </div>
+                <div className="social-media-icon">
+                  <a href={`https://whatsapp.com/${state?.whatsappAddress}`}>
+                    <img alt="whatsapp-logo" src={whatsapp} />
+                  </a>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </footer>
     </section>
   );

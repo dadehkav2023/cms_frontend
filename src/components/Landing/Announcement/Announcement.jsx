@@ -14,9 +14,9 @@ import { Link } from 'react-router-dom';
 
 const Announcement = () => {
   const { data, isLoading, isError, isSuccess } = UseGetMap();
-  const scrollToTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo(0, 0); // Scroll to the top of the page
+  // };
   const [currentProvince, setCurrentProvince] = useState(0);
   const provinces = [
     'استان ها',
@@ -137,7 +137,7 @@ const Announcement = () => {
                                 pathname: `/Statement/Statements/${news.id}`,
                                 state: { manifestData: news },
                               }}
-                              onClick={scrollToTop}
+                              // onClick={scrollToTop}
                             >
                               <StatementsGridFlashCard statement={news} />
                             </Link>

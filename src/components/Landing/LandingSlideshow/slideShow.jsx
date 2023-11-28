@@ -7,7 +7,9 @@ import { correctUploadPath } from '../../../core/utils/image-path-correction';
 import { useSelector } from 'react-redux';
 
 const SlideShow = () => {
+  
   const state = useSelector((state) => state.setting);
+
   const { data, isError, isLoading, isSuccess, mutate } = UseGetSlides();
   useEffect(() => {
     mutate({
@@ -25,11 +27,11 @@ const SlideShow = () => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleTabClick = (index) => {
-    console.log(index);
+    // console.log(index);
     setSelectedTab(index);
   };
 
-  console.log('selected tab: ', selectedTab);
+  // console.log('selected tab: ', selectedTab);
 
   return isSuccess ? (
     <Container  fluid className='sliderContainer pt-5' >

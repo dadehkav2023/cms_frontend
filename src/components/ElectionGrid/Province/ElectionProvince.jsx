@@ -7,6 +7,8 @@ import Loading from '../../common/Loading/Loading';
 import Location from '../common/Location/Location';
 
 const ElectionProvince = () => {
+
+  
   const [Province, setProvince] = useState();
   const getElectionProvine = UseGetElectionProvince();
   const { data, isLoading, isSuccess } = UseGetElectionProvince();

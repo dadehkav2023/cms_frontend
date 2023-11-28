@@ -12,9 +12,7 @@ import './TextNews.scss';
 import TextNewsFlashCard from './TextNewsFlashCard/TextNewsFlashCard';
 
 const TextNews = () => {
-  const scrollToTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
+
   const state = useSelector((state) => state.setting);
   const breakPoints = [
     { width: 400, itemsToShow: 1 },
@@ -68,7 +66,7 @@ const TextNews = () => {
                   color: 'rgba(0, 0, 0, 0.5)',
                 }}
                 to="/News/TextNews"
-                onClick={scrollToTop} // Call scrollToTop when the link is clicked
+                
               >
                 <MoreItemsButton text=" مشاهده بیشتر" />
               </Link>
@@ -109,7 +107,7 @@ const TextNews = () => {
                                       pathname: `/News/TextNews/${news.id}`,
                                       state: { newsData: news },
                                     }}
-                                    onClick={scrollToTop} // Call scrollToTop when the link is clicked
+                                  
                                   >
                                     <TextNewsFlashCard
                                       title={news.title}
