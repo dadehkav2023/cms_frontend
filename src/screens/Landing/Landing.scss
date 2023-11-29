@@ -6,6 +6,23 @@
   font-family: shabanam;
   src: url("../../assets/fonts/Shabnam.ttf");
 }
+
+* {
+  scrollbar-width: 12px;
+  scrollbar-color: #ffffff ;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: #0b1803;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+
 * {
   scroll-behavior: smooth;
 }

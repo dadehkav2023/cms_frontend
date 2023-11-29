@@ -13,9 +13,9 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const VideoNews = () => {
-  const scrollToTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo(0, 0); // Scroll to the top of the page
+  // };
   const state = useSelector((state) => state.setting);
   const breakPoints = [
     { width: 400, itemsToShow: 1 },
@@ -105,7 +105,7 @@ const VideoNews = () => {
                                   }}
                                   className="text-news-grid-item"
                                   to={`/News/VideoNews/${news.id}`}
-                                   onClick={scrollToTop} // Call scrollToTop when the link is clicked
+                                  //  onClick={scrollToTop} // Call scrollToTop when the link is clicked
                                 >
                                   <VideoNewsFlashCard
                                     title={news.title}

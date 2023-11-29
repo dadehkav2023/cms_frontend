@@ -3,10 +3,10 @@ import { useMutation } from 'react-query';
 
 const electionUrl = process.env.REACT_APP_Election_Path;
 
-const url = electionUrl+'/Election/GetCountiesOfProvinceWithElection?provinceId=14';
+const url = electionUrl+'/Election/GetCountiesOfProvinceWithElection';
 
-const GetElectionCountiesApi = async (value) => {
-  return await axios.get(url, value);
+const GetElectionCountiesApi = async (provinceId) => {
+  return await axios.get(`${url}/?provinceId=${provinceId}`);
 };
 
 export const UseGetElectionCounties = () => {

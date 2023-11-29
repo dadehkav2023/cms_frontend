@@ -1,90 +1,37 @@
 import { Link, useHistory } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
-import './ElectionCounties.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { UseGetElectionCounties } from '../../../core/services/api/get-election-counties';
-import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
-import { ListTable } from '../../common/ListTable/ListTable';
+import ElectionLayout from '../common/layout/ElectionLayout/ElectionLayout';
+import Loading from '../../common/Loading/Loading';
+import { useParams } from 'react-router-dom';
+import Location from '../common/Location/Location';
 
 const ElectionCounties = () => {
-  const history = useHistory();
-  const {
-    data: electionCountiesData,
-    isError: electionCountiesIsError,
-    isLoading: electionCountiesIsLoading,
-    isSuccess: electionCountiesIsSuccess,
-    mutate: electionCountiesMutate,
-  } = UseGetElectionCounties();
-
+  const { id } = useParams();
+  const { data, isLoading, isSuccess, mutate } = UseGetElectionCounties();
+  const counties = data && data.data && data.data.result;
   useEffect(() => {
-    electionCountiesMutate();
+    mutate(id);
   }, []);
 
   return (
     <>
-      <ElectionLayout>
-       
-        <Container fluid dir="rtl" >
-          <Row>
-            <Col>
-              <h6 className="countiesParagraph">
-                شهرستان هایی که درانتخابات حضور دارند :
-              </h6>
+      <ElectionLayout title={':شهرستان'}>
+        {isLoading && <Loading />}
 
-              <Row>
-                {electionCountiesData && electionCountiesData.data ? (
-                  electionCountiesData.data.result &&
-                  (electionCountiesIsError || electionCountiesIsSuccess) ? (
-                    electionCountiesData.data.result.map((election, index) => {
-                      return (
-                        <div key={index} className="countieseButton mb-5">
-                          <Link
-                            className="countiesButtonLink"
-                            to={`/Election/Unions/${election.countyId}`}
-                          >
-                            <p>{election.countyTitle}</p>
-                          </Link>
-                        </div>
-                      );
-                    })
-                  ) : (
-                    <h2
-                      style={{
-                        color: 'red',
-                        fontSize: '14px',
-                        textAlign: 'center',
-                        width: '100%',
-                        margin: '10% ',
-                      }}
-                    >
-                      هیچ اطلاعاتی جهت نمایش وجود ندارد
-                    </h2>
-                  )
-                ) : (
-                  <div
-                    style={{
-                      color: 'black',
-                      textAlign: 'center',
-                      width: '100%',
-                      margin: '10% ',
-                    }}
-                  >
-                    <h1
-                      style={{
-                        fontSize: '14px',
-                        color: '#2A7221',
-                        width: '100%',
-                      }}
-                    >
-                      لطفا منتظر بمانید...
-                    </h1>
-                    <div className="spinner"></div>
-                  </div>
-                )}
-              </Row>
-            </Col>
-          </Row>
-        </Container>
+        {counties?.length > 0 &&
+          counties?.map((election, index) => {
+            return (
+              <Location
+                key={index}
+                index={index}
+                locationId={election.countyId}
+                locationTitle={election.countyTitle}
+                urlTitle="Unions"
+              />
+            );
+          })}
       </ElectionLayout>
     </>
   );

@@ -12,9 +12,9 @@ import './PhotoNews.scss';
 import NewsGridFlashCard from '../../NewsGrid/NewsGridFlashCard/NewsGridFlashCard';
 
 const PhotoNews = () => {
-  const scrollToTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo(0, 0); // Scroll to the top of the page
+  // };
   const state = useSelector((state) => state.setting);
   const breakPoints = [
     { width: 400, itemsToShow: 1 },
@@ -68,7 +68,7 @@ const PhotoNews = () => {
                   color: 'rgba(0, 0, 0, 0.5)',
                 }}
                 to="/News/PhotoNews"
-                onClick={scrollToTop} // Call scrollToTop when the link is clicked
+                // onClick={scrollToTop} // Call scrollToTop when the link is clicked
               >
                 <MoreItemsButton text=" مشاهده بیشتر" />
               </Link>
@@ -111,7 +111,7 @@ const PhotoNews = () => {
                                         pathname: `/News/PhotoNews/${news.id}`,
                                         state: { photosNewsData: news },
                                       }}
-                                      onClick={scrollToTop} // Call scrollToTop when the link is clicked
+                                      // onClick={scrollToTop} // Call scrollToTop when the link is clicked
                                     >
                                       <NewsGridFlashCard
                                         id={news.id}

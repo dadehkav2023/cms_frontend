@@ -133,54 +133,48 @@ const TextNewsPage = () => {
             </Carousel>{' '}
           </>
         )}
-
-        <Row>
-          <Breadcrumb
-            className="custom-breadcrumb "
-            style={
-              {
-                // minWidth: '800px',
-                // maxWidth: '800px',
-              }
-            }
-          >
-            <Breadcrumb.Item href="#" active>
-              <span
-                style={{
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}
-              >
-                {englishNumbersToPersian(
-                  textNewsData?.data.result.newsList[0]
-                    .publishedDateTimeAsJalali
-                ).replace(/\//g, '-')}{' '}
-                {/* Replace '/' with '>' here */}
-              </span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <span
-                style={{
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}
-              >
-                {textNewsData?.data.result.newsList[0].newsCategories.map(
-                  (category, index) => {
-                    return (
-                      <p key={index}>
-                        {index === 0 ? category.title : ` - ${category.title} `}{' '}
-                        {/* Replace '/' with '>' here */}
-                      </p>
-                    );
-                  }
-                )}
-              </span>
-            </Breadcrumb.Item>
-          </Breadcrumb>
-        </Row>
+        <Container fluid>
+          <Row>
+            <Breadcrumb className="custom-breadcrumb ">
+              <Breadcrumb.Item>
+                <span
+                  style={{
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {textNewsData?.data.result.newsList[0].newsCategories.map(
+                    (category, index) => {
+                      return (
+                        <p key={index}>
+                          {index === 0
+                            ? category.title
+                            : ` - ${category.title} `}{' '}
+                          {/* Replace '/' with '>' here */}
+                        </p>
+                      );
+                    }
+                  )}
+                </span>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item href="#" active>
+                <span
+                  style={{
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {englishNumbersToPersian(
+                    textNewsData?.data.result.newsList[0]
+                      .publishedDateTimeAsJalali
+                  ).replace(/\//g, '-')}{' '}
+                </span>
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          </Row>
+        </Container>
       </section>
       <hr className="custom-hr" />
       <div className="container-fluid pr-5 ">

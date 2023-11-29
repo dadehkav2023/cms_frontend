@@ -16,9 +16,9 @@ const PhotoNewsGrid = () => {
     color: '#0B1803',
     fontSize: '24px',
   };
-  const scrollToTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo(0, 0); // Scroll to the top of the page
+  // };
   const [newsType, setNewsType] = useState(2);
   const history = useHistory();
   const iconStyle = {
@@ -152,7 +152,7 @@ const PhotoNewsGrid = () => {
                           pathname: `/News/PhotoNews/${news.id}`,
                           state: { photosNewsData: news },
                         }}
-                        onClick={scrollToTop} // Call scrollToTop when the link is clicked
+                        // onClick={scrollToTop} // Call scrollToTop when the link is clicked
                       >
                         <NewsGridFlashCard
                           id={news.id}

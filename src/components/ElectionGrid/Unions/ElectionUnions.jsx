@@ -1,101 +1,51 @@
 import { Col, Container, Row, Table } from 'reactstrap';
-import './ElectionUnions.scss';
 import { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UseGetElectionUnions } from '../../../core/services/api/get-election-unions';
-import ElectionLayout from '../layout/ElectionLayout/ElectionLayout';
+import ElectionLayout from '../common/layout/ElectionLayout/ElectionLayout';
+import { useParams } from 'react-router-dom';
+import Loading from '../../common/Loading/Loading';
+import Style from './ElectionUnions.module.scss';
 
 const ElectionUnions = () => {
-  const history = useHistory();
-  const {
-    data: electionUnionsData,
-    isError: electionUnionsIsError,
-    isLoading: electionUnionsIsLoading,
-    isSuccess: electionUnionsIsSuccess,
-    mutate: electionUnionsMutate,
-  } = UseGetElectionUnions();
-
+  const { id } = useParams();
+  const { data, isLoading, isSuccess, mutate } = UseGetElectionUnions();
+  const unions = data && data.data && data.data.result;
   useEffect(() => {
-    electionUnionsMutate();
+    mutate(id);
   }, []);
 
   return (
     <>
-      <ElectionLayout>
-        <Container fluid dir="rtl">
-          <Row>
-            <Col>
-              <h6 className="unionsParagraph mb-5">
-                اتحادیه هایی که درانتخابات حضور دارند:
-              </h6>
+      <ElectionLayout title={':اتحادیه'}>
+        {isLoading && <Loading />}
 
-              <Row className="">
-                <Table>
-                  <thead>
+        <Table>
+          <thead>
+            <tr>
+              <th>ردیف</th>
+              <th>نام اتحادیه</th>
+            </tr>
+          </thead>
+          {unions?.length > 0 &&
+            unions?.map((election, index) => {
+              return (
+                <>
+                  <tbody>
                     <tr>
-                      <th>ردیف</th>
-                      <th>نام اتحادیه</th>
+                      <th scope="row">{index + 1}</th>
+                      <Link
+                        className={Style.unionsButtonLink}
+                        to={`/Election/Candidates/${election.unionElectionId}`}
+                      >
+                        <td>{election.unionTitle}</td>
+                      </Link>
                     </tr>
-                  </thead>
-                  {electionUnionsData && electionUnionsData.data ? (
-                    electionUnionsData.data.result &&
-                    (electionUnionsIsError || electionUnionsIsSuccess) ? (
-                      electionUnionsData.data.result.map((election, index) => {
-                        return (
-                          <>
-                            <tbody>
-                              <tr>
-                                <th scope="row">{index + 1}</th>
-                                <Link
-                                  className="unionsButtonLink"
-                                  to={`/Election/Candidates/${election.unionElectionId}`}
-                                >
-                                  <td>{election.unionTitle}</td>
-                                </Link>
-                              </tr>
-                            </tbody>
-                          </>
-                        );
-                      })
-                    ) : (
-                      <h2
-                        style={{
-                          color: 'red',
-                          fontSize: '14px',
-                          textAlign: 'center',
-                          width: '100%',
-                          margin: '10% ',
-                        }}
-                      >
-                        هیچ اطلاعاتی جهت نمایش وجود ندارد
-                      </h2>
-                    )
-                  ) : (
-                    <div
-                      style={{
-                        color: 'black',
-                        textAlign: 'center',
-                        width: '100%',
-                        margin: '10% ',
-                      }}
-                    >
-                      <h1
-                        style={{
-                          fontSize: '14px',
-                          color: '#2A7221',
-                          width: '100%',
-                        }}
-                      >
-                        لطفا منتظر بمانید...
-                      </h1>
-                      <div className="spinner"></div>
-                    </div>
-                  )}
-                </Table>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
+                  </tbody>
+                </>
+              );
+            })}
+        </Table>
       </ElectionLayout>
     </>
   );

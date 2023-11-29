@@ -16,7 +16,6 @@ const ElectionGrid = () => {
          <Route path="/Election/Counties/:id" exact component={ElectionCounties} />
          <Route path="/Election/Unions/:id" exact component={ElectionUnions} />
          <Route path="/Election/Candidates/:id" exact component={ElectionCandidates} />
-
       </Switch>
       <Footer />
     </div>
