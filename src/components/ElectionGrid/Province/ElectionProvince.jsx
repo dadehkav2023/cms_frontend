@@ -1,37 +1,34 @@
-import { useEffect, useState } from 'react';
-import { UseGetElectionProvince } from '../../../core/services/api/get-election-province';
-import Loading from '../../common/Loading/Loading';
-import Location from '../common/Location/Location';
-import ElectionLayout from '../common/layout/ElectionLayout/ElectionLayout';
+import { useEffect, useState } from "react";
+import { UseGetElectionProvince } from "../../../core/services/api/get-election-province";
+import ElectionLocations from "../common/ElectionLocations/ElectionLocations";
 
 const ElectionProvince = () => {
-  const [Province, setProvince] = useState();
-  const getElectionProvine = UseGetElectionProvince();
-  const { data, isLoading, isSuccess } = UseGetElectionProvince();
+  const [province, setProvince] = useState();
+  const { data, isLoading, isFetching, isSuccess } = UseGetElectionProvince();
   useEffect(() => {
     if (data && data.data && data.data.result) {
       const result = data.data?.result;
-      setProvince(result);
+
+      let provinceDataArray = [];
+      result?.length > 0 &&
+        result.forEach((row) => {
+          provinceDataArray.push({
+            id: row.provinceId,
+            title: row.provinceTitle,
+          });
+        });
+      setProvince(provinceDataArray);
     }
-  }, [isSuccess]);
+  }, [isSuccess, data]);
   return (
-    <div>
-      <ElectionLayout title=":استان">
-        {getElectionProvine.isLoading && <Loading />}
-        {Province?.length > 0 &&
-          Province?.map((election, index) => {
-            return (
-              <Location
-                key={index}
-                index={index}
-                locationId={election.provinceId}
-                locationTitle={election.provinceTitle}
-                urlTitle="Counties"
-              />
-            );
-          })}
-      </ElectionLayout>
-    </div>
+    <>
+      <ElectionLocations
+        data={province}
+        isLoading={isFetching}
+        title=":استان"
+        urlTitle="Counties"
+      />
+    </>
   );
 };
 export default ElectionProvince;
