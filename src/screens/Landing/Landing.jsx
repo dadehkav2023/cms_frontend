@@ -19,8 +19,8 @@ import { Col, Container, Row } from 'reactstrap';
 const Landing = () => {
   return (
     <>
-      <TestHeader />
-      <SlideShow />
+     <TestHeader />
+      <SlideShow /> 
       <Container>
         <Row className="justify-content-center">
           <Col xs="auto" className="d-flex align-items-center">

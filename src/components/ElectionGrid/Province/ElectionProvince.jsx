@@ -1,14 +1,10 @@
-import { Col, Container, Row } from 'reactstrap';
-import { Link, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { UseGetElectionProvince } from '../../../core/services/api/get-election-province';
-import ElectionLayout from '../common/layout/ElectionLayout/ElectionLayout';
 import Loading from '../../common/Loading/Loading';
 import Location from '../common/Location/Location';
+import ElectionLayout from '../common/layout/ElectionLayout/ElectionLayout';
 
 const ElectionProvince = () => {
-
-  
   const [Province, setProvince] = useState();
   const getElectionProvine = UseGetElectionProvince();
   const { data, isLoading, isSuccess } = UseGetElectionProvince();
@@ -19,7 +15,7 @@ const ElectionProvince = () => {
     }
   }, [isSuccess]);
   return (
-    <>
+    <div>
       <ElectionLayout title=":استان">
         {getElectionProvine.isLoading && <Loading />}
         {Province?.length > 0 &&
@@ -35,7 +31,7 @@ const ElectionProvince = () => {
             );
           })}
       </ElectionLayout>
-    </>
+    </div>
   );
 };
 export default ElectionProvince;

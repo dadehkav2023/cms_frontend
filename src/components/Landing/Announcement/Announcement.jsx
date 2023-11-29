@@ -180,7 +180,7 @@ const Announcement = () => {
                   <div className="spinner"></div>
                 </div>
               )}
-              <div dir="ltr" className="w-100 d-flex justify-content-start ">
+              <div dir="ltr" className="w-100 d-flex justify-content-start pl-3">
                 <OpenItemButton text="مشاهده بیشتر" />
               </div>
             </Row>
