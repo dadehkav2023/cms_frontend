@@ -90,7 +90,7 @@ const SlideShow = () => {
             {data?.data.result.sliderList.map((slide, index) => {
               return (
                 <Carousel.Item key={index} className="slide-show-item">
-                  <a className="" href={`https://${slide.linkAddress}`} >
+                  <a className="" href={`${slide.linkAddress}`} >
                     <img
                       className="rounded-lg imgSliderNews "
                       alt="first slide1"
@@ -102,7 +102,7 @@ const SlideShow = () => {
                       }
                     />
                   </a>
-                  <a className="" href={`https://${slide.linkAddress}`}>
+                  <a className="" href={`${slide.linkAddress}`}>
                     <Carousel.Caption className="slider-caption ">
                       <h5 className="slider-caption-title ">{slide.title}</h5>
                       <p className="slider-caption-text ">{slide.description}</p>
