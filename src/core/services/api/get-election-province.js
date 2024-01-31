@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { useMutation } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 
 const electionUrl = process.env.REACT_APP_Election_Path;
 
 const url = electionUrl +'/Election/GetAllProvincesWithElection';
 
-const GetElectionProvinceApi = async (value) => {
-  return await axios.get(url, value);
+const GetElectionProvinceApi = async () => {
+  return await axios.get(url);
 };
 
 export const UseGetElectionProvince = () => {
-  return useMutation((obj) => GetElectionProvinceApi(obj), {});
+  return useQuery(  "GetElectionProvinceApi" , GetElectionProvinceApi, {});
 };
