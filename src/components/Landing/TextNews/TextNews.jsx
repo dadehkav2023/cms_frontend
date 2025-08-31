@@ -38,8 +38,8 @@ const TextNews = () => {
 
   useEffect(() => {
     categoryData &&
-      categoryData.data &&
-      categoryData.data.result[0] &&
+      categoryData?.data &&
+      categoryData?.data?.result[0] &&
       setSelectedCategory(categoryData.data.result[0].id);
   }, [categoryData]);
 
@@ -77,7 +77,7 @@ const TextNews = () => {
                 className="text-news-tab"
                 defaultActiveKey={categoryData?.data.result[0].id}
               >
-                {categoryData?.data.result.map((category, index) => {
+                {categoryData?.data?.result?.map((category, index) => {
                   return (
                     <Tab
                       key={index}
@@ -90,10 +90,10 @@ const TextNews = () => {
                         isRTL
                         breakPoints={breakPoints}
                       >
-                        {textNewsData && textNewsData.data ? (
-                          textNewsData?.data?.result.newsList[0] &&
+                        {textNewsData && textNewsData?.data ? (
+                          textNewsData?.data?.result?.newsList[0] &&
                           (textNewsIsError || textNewsIsSuccess) ? (
-                            textNewsData?.data?.result.newsList.map(
+                            textNewsData?.data?.result?.newsList.map(
                               (news, index) => {
                                 return (
                                   <Link
