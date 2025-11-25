@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import enamad from '../../../assets/img/landing/enamad.png';
-import JumpToTop from '../Buttons/JumpToTop/JumpToTop';
-import './Footer.scss';
+import React, { useEffect } from "react";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import enamad from "../../../assets/img/landing/enamad.png";
+import JumpToTop from "../Buttons/JumpToTop/JumpToTop";
+import "./Footer.scss";
 
-import facebook from '../../../assets/img/landing/icon/facebook.png';
-import instagram from '../../../assets/img/landing/icon/instagram.png';
-import telegram from '../../../assets/img/landing/icon/telegram.png';
-import twiter from '../../../assets/img/landing/icon/twiter.png';
-import whatsapp from '../../../assets/img/landing/icon/whatsapp.png';
+import facebook from "../../../assets/img/landing/icon/facebook.png";
+import instagram from "../../../assets/img/landing/icon/instagram.png";
+import telegram from "../../../assets/img/landing/icon/telegram.png";
+import twiter from "../../../assets/img/landing/icon/twiter.png";
+import whatsapp from "../../../assets/img/landing/icon/whatsapp.png";
 
-import { useSelector } from 'react-redux';
-import { UseGetQuickAccess } from '../../../core/services/api/get-quick-access';
-import { UseGetRelatedLinks } from '../../../core/services/api/get-related-links';
-import { englishNumbersToPersian } from '../../../core/utils/englishNumbersToPersian';
+import { useSelector } from "react-redux";
+import { UseGetQuickAccess } from "../../../core/services/api/get-quick-access";
+import { UseGetRelatedLinks } from "../../../core/services/api/get-related-links";
+import { englishNumbersToPersian } from "../../../core/utils/englishNumbersToPersian";
 
 const Footer = () => {
   const state = useSelector((state) => state.setting);
@@ -44,36 +44,25 @@ const Footer = () => {
         <Container fluid className="footer-top">
           <Row>
             <Col lg={3} className="enamad">
-              <img alt="enamad-logo" src={enamad} />
               <div>
-                {/* <a
+                <a
                   referrerpolicy="origin"
                   target="_blank"
-                  href="https://trustseal.enamad.ir/?id=221714&amp;Code=foRitFWRXiWPgHWUby1H"
-                  rel="noreferrer"
+                  href="https://trustseal.enamad.ir/?id=673928&Code=qAPxlSH1RhYK0GUR61Ad5yMfM4xLvxfS"
                 >
                   <img
                     referrerpolicy="origin"
-                    src="https://Trustseal.eNamad.ir/logo.aspx?id=221714&amp;Code=foRitFWRXiWPgHWUby1H"
+                    src="https://trustseal.enamad.ir/logo.aspx?id=673928&Code=qAPxlSH1RhYK0GUR61Ad5yMfM4xLvxfS"
                     alt="enamad"
                     style={{
                       width: "100px",
                       height: "100px",
                       cursor: "pointer",
+                      border : '1px solid red'
                     }}
-                    id="foRitFWRXiWPgHWUby1H"
+                    code="qAPxlSH1RhYK0GUR61Ad5yMfM4xLvxfS"
                   />
-                </a> */}
-              </div>
-              <div>
-                {/* <img
-                  referrerpolicy="origin"
-                  id="nbqejzpeapfusizpfukzjxlz"
-                  style={{ cursor: "pointer" }}
-                  onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=275961&p=uiwkjyoedshwpfvlgvkarfth", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
-                  alt="logo-samandehi"
-                  src="https://logo.samandehi.ir/logo.aspx?id=275961&p=odrfyndtujynbsiywlbqnbpd"
-                /> */}
+                </a>
               </div>
             </Col>
             <Col lg={3} className="footer-col1">
@@ -215,7 +204,7 @@ const Footer = () => {
                 href="https://dadehkavdehghan.ir/"
                 target="_blank"
                 rel="noreferrer"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: "none" }}
               >
                 <p className="">
                   تولید کننده سامانه شرکت داده کاو دهقان طبرستان
