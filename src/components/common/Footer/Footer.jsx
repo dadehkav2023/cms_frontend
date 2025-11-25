@@ -58,7 +58,6 @@ const Footer = () => {
                       width: "100px",
                       height: "100px",
                       cursor: "pointer",
-                      border : '1px solid red'
                     }}
                     code="qAPxlSH1RhYK0GUR61Ad5yMfM4xLvxfS"
                   />
